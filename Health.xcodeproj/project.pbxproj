@@ -12,10 +12,10 @@
 		89C8A6151BCD520300845F1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6131BCD520300845F1D /* Main.storyboard */; };
 		89C8A6171BCD520300845F1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6161BCD520300845F1D /* Assets.xcassets */; };
 		89C8A61A1BCD520300845F1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6181BCD520300845F1D /* LaunchScreen.storyboard */; };
-		A931B4BC1BDBDDB70025F263 /* BloodInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A931B4BB1BDBDDB70025F263 /* BloodInputViewController.m */; };
-		A9477E4F1BD891EC00BB6989 /* GlucoseBloodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9477E4E1BD891EC00BB6989 /* GlucoseBloodViewController.m */; };
-		A984C6D61BD7E41600A169AD /* KBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A984C6D51BD7E41600A169AD /* KBaseViewController.m */; };
-		A984C6D91BD7E48B00A169AD /* BloodControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A984C6D81BD7E48B00A169AD /* BloodControlViewController.m */; };
+		A96C28761BDFC9AC004FFC54 /* BloodControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96C286F1BDFC9AC004FFC54 /* BloodControlViewController.m */; };
+		A96C28771BDFC9AC004FFC54 /* BloodInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96C28711BDFC9AC004FFC54 /* BloodInputViewController.m */; };
+		A96C28781BDFC9AC004FFC54 /* GlucoseBloodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96C28731BDFC9AC004FFC54 /* GlucoseBloodViewController.m */; };
+		A96C28791BDFC9AC004FFC54 /* KBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96C28751BDFC9AC004FFC54 /* KBaseViewController.m */; };
 		DF5B4166F2794C7C41CBC4B2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 936F7B1B7D421D86A168F7D3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -30,14 +30,14 @@
 		89C8A6191BCD520300845F1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C8A61B1BCD520300845F1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		936F7B1B7D421D86A168F7D3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A931B4BA1BDBDDB70025F263 /* BloodInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodInputViewController.h; sourceTree = "<group>"; };
-		A931B4BB1BDBDDB70025F263 /* BloodInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodInputViewController.m; sourceTree = "<group>"; };
-		A9477E4D1BD891EC00BB6989 /* GlucoseBloodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlucoseBloodViewController.h; sourceTree = "<group>"; };
-		A9477E4E1BD891EC00BB6989 /* GlucoseBloodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlucoseBloodViewController.m; sourceTree = "<group>"; };
-		A984C6D41BD7E41600A169AD /* KBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBaseViewController.h; sourceTree = "<group>"; };
-		A984C6D51BD7E41600A169AD /* KBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBaseViewController.m; sourceTree = "<group>"; };
-		A984C6D71BD7E48B00A169AD /* BloodControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodControlViewController.h; sourceTree = "<group>"; };
-		A984C6D81BD7E48B00A169AD /* BloodControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodControlViewController.m; sourceTree = "<group>"; };
+		A96C286E1BDFC9AC004FFC54 /* BloodControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodControlViewController.h; sourceTree = "<group>"; };
+		A96C286F1BDFC9AC004FFC54 /* BloodControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodControlViewController.m; sourceTree = "<group>"; };
+		A96C28701BDFC9AC004FFC54 /* BloodInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodInputViewController.h; sourceTree = "<group>"; };
+		A96C28711BDFC9AC004FFC54 /* BloodInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodInputViewController.m; sourceTree = "<group>"; };
+		A96C28721BDFC9AC004FFC54 /* GlucoseBloodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlucoseBloodViewController.h; sourceTree = "<group>"; };
+		A96C28731BDFC9AC004FFC54 /* GlucoseBloodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlucoseBloodViewController.m; sourceTree = "<group>"; };
+		A96C28741BDFC9AC004FFC54 /* KBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBaseViewController.h; sourceTree = "<group>"; };
+		A96C28751BDFC9AC004FFC54 /* KBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBaseViewController.m; sourceTree = "<group>"; };
 		F2911DF79D09AB030F145A18 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +82,10 @@
 		89C8A6061BCD520300845F1D /* Health */ = {
 			isa = PBXGroup;
 			children = (
-				A984C6D31BD7E3E500A169AD /* ViewController */,
+				A96C286C1BDFC656004FFC54 /* UserCentreViewController */,
+				A96C286B1BDFC61E004FFC54 /* StoreViewController */,
+				A96C286A1BDFC607004FFC54 /* FindProfessionViewController */,
+				A984C6D31BD7E3E500A169AD /* StartViewController */,
 				89C8A60A1BCD520300845F1D /* AppDelegate.h */,
 				89C8A60B1BCD520300845F1D /* AppDelegate.m */,
 				89C8A6131BCD520300845F1D /* Main.storyboard */,
@@ -102,18 +105,58 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A984C6D31BD7E3E500A169AD /* ViewController */ = {
+		A96C286A1BDFC607004FFC54 /* FindProfessionViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A984C6D41BD7E41600A169AD /* KBaseViewController.h */,
-				A984C6D51BD7E41600A169AD /* KBaseViewController.m */,
-				A984C6D71BD7E48B00A169AD /* BloodControlViewController.h */,
-				A984C6D81BD7E48B00A169AD /* BloodControlViewController.m */,
-				A9477E4D1BD891EC00BB6989 /* GlucoseBloodViewController.h */,
-				A9477E4E1BD891EC00BB6989 /* GlucoseBloodViewController.m */,
-				A931B4BA1BDBDDB70025F263 /* BloodInputViewController.h */,
-				A931B4BB1BDBDDB70025F263 /* BloodInputViewController.m */,
 			);
+			path = FindProfessionViewController;
+			sourceTree = "<group>";
+		};
+		A96C286B1BDFC61E004FFC54 /* StoreViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StoreViewController;
+			sourceTree = "<group>";
+		};
+		A96C286C1BDFC656004FFC54 /* UserCentreViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserCentreViewController;
+			sourceTree = "<group>";
+		};
+		A96C286D1BDFC94D004FFC54 /* BloodManagerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A96C286E1BDFC9AC004FFC54 /* BloodControlViewController.h */,
+				A96C286F1BDFC9AC004FFC54 /* BloodControlViewController.m */,
+				A96C28701BDFC9AC004FFC54 /* BloodInputViewController.h */,
+				A96C28711BDFC9AC004FFC54 /* BloodInputViewController.m */,
+				A96C28721BDFC9AC004FFC54 /* GlucoseBloodViewController.h */,
+				A96C28731BDFC9AC004FFC54 /* GlucoseBloodViewController.m */,
+				A96C28741BDFC9AC004FFC54 /* KBaseViewController.h */,
+				A96C28751BDFC9AC004FFC54 /* KBaseViewController.m */,
+			);
+			name = BloodManagerViewController;
+			path = Health/StartViewController/BloodManagerViewController;
+			sourceTree = SOURCE_ROOT;
+		};
+		A96C287A1BDFC9E0004FFC54 /* BloodCalcViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = BloodCalcViewController;
+			path = Health/StartViewController/BloodCalcViewController;
+			sourceTree = SOURCE_ROOT;
+		};
+		A984C6D31BD7E3E500A169AD /* StartViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A96C287A1BDFC9E0004FFC54 /* BloodCalcViewController */,
+				A96C286D1BDFC94D004FFC54 /* BloodManagerViewController */,
+			);
+			name = StartViewController;
 			path = ViewController;
 			sourceTree = "<group>";
 		};
@@ -138,6 +181,7 @@
 				89C8A6011BCD520300845F1D /* Frameworks */,
 				89C8A6021BCD520300845F1D /* Resources */,
 				17549848DD1A34EA3DDD8F50 /* Copy Pods Resources */,
+				66DBF4DE12E64CE345265D97 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,6 +253,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		66DBF4DE12E64CE345265D97 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F5F3DA863A0AE57B37168798 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -231,12 +290,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9477E4F1BD891EC00BB6989 /* GlucoseBloodViewController.m in Sources */,
+				A96C28781BDFC9AC004FFC54 /* GlucoseBloodViewController.m in Sources */,
+				A96C28771BDFC9AC004FFC54 /* BloodInputViewController.m in Sources */,
 				89C8A60C1BCD520300845F1D /* AppDelegate.m in Sources */,
 				89C8A6091BCD520300845F1D /* main.m in Sources */,
-				A984C6D61BD7E41600A169AD /* KBaseViewController.m in Sources */,
-				A931B4BC1BDBDDB70025F263 /* BloodInputViewController.m in Sources */,
-				A984C6D91BD7E48B00A169AD /* BloodControlViewController.m in Sources */,
+				A96C28761BDFC9AC004FFC54 /* BloodControlViewController.m in Sources */,
+				A96C28791BDFC9AC004FFC54 /* KBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
