@@ -7,6 +7,7 @@
 //
 
 #import "BloodControlViewController.h"
+#import "LoginRequest.h"
 
 @interface BloodControlViewController () <UITableViewDataSource, UITableViewDelegate> {
     NSArray *dataArray;
@@ -40,6 +41,38 @@
 //
 //    [dataArray1 addObject:@""];
     
+    
+    /***   登陆测试
+    
+    NSDictionary *dic = @{@"username":@"aaa", @"mobile":@"13716366680", @"code":@"1234", @"invitecode":@"", @"password":@"aaa"};
+    [[LoginRequest singleton] registerWithDictionary:dic complete:^{
+        NSLog(@"complete");
+    } failed:^(NSString *state, NSString *errmsg) {
+        NSLog(@"failed");
+    }];
+    
+     
+    **/
+
+    
+    /****  登陆测试
+    NSDictionary *loginDic = @{@"loginname":@"15652767777", @"password":@"aaaa"};
+    [[LoginRequest singleton] loginWithDictionary:loginDic complete:^{
+        NSLog(@"登陆成功");
+    } failed:^(NSString *state, NSString *errmsg){
+        NSLog(@"登陆失败");
+    }];
+    
+    ****/
+    
+    /***  验证码测试  **/
+    
+    NSDictionary *mobileDic = @{@"mobile":@"15652767687"};
+    [[LoginRequest singleton] sendSms:mobileDic complete:^{
+        NSLog(@"发送成功");
+    } failed:^(NSString *state, NSString *errMsg){
+        NSLog(@"发送失败");
+    }];
 }
 
 //界面将要显示时调用
