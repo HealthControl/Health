@@ -11,7 +11,6 @@
 
 @interface LoginData : Jastor
 
-
 @end
 
 @interface RegisterData : Jastor

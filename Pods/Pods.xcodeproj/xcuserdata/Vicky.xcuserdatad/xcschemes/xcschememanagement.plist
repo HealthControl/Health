@@ -8,44 +8,121 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>ASIHTTPRequest.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
 		</dict>
 		<key>MD5Digest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>REFormattedNumberField.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>RETableViewManager-RETableViewManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>RETableViewManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>REValidation.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>Reachability.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 		<key>jastor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict/>
+	<dict>
+		<key>08C2972A73A93D216AA7D53520E00C91</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2602F3D0DAC534568B6AD7EEA0DD1959</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2FEE8ED4DBDDC82AA4CB9097389FE0CD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3719780D2F0CEACC9A7D78DA3A989070</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>41F69D4FFDA241BD87924259F601CD94</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>48321E4D9E730A587944F2BF3323EA0D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>49FA5DAFFF876CE85BB9B2EE548DA32A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8F0FF8FB641CD105A405345B7C5A248A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AC320BF3B09D57852C0D12961DFE9A76</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DDCE26CDE8794AF8E72BAE43A355AFC1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>
