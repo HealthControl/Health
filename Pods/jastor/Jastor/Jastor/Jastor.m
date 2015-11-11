@@ -16,10 +16,8 @@ Class nsArrayClass;
 }
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
-	if (!nsDictionaryClass)
-        nsDictionaryClass = [NSDictionary class];
-	if (!nsArrayClass)
-        nsArrayClass = [NSArray class];
+	if (!nsDictionaryClass) nsDictionaryClass = [NSDictionary class];
+	if (!nsArrayClass) nsArrayClass = [NSArray class];
 	
 	if ((self = [super init])) {
 		for (NSString *key in [JastorRuntimeHelper propertyNames:[self class]]) {
@@ -77,6 +75,11 @@ Class nsArrayClass;
 
 - (void)dealloc {
 	self.objectId = nil;
+	
+//	for (NSString *key in [JastorRuntimeHelper propertyNames:[self class]]) {
+//		//[self setValue:nil forKey:key];
+//	}
+	
 	[super dealloc];
 }
 

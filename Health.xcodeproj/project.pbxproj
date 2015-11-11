@@ -16,6 +16,9 @@
 		A96C28771BDFC9AC004FFC54 /* BloodInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96C28711BDFC9AC004FFC54 /* BloodInputViewController.m */; };
 		A96C28781BDFC9AC004FFC54 /* GlucoseBloodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96C28731BDFC9AC004FFC54 /* GlucoseBloodViewController.m */; };
 		A96C28791BDFC9AC004FFC54 /* KBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96C28751BDFC9AC004FFC54 /* KBaseViewController.m */; };
+		A986C4DA1BE6617E00D1B126 /* SSBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A986C4D91BE6617E00D1B126 /* SSBaseRequest.m */; };
+		A986C4DE1BE6624700D1B126 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A986C4DD1BE6624700D1B126 /* LoginRequest.m */; };
+		A986C4E11BE6626B00D1B126 /* LoginData.m in Sources */ = {isa = PBXBuildFile; fileRef = A986C4E01BE6626B00D1B126 /* LoginData.m */; };
 		DF5B4166F2794C7C41CBC4B2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 936F7B1B7D421D86A168F7D3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +41,13 @@
 		A96C28731BDFC9AC004FFC54 /* GlucoseBloodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlucoseBloodViewController.m; sourceTree = "<group>"; };
 		A96C28741BDFC9AC004FFC54 /* KBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBaseViewController.h; sourceTree = "<group>"; };
 		A96C28751BDFC9AC004FFC54 /* KBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBaseViewController.m; sourceTree = "<group>"; };
+		A986C4D71BE6617E00D1B126 /* DTInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTInit.h; sourceTree = "<group>"; };
+		A986C4D81BE6617E00D1B126 /* SSBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBaseRequest.h; sourceTree = "<group>"; };
+		A986C4D91BE6617E00D1B126 /* SSBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBaseRequest.m; sourceTree = "<group>"; };
+		A986C4DC1BE6624700D1B126 /* LoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRequest.h; sourceTree = "<group>"; };
+		A986C4DD1BE6624700D1B126 /* LoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRequest.m; sourceTree = "<group>"; };
+		A986C4DF1BE6626B00D1B126 /* LoginData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginData.h; sourceTree = "<group>"; };
+		A986C4E01BE6626B00D1B126 /* LoginData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginData.m; sourceTree = "<group>"; };
 		F2911DF79D09AB030F145A18 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +92,8 @@
 		89C8A6061BCD520300845F1D /* Health */ = {
 			isa = PBXGroup;
 			children = (
+				A98489751BE7349C00591DD3 /* Login */,
+				A986C4D51BE6617E00D1B126 /* Model */,
 				A96C286C1BDFC656004FFC54 /* UserCentreViewController */,
 				A96C286B1BDFC61E004FFC54 /* StoreViewController */,
 				A96C286A1BDFC607004FFC54 /* FindProfessionViewController */,
@@ -150,6 +162,13 @@
 			path = Health/StartViewController/BloodCalcViewController;
 			sourceTree = SOURCE_ROOT;
 		};
+		A98489751BE7349C00591DD3 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		A984C6D31BD7E3E500A169AD /* StartViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +177,36 @@
 			);
 			name = StartViewController;
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A986C4D51BE6617E00D1B126 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A986C4DB1BE6623200D1B126 /* Login */,
+				A986C4D61BE6617E00D1B126 /* Base */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A986C4D61BE6617E00D1B126 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A986C4D71BE6617E00D1B126 /* DTInit.h */,
+				A986C4D81BE6617E00D1B126 /* SSBaseRequest.h */,
+				A986C4D91BE6617E00D1B126 /* SSBaseRequest.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		A986C4DB1BE6623200D1B126 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A986C4DC1BE6624700D1B126 /* LoginRequest.h */,
+				A986C4DD1BE6624700D1B126 /* LoginRequest.m */,
+				A986C4DF1BE6626B00D1B126 /* LoginData.h */,
+				A986C4E01BE6626B00D1B126 /* LoginData.m */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		DADB50EE2CE8CBB873E28A0C /* Pods */ = {
@@ -293,8 +342,11 @@
 				A96C28781BDFC9AC004FFC54 /* GlucoseBloodViewController.m in Sources */,
 				A96C28771BDFC9AC004FFC54 /* BloodInputViewController.m in Sources */,
 				89C8A60C1BCD520300845F1D /* AppDelegate.m in Sources */,
+				A986C4E11BE6626B00D1B126 /* LoginData.m in Sources */,
+				A986C4DE1BE6624700D1B126 /* LoginRequest.m in Sources */,
 				89C8A6091BCD520300845F1D /* main.m in Sources */,
 				A96C28761BDFC9AC004FFC54 /* BloodControlViewController.m in Sources */,
+				A986C4DA1BE6617E00D1B126 /* SSBaseRequest.m in Sources */,
 				A96C28791BDFC9AC004FFC54 /* KBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
