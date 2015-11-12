@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DTInit.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +17,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.tabbarController = (UITabBarController *)self.window.rootViewController;
+    [self setupTabbarItems];
     // Override point for customization after application launch.
     return YES;
 }
@@ -42,6 +45,22 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)setupTabbarItems {
+    NSArray *selectImageArray = @[@"xuetang", @"zhuanjia", @"shangcheng", @"wode"];
+    NSArray *originImageArray= @[@"xuetang-weidianji", @"zhuanjia-weidianji", @"shangcheng-weidianji", @"wode-weidianji"];
+    for (int i = 0; i < self.tabbarController.tabBar.items.count; i++) {
+        UITabBarItem *item = self.tabbarController.tabBar.items[i];
+        [item setFinishedSelectedImage:[UIImage imageNamed:selectImageArray[i]] withFinishedUnselectedImage:[UIImage imageNamed:originImageArray[i]]];
+        [item setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                      rgb_color(150, 150, 150, 1), NSForegroundColorAttributeName, nil]
+                            forState:UIControlStateNormal];
+        [item setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                      rgb_color(230, 109, 106, 1), NSForegroundColorAttributeName,
+                                      nil] forState:UIControlStateSelected];
+    }
+    
 }
 
 @end

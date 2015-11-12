@@ -67,12 +67,12 @@
     
     /***  验证码测试  **/
     
-    NSDictionary *mobileDic = @{@"mobile":@"15652767687"};
-    [[LoginRequest singleton] sendSms:mobileDic complete:^{
-        NSLog(@"发送成功");
-    } failed:^(NSString *state, NSString *errMsg){
-        NSLog(@"发送失败");
-    }];
+//    NSDictionary *mobileDic = @{@"mobile":@"15652767687"};
+//    [[LoginRequest singleton] sendSms:mobileDic complete:^{
+//        NSLog(@"发送成功");
+//    } failed:^(NSString *state, NSString *errMsg){
+//        NSLog(@"发送失败");
+//    }];
 }
 
 //界面将要显示时调用

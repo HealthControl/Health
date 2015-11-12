@@ -55,7 +55,6 @@ static int sendSmsTag;
 -(void) sendSms:(NSDictionary *) mobile complete:(Complete)complete failed:(Failed) failed {
     _complete = complete;
     _failed = failed;
-    
     NSString *uri = [NSString stringWithFormat:@"Api/Member/sendsms"];
     [self startPost:uri params:mobile tag:&sendSmsTag];
 }
