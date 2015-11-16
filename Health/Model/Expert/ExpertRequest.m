@@ -92,7 +92,7 @@ static int newsTag;
             }
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 for (NSDictionary *dic in msg[@"data"]) {
-                    ExpertData *data = [[ExpertData alloc] initWithDictionary:dic];
+                    NewsData *data = [[NewsData alloc] initWithDictionary:dic];
                     [self.newsArray addObject:data];
                 }
             }

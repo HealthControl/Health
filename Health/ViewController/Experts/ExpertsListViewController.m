@@ -48,7 +48,9 @@
 @implementation NewsListCell
 
 - (void)cellForNews:(NewsData*)news {
-//    [newsImageView setImageWithUrl:[NSURL URLWithString:news.] defaultImage:<#(UIImage *)#>]
+    [newsImageView setImageWithUrl:[NSURL URLWithString:news.thumb] defaultImage:nil];
+    titleLabel.text = news.title;
+    introLabel.text = news.description;
 }
 
 @end
@@ -149,9 +151,9 @@
             break;
         case 3:
         {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"newscell"];
-            NSMutableArray *array = [ExpertRequest singleton].expertsArray;
-            [(ExpertsListCell *)cell cellForExpert:array[indexPath.row]];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"newsCell"];
+            NSMutableArray *array = [ExpertRequest singleton].newsArray;
+            [(NewsListCell *)cell cellForNews:array[indexPath.row]];
         }
             break;
         default:
