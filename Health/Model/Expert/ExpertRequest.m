@@ -80,13 +80,19 @@ static int newsTag;
             if (!self.questionArray) {
                 self.questionArray = [NSMutableArray array];
             }
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                for (NSDictionary *dic in msg[@"data"]) {
+                    ExpertData *data = [[ExpertData alloc] initWithDictionary:dic];
+                    [self.questionArray addObject:data];
+                }
+            }
         } else if(tag == &newsTag) {
             if (!self.newsArray) {
                 self.newsArray = [NSMutableArray array];
             }
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 for (NSDictionary *dic in msg[@"data"]) {
-                    ExpertData *data = [[ExpertData alloc] initWithDictionary:dic];
+                    NewsData *data = [[NewsData alloc] initWithDictionary:dic];
                     [self.newsArray addObject:data];
                 }
             }
