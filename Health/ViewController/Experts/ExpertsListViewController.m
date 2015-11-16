@@ -9,10 +9,11 @@
 #import "ExpertsListViewController.h"
 #import "ExpertRequest.h"
 #import "ExpertData.h"
+#import "DTNetImageView.h"
 
 @interface ExpertsListCell : UITableViewCell 
 
-@property (nonatomic, weak) IBOutlet UIImageView *headerImageView;
+@property (nonatomic, weak) IBOutlet DTNetImageView *headerImageView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *positionLabel;
 @property (nonatomic, weak) IBOutlet UILabel *hospitalLabel;
@@ -23,7 +24,7 @@
 @end
 
 @interface NewsListCell : UITableViewCell {
-    IBOutlet UIImageView *newsImageView;
+    IBOutlet DTNetImageView *newsImageView;
     IBOutlet UILabel     *titleLabel;
     IBOutlet UILabel     *introLabel;
 }
@@ -35,6 +36,7 @@
 @implementation ExpertsListCell
 
 - (void)cellForExpert:(ExpertData *)expert {
+    [self.headerImageView setImageWithUrl:[NSURL URLWithString:expert.headpic] defaultImage:nil];
     self.titleLabel.text = expert.title;
     self.positionLabel.text = expert.position;
     self.hospitalLabel.text = expert.hospital;
@@ -46,7 +48,7 @@
 @implementation NewsListCell
 
 - (void)cellForNews:(NewsData*)news {
-    
+//    [newsImageView setImageWithUrl:[NSURL URLWithString:news.] defaultImage:<#(UIImage *)#>]
 }
 
 @end
