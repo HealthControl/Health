@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "025F94E00F3BC7B24CA7BD6D"
+               BlueprintIdentifier = "4EA852324F058FA000832BA6"
                BuildableName = "libRETableViewManager.a"
                BlueprintName = "RETableViewManager"
                ReferencedContainer = "container:Pods.xcodeproj">
