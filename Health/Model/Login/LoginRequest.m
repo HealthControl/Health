@@ -8,6 +8,7 @@
 
 #import "LoginRequest.h"
 #import "LoginData.h"
+#import "UserCentreData.h"
 
 @implementation LoginRequest
 
@@ -64,10 +65,14 @@ static int sendSmsTag;
         if (tag == &registerTag) {
             // 保存用户信息
             LoginData *loginData = [[LoginData alloc] initWithDictionary:msg[@"data"]];
+            [[NSUserDefaults standardUserDefaults] setObject:msg[@"data"] forKey:@"userData"];
             NSLog(@"%@", loginData);
         }else if(tag == &loginTag){
             // 保存用户信息
             LoginData *loginData = [[LoginData alloc] initWithDictionary:msg[@"data"]];
+            UserCentreData *userCentre = [UserCentreData singleton];
+            userCentre.userInfo = loginData;
+            userCentre.hasLogin = YES;
             NSLog(@"%@", loginData);
         }
         _complete();

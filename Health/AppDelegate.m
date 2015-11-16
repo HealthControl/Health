@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DTInit.h"
+#import "UserCentreData.h"
 
 @interface AppDelegate ()
 

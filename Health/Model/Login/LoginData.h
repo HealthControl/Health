@@ -11,13 +11,10 @@
 
 @interface LoginData : Jastor
 
-@end
-
-@interface RegisterData : Jastor
-
 @property (nonatomic, strong) NSString *userid;
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *mobile;
 @property (nonatomic, strong) NSString *token;
 
 @end
+
