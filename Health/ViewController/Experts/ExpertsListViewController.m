@@ -22,6 +22,16 @@
 
 @end
 
+@interface NewsListCell : UITableViewCell {
+    IBOutlet UIImageView *newsImageView;
+    IBOutlet UILabel     *titleLabel;
+    IBOutlet UILabel     *introLabel;
+}
+
+- (void)cellForNews:(NewsData*)news;
+
+@end
+
 @implementation ExpertsListCell
 
 - (void)cellForExpert:(ExpertData *)expert {
@@ -29,6 +39,14 @@
     self.positionLabel.text = expert.position;
     self.hospitalLabel.text = expert.hospital;
     self.descriptionLabel.text = expert.introduce;
+}
+
+@end
+
+@implementation NewsListCell
+
+- (void)cellForNews:(NewsData*)news {
+    
 }
 
 @end
@@ -44,45 +62,105 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    currentTag = 1;
+    
     expertsListTableView.delegate = self;
     expertsListTableView.dataSource = self;
+    currentTag = 1;
+    [self doRequest];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [[ExpertRequest singleton] getExpertsList:^{
-        NSLog(@"bb");
-    } failed:^(NSString *state, NSString *errmsg) {
-        NSLog(@"aa");
-    }];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (void)doRequest {
     switch (currentTag) {
         case 1:
-            // 高级营养师
-            return [ExpertRequest singleton].expertsArray.count;
+        {
+            [[ExpertRequest singleton] getExpertsList:^{
+                [expertsListTableView reloadData];
+            } failed:^(NSString *state, NSString *errmsg) {
+            }];
+        }
             break;
         case 2:
-            return [ExpertRequest singleton].questionArray.count;
-            // 专家咨询
+        {
+            [[ExpertRequest singleton] getExpertsQuestionList:^{
+                [expertsListTableView reloadData];
+            } failed:^(NSString *state, NSString *errmsg) {
+            }];
+        }
             break;
         case 3:
-            // 糖友资讯
-            return [ExpertRequest singleton].newsArray.count;
+        {
+            [[ExpertRequest singleton] getUserNewsList:^{
+                [expertsListTableView reloadData];
+            } failed:^(NSString *state, NSString *errmsg) {
+                
+            }];
+        }
             break;
         default:
             break;
     }
-    return 10;
+}
+
+- (IBAction)buttonClicked:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    currentTag = button.tag;
+    [self doRequest];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSMutableArray *array;
+    switch (currentTag) {
+        case 1:
+            // 高级营养师
+            array = [ExpertRequest singleton].expertsArray;
+            break;
+        case 2:
+            array = [ExpertRequest singleton].questionArray;
+            // 专家咨询
+            break;
+        case 3:
+            // 糖友资讯
+            array = [ExpertRequest singleton].newsArray;
+            break;
+        default:
+            break;
+    }
+    return array.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (<#condition#>) {
-        <#statements#>
+    UITableViewCell *cell = nil;
+    switch (currentTag) {
+        case 1:
+        {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"expertscell"];
+            NSMutableArray *array = [ExpertRequest singleton].expertsArray;
+            [(ExpertsListCell *)cell cellForExpert:array[indexPath.row]];
+        }
+            break;
+        case 2:
+        {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"expertscell"];
+            NSMutableArray *array = [ExpertRequest singleton].expertsArray;
+            [(ExpertsListCell *)cell cellForExpert:array[indexPath.row]];
+        }
+            break;
+        case 3:
+        {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"newscell"];
+            NSMutableArray *array = [ExpertRequest singleton].expertsArray;
+            [(ExpertsListCell *)cell cellForExpert:array[indexPath.row]];
+        }
+            break;
+        default:
+            break;
     }
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 105;
 }
 
 @end

@@ -19,6 +19,7 @@
 		98F0A6E31BFA0EBF008F803B /* BloodInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6DB1BFA0EBF008F803B /* BloodInputViewController.m */; };
 		98F0A6E41BFA0EBF008F803B /* GlucoseBloodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6DD1BFA0EBF008F803B /* GlucoseBloodViewController.m */; };
 		98F0A6E71BFA0F44008F803B /* ExpertsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6E61BFA0F44008F803B /* ExpertsListViewController.m */; };
+		98F0A6EB1BFA27C3008F803B /* DTNetImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6EA1BFA27C3008F803B /* DTNetImageView.m */; };
 		A986C4DA1BE6617E00D1B126 /* SSBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A986C4D91BE6617E00D1B126 /* SSBaseRequest.m */; };
 		A986C4DE1BE6624700D1B126 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A986C4DD1BE6624700D1B126 /* LoginRequest.m */; };
 		A986C4E11BE6626B00D1B126 /* LoginData.m in Sources */ = {isa = PBXBuildFile; fileRef = A986C4E01BE6626B00D1B126 /* LoginData.m */; };
@@ -50,6 +51,8 @@
 		98F0A6DD1BFA0EBF008F803B /* GlucoseBloodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlucoseBloodViewController.m; sourceTree = "<group>"; };
 		98F0A6E51BFA0F44008F803B /* ExpertsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertsListViewController.h; sourceTree = "<group>"; };
 		98F0A6E61BFA0F44008F803B /* ExpertsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertsListViewController.m; sourceTree = "<group>"; };
+		98F0A6E91BFA27C3008F803B /* DTNetImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNetImageView.h; sourceTree = "<group>"; };
+		98F0A6EA1BFA27C3008F803B /* DTNetImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNetImageView.m; sourceTree = "<group>"; };
 		A986C4D71BE6617E00D1B126 /* DTInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTInit.h; sourceTree = "<group>"; };
 		A986C4D81BE6617E00D1B126 /* SSBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBaseRequest.h; sourceTree = "<group>"; };
 		A986C4D91BE6617E00D1B126 /* SSBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBaseRequest.m; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		89C8A6061BCD520300845F1D /* Health */ = {
 			isa = PBXGroup;
 			children = (
+				98F0A6E81BFA27C3008F803B /* view */,
 				98F0A6D31BFA0EBF008F803B /* ViewController */,
 				A98489751BE7349C00591DD3 /* Login */,
 				A986C4D51BE6617E00D1B126 /* Model */,
@@ -191,6 +195,15 @@
 			path = UserCenter;
 			sourceTree = "<group>";
 		};
+		98F0A6E81BFA27C3008F803B /* view */ = {
+			isa = PBXGroup;
+			children = (
+				98F0A6E91BFA27C3008F803B /* DTNetImageView.h */,
+				98F0A6EA1BFA27C3008F803B /* DTNetImageView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		A98489751BE7349C00591DD3 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,7 +263,6 @@
 				89C8A6011BCD520300845F1D /* Frameworks */,
 				89C8A6021BCD520300845F1D /* Resources */,
 				17549848DD1A34EA3DDD8F50 /* Copy Pods Resources */,
-				66DBF4DE12E64CE345265D97 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -322,21 +334,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		66DBF4DE12E64CE345265D97 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F5F3DA863A0AE57B37168798 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -370,6 +367,7 @@
 				89C8A6091BCD520300845F1D /* main.m in Sources */,
 				98F0A6E41BFA0EBF008F803B /* GlucoseBloodViewController.m in Sources */,
 				98F0A6E21BFA0EBF008F803B /* BloodControlViewController.m in Sources */,
+				98F0A6EB1BFA27C3008F803B /* DTNetImageView.m in Sources */,
 				A986C4DA1BE6617E00D1B126 /* SSBaseRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
