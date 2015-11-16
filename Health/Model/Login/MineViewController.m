@@ -7,7 +7,16 @@
 //
 
 #import "MineViewController.h"
+#import "UserCentreData.h"
+
+@interface MineViewController ()<UITableViewDataSource, UITableViewDelegate> {
+    NSArray *dataArray;
+}
+@end
 
 @implementation MineViewController
 
+
+
 @end
+

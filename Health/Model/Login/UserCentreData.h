@@ -7,7 +7,13 @@
 //
 
 #import <jastor/jastor.h>
+#import "LoginData.h"
 
 @interface UserCentreData : Jastor
+
+@property (nonatomic, strong) LoginData *userInfo;
+@property (nonatomic, assign) BOOL hasLogin;
+
++ (instancetype)singleton;
 
 @end

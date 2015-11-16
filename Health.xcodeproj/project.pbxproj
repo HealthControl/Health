@@ -22,6 +22,8 @@
 		A986C4DA1BE6617E00D1B126 /* SSBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A986C4D91BE6617E00D1B126 /* SSBaseRequest.m */; };
 		A986C4DE1BE6624700D1B126 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A986C4DD1BE6624700D1B126 /* LoginRequest.m */; };
 		A986C4E11BE6626B00D1B126 /* LoginData.m in Sources */ = {isa = PBXBuildFile; fileRef = A986C4E01BE6626B00D1B126 /* LoginData.m */; };
+		A9F276FC1BFA1DD100F2AA28 /* UserCentreData.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F276FB1BFA1DD100F2AA28 /* UserCentreData.m */; };
+		A9F276FF1BFA233B00F2AA28 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F276FE1BFA233B00F2AA28 /* MineViewController.m */; };
 		DF5B4166F2794C7C41CBC4B2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 936F7B1B7D421D86A168F7D3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,10 @@
 		A986C4DD1BE6624700D1B126 /* LoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRequest.m; sourceTree = "<group>"; };
 		A986C4DF1BE6626B00D1B126 /* LoginData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginData.h; sourceTree = "<group>"; };
 		A986C4E01BE6626B00D1B126 /* LoginData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginData.m; sourceTree = "<group>"; };
+		A9F276FA1BFA1DD100F2AA28 /* UserCentreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCentreData.h; sourceTree = "<group>"; };
+		A9F276FB1BFA1DD100F2AA28 /* UserCentreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCentreData.m; sourceTree = "<group>"; };
+		A9F276FD1BFA233B00F2AA28 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineViewController.h; path = Health/Model/Login/MineViewController.h; sourceTree = SOURCE_ROOT; };
+		A9F276FE1BFA233B00F2AA28 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineViewController.m; path = Health/Model/Login/MineViewController.m; sourceTree = SOURCE_ROOT; };
 		F2911DF79D09AB030F145A18 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,6 +193,8 @@
 		98F0A6E01BFA0EBF008F803B /* UserCenter */ = {
 			isa = PBXGroup;
 			children = (
+				A9F276FD1BFA233B00F2AA28 /* MineViewController.h */,
+				A9F276FE1BFA233B00F2AA28 /* MineViewController.m */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -225,6 +233,8 @@
 				A986C4DD1BE6624700D1B126 /* LoginRequest.m */,
 				A986C4DF1BE6626B00D1B126 /* LoginData.h */,
 				A986C4E01BE6626B00D1B126 /* LoginData.m */,
+				A9F276FA1BFA1DD100F2AA28 /* UserCentreData.h */,
+				A9F276FB1BFA1DD100F2AA28 /* UserCentreData.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -360,8 +370,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				98F0A6D21BFA05F4008F803B /* ExpertData.m in Sources */,
+				A9F276FF1BFA233B00F2AA28 /* MineViewController.m in Sources */,
 				89C8A60C1BCD520300845F1D /* AppDelegate.m in Sources */,
 				A986C4E11BE6626B00D1B126 /* LoginData.m in Sources */,
+				A9F276FC1BFA1DD100F2AA28 /* UserCentreData.m in Sources */,
 				98F0A6E11BFA0EBF008F803B /* KBaseViewController.m in Sources */,
 				98F0A6E71BFA0F44008F803B /* ExpertsListViewController.m in Sources */,
 				98F0A6E31BFA0EBF008F803B /* BloodInputViewController.m in Sources */,
