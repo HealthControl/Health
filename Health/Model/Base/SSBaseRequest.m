@@ -95,8 +95,9 @@ Class object_getClass(id object);
     [self httpInit];
     NSLog(@"%@",[NSString stringWithFormat:@"%@%@",self.baseUrl,uri]);
     [self.manager GET:[NSString stringWithFormat:@"%@%@",self.baseUrl,[self getUriWithTime:uri]] parameters:nil success:^(AFHTTPRequestOperation *operation,id responseObject) {
-//        [self requestFinished:responseObject tag:tag];
+        [self.delegate getFinished:responseObject tag:tag];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.delegate getError:@{@"error":error.description} tag:tag];
 //        [self requestFailed:tag];
     }];
 }

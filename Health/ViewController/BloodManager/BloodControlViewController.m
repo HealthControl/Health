@@ -55,15 +55,14 @@
     **/
 
     
-    /****  登陆测试
+
     NSDictionary *loginDic = @{@"loginname":@"15652767777", @"password":@"aaaa"};
     [[LoginRequest singleton] loginWithDictionary:loginDic complete:^{
         NSLog(@"登陆成功");
     } failed:^(NSString *state, NSString *errmsg){
         NSLog(@"登陆失败");
     }];
-    
-    ****/
+
     
     /***  验证码测试  **/
     
