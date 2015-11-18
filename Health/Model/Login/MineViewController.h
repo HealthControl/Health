@@ -9,6 +9,6 @@
 #import "KBaseViewController.h"
 
 
-@interface MineViewController : UITableViewController
+@interface MineViewController : KBaseViewController
 
 @end
