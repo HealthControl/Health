@@ -201,7 +201,6 @@
         <!--View Controller-->
         <scene sceneID="9H0-hl-w73">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x3V-GV-JTK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="3nS-OU-3e6" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pfj-Ff-znk"/>
@@ -267,6 +266,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x3V-GV-JTK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1098.5" y="-1744.5"/>
         </scene>
@@ -362,7 +362,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="expertscell" rowHeight="105" id="yHe-pI-0W0" customClass="ExpertsListCell">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="105"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yHe-pI-0W0" id="JU7-vw-nBB">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="104.5"/>
@@ -413,7 +413,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newsCell" rowHeight="105" id="pFE-ne-yCs" customClass="NewsListCell">
-                                        <rect key="frame" x="0.0" y="197" width="320" height="105"/>
+                                        <rect key="frame" x="0.0" y="133" width="320" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pFE-ne-yCs" id="TWM-Zu-OUv">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="104.5"/>
