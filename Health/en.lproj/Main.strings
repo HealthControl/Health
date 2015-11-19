@@ -1,0 +1,144 @@
+
+/* Class = "UILabel"; text = "测量时段："; ObjectID = "1Mh-Yi-MC8"; */
+"1Mh-Yi-MC8.text" = "测量时段：";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "2ku-47-EsY"; */
+"2ku-47-EsY.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "请输入新密码"; ObjectID = "3hv-qj-e75"; */
+"3hv-qj-e75.placeholder" = "请输入新密码";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "4Di-4n-fFU"; */
+"4Di-4n-fFU.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "请输入旧密码"; ObjectID = "4G3-wM-kjB"; */
+"4G3-wM-kjB.placeholder" = "请输入旧密码";
+
+/* Class = "UITextField"; text = "这是一个下拉列表"; ObjectID = "4wD-dm-NVn"; */
+"4wD-dm-NVn.text" = "这是一个下拉列表";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "6tQ-CY-1ot"; */
+"6tQ-CY-1ot.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8qA-A6-JW2"; */
+"8qA-A6-JW2.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "9TL-OL-HFs"; */
+"9TL-OL-HFs.title" = "Root View Controller";
+
+/* Class = "UITextField"; placeholder = "密码"; ObjectID = "AJO-7a-kot"; */
+"AJO-7a-kot.placeholder" = "密码";
+
+/* Class = "UIButton"; normalTitle = "注册"; ObjectID = "BJH-dC-1pl"; */
+"BJH-dC-1pl.normalTitle" = "注册";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "Bds-Nz-mQb"; */
+"Bds-Nz-mQb.title" = "Root View Controller";
+
+/* Class = "UITabBarItem"; title = "找专家"; ObjectID = "GWA-lh-IXY"; */
+"GWA-lh-IXY.title" = "找专家";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "I4r-I3-0T4"; */
+"I4r-I3-0T4.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ILV-xe-2Nk"; */
+"ILV-xe-2Nk.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "IZG-EC-Ady"; */
+"IZG-EC-Ady.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "JRI-F5-AB6"; */
+"JRI-F5-AB6.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "L6z-4I-JcB"; */
+"L6z-4I-JcB.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "LZe-Gg-tLb"; */
+"LZe-Gg-tLb.normalTitle" = "保存";
+
+/* Class = "UITextField"; text = "请输入备注信息"; ObjectID = "NzR-xj-924"; */
+"NzR-xj-924.text" = "请输入备注信息";
+
+/* Class = "UITextField"; placeholder = "手机号码"; ObjectID = "Peh-4v-tgK"; */
+"Peh-4v-tgK.placeholder" = "手机号码";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Pwb-sb-Zqc"; */
+"Pwb-sb-Zqc.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "找专家"; ObjectID = "Quh-eO-lCv"; */
+"Quh-eO-lCv.title" = "找专家";
+
+/* Class = "UIButton"; normalTitle = "登录"; ObjectID = "RuT-Om-cuv"; */
+"RuT-Om-cuv.normalTitle" = "登录";
+
+/* Class = "UITabBarItem"; title = "个人中心"; ObjectID = "Vak-QU-8hM"; */
+"Vak-QU-8hM.title" = "个人中心";
+
+/* Class = "UIViewController"; title = "我的"; ObjectID = "Vtn-In-dHa"; */
+"Vtn-In-dHa.title" = "我的";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "XcD-iX-EBy"; */
+"XcD-iX-EBy.normalTitle" = "Button";
+
+/* Class = "UITextField"; text = "这是一个Slider控件"; ObjectID = "YsJ-Ne-fgZ"; */
+"YsJ-Ne-fgZ.text" = "这是一个Slider控件";
+
+/* Class = "UIButton"; normalTitle = "注册"; ObjectID = "c82-IT-SmS"; */
+"c82-IT-SmS.normalTitle" = "注册";
+
+/* Class = "UITextField"; placeholder = "确认新密码"; ObjectID = "dTa-Js-g24"; */
+"dTa-Js-g24.placeholder" = "确认新密码";
+
+/* Class = "UIButton"; normalTitle = "登录"; ObjectID = "eTU-VO-Pbf"; */
+"eTU-VO-Pbf.normalTitle" = "登录";
+
+/* Class = "UITextField"; text = "这是一个日期控件"; ObjectID = "eh1-CA-C4a"; */
+"eh1-CA-C4a.text" = "这是一个日期控件";
+
+/* Class = "UITabBarItem"; title = "商城"; ObjectID = "gMr-gG-ac1"; */
+"gMr-gG-ac1.title" = "商城";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hyg-5j-Woy"; */
+"hyg-5j-Woy.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "测量时间："; ObjectID = "iAj-rL-Iou"; */
+"iAj-rL-Iou.text" = "测量时间：";
+
+/* Class = "UIButton"; normalTitle = "提交"; ObjectID = "kID-1O-eZd"; */
+"kID-1O-eZd.normalTitle" = "提交";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kVj-yS-8i8"; */
+"kVj-yS-8i8.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mDB-A8-Wf0"; */
+"mDB-A8-Wf0.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "n3P-IY-WDD"; */
+"n3P-IY-WDD.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "onP-Co-Urw"; */
+"onP-Co-Urw.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "血糖管理"; ObjectID = "prR-xE-W0i"; */
+"prR-xE-W0i.title" = "血糖管理";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qp0-UG-vt5"; */
+"qp0-UG-vt5.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "找回密码"; ObjectID = "rLt-xc-Zxo"; */
+"rLt-xc-Zxo.normalTitle" = "找回密码";
+
+/* Class = "UIButton"; normalTitle = "完善资料"; ObjectID = "sg6-2M-4yp"; */
+"sg6-2M-4yp.normalTitle" = "完善资料";
+
+/* Class = "UIButton"; normalTitle = "注册"; ObjectID = "t2s-LV-r8G"; */
+"t2s-LV-r8G.normalTitle" = "注册";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "xnr-gC-GEX"; */
+"xnr-gC-GEX.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zgm-aj-U9b"; */
+"zgm-aj-U9b.text" = "Label";
+
+/* Class = "UILabel"; text = "备注："; ObjectID = "zyA-ft-ryZ"; */
+"zyA-ft-ryZ.text" = "备注：";
