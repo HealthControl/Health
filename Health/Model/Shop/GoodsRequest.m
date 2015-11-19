@@ -12,6 +12,7 @@
 @implementation GoodsRequest
 
 static int goodsListTag;
+static int goodsTypeTag;
 
 - (id)init
 {
@@ -38,16 +39,35 @@ static int goodsListTag;
     [self startPost:uri params:@{@"catid":type} tag:&goodsListTag];
 }
 
+- (void)getGoodsTypeAndcomplete:(Complete)completeBlock failed:(Failed)failedBlock {
+    _complete = completeBlock;
+    _failed = failedBlock;
+    NSString *uri = @"Api/Product/category";
+    [self startPost:uri params:nil tag:&goodsTypeTag];
+}
+
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {
     if ([msg[@"status"] integerValue] == 1) {
         if (tag == &goodsListTag) {
             if (!self.goodsListArray) {
                 self.goodsListArray = [NSMutableArray array];
             }
+            [self.goodsListArray removeAllObjects];
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 for (NSDictionary *dic in msg[@"data"]) {
                     GoodsList *data = [[GoodsList alloc] initWithDictionary:dic];
                     [self.goodsListArray addObject:data];
+                }
+            }
+        } else if (tag == &goodsTypeTag) {
+            if (!self.goodsTypeArray) {
+                self.goodsTypeArray = [NSMutableArray array];
+            }
+            [self.goodsTypeArray removeAllObjects];
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                for (NSDictionary *dic in msg[@"data"]) {
+                    GoodsType *goodsType = [[GoodsType alloc] initWithDictionary:dic];
+                    [self.goodsTypeArray addObject:goodsType];
                 }
             }
         }

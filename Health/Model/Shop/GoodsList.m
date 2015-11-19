@@ -11,3 +11,7 @@
 @implementation GoodsList
 
 @end
+
+@implementation GoodsType
+
+@end

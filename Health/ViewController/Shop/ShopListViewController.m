@@ -50,8 +50,18 @@
 @end
 
 @interface ShopListViewController() <UITableViewDelegate, UITableViewDataSource> {
+    // 商品列表
     IBOutlet UITableView *shopListTableView;
     NSMutableArray *goodsArray;
+    
+    // 类型
+    IBOutlet DTNetImageView *classImageView1;
+    IBOutlet DTNetImageView *classImageView2;
+    IBOutlet DTNetImageView *classImageView3;
+    
+    IBOutlet UILabel        *classNameLabel1;
+    IBOutlet UILabel        *classNameLabel2;
+    IBOutlet UILabel        *classNameLabel3;
 }
 
 @end
@@ -62,17 +72,43 @@
     [super viewDidLoad];
     goodsArray = [NSMutableArray array];
     self.title = @"商城";
-    __weak typeof(self) weakSelf = self;
-    [[GoodsRequest singleton] getGoodsList:@"0" complete:^{
-        [weakSelf reloadData];
+    [[GoodsRequest singleton] getGoodsTypeAndcomplete:^{
+        [self reloadTypeView];
     } failed:^(NSString *state, NSString *errmsg) {
         
     }];
 }
 
+- (void)reloadTypeView {
+    NSArray *array = [NSArray arrayWithArray:[GoodsRequest singleton].goodsTypeArray];
+    NSArray *viewArray = @[@{@"image":classImageView1, @"label":classNameLabel1}, @{@"image":classImageView2, @"label":classNameLabel2}, @{@"image":classImageView3, @"label":classNameLabel3}];
+    for (int i = 0; i < array.count; i++) {
+        if (viewArray.count > i+1) {
+            NSDictionary *dic = viewArray[i];
+            GoodsType *type = array[i];
+            DTNetImageView *image = dic[@"image"];
+            [image setImageWithUrlString:type.icon defaultImage:nil];
+            UILabel *label = dic[@"label"];
+            label.text = type.name;
+        }
+    }
+}
+
 - (void)reloadData {
+    [goodsArray removeAllObjects];
     [goodsArray addObjectsFromArray:[GoodsRequest singleton].goodsListArray];
     [shopListTableView reloadData];
+}
+
+#pragma mark - IBAction
+- (IBAction)classSelected:(id)sender {
+    UIControl *controlView = (UIControl *)sender;
+    __weak typeof(self) weakSelf = self;
+    [[GoodsRequest singleton] getGoodsList:[NSString stringWithFormat:@"%d", (int)controlView.tag] complete:^{
+        [weakSelf reloadData];
+    } failed:^(NSString *state, NSString *errmsg) {
+        
+    }];
 }
 
 #pragma mark - UITableViewDataSource
