@@ -23,6 +23,7 @@
 		A986C4DA1BE6617E00D1B126 /* SSBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A986C4D91BE6617E00D1B126 /* SSBaseRequest.m */; };
 		A986C4DE1BE6624700D1B126 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A986C4DD1BE6624700D1B126 /* LoginRequest.m */; };
 		A986C4E11BE6626B00D1B126 /* LoginData.m in Sources */ = {isa = PBXBuildFile; fileRef = A986C4E01BE6626B00D1B126 /* LoginData.m */; };
+		A9DDCEF31BFE276900D9C3BD /* HealthReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DDCEF21BFE276900D9C3BD /* HealthReportViewController.m */; };
 		A9F276FC1BFA1DD100F2AA28 /* UserCentreData.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F276FB1BFA1DD100F2AA28 /* UserCentreData.m */; };
 		A9F276FF1BFA233B00F2AA28 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F276FE1BFA233B00F2AA28 /* MineViewController.m */; };
 		DF5B4166F2794C7C41CBC4B2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 936F7B1B7D421D86A168F7D3 /* libPods.a */; };
@@ -62,6 +63,8 @@
 		A986C4DD1BE6624700D1B126 /* LoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRequest.m; sourceTree = "<group>"; };
 		A986C4DF1BE6626B00D1B126 /* LoginData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginData.h; sourceTree = "<group>"; };
 		A986C4E01BE6626B00D1B126 /* LoginData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginData.m; sourceTree = "<group>"; };
+		A9DDCEF11BFE276900D9C3BD /* HealthReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthReportViewController.h; sourceTree = "<group>"; };
+		A9DDCEF21BFE276900D9C3BD /* HealthReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthReportViewController.m; sourceTree = "<group>"; };
 		A9F276FA1BFA1DD100F2AA28 /* UserCentreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCentreData.h; sourceTree = "<group>"; };
 		A9F276FB1BFA1DD100F2AA28 /* UserCentreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCentreData.m; sourceTree = "<group>"; };
 		A9F276FD1BFA233B00F2AA28 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineViewController.h; path = Health/Model/Login/MineViewController.h; sourceTree = SOURCE_ROOT; };
@@ -174,6 +177,8 @@
 				98F0A6DB1BFA0EBF008F803B /* BloodInputViewController.m */,
 				98F0A6DC1BFA0EBF008F803B /* GlucoseBloodViewController.h */,
 				98F0A6DD1BFA0EBF008F803B /* GlucoseBloodViewController.m */,
+				A9DDCEF11BFE276900D9C3BD /* HealthReportViewController.h */,
+				A9DDCEF21BFE276900D9C3BD /* HealthReportViewController.m */,
 			);
 			path = BloodManager;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 				98F0A6E11BFA0EBF008F803B /* KBaseViewController.m in Sources */,
 				98F0A6E71BFA0F44008F803B /* ExpertsListViewController.m in Sources */,
 				98F0A6E31BFA0EBF008F803B /* BloodInputViewController.m in Sources */,
+				A9DDCEF31BFE276900D9C3BD /* HealthReportViewController.m in Sources */,
 				A986C4DE1BE6624700D1B126 /* LoginRequest.m in Sources */,
 				98F0A6CF1BFA0583008F803B /* ExpertRequest.m in Sources */,
 				89C8A6091BCD520300845F1D /* main.m in Sources */,

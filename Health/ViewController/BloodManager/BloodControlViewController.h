@@ -8,6 +8,6 @@
 
 #import "KBaseViewController.h"
 
-@interface BloodControlViewController : UITableViewController
+@interface BloodControlViewController : KBaseViewController
 
 @end
