@@ -22,8 +22,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"血糖管理";
-    self.tableView.dataSource = self;
-    self.tableView.delegate =self;
     NSDictionary *dic1 = @{@"image":@"first",@"title":@"测血糖"};
     NSDictionary *dic2 = @{@"image":@"first",@"title":@"糖历"};
     NSDictionary *dic3 = @{@"image":@"first",@"title":@"健康报告"};
@@ -98,10 +96,10 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier];
     }
-    NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
-    //cell.textLabel.text = [dataArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = [dic objectForKey:@"title"];
-    cell.imageView.image = [UIImage imageNamed:[dic objectForKey:@"image"]];
+//    NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
+//    //cell.textLabel.text = [dataArray objectAtIndex:indexPath.row];
+//    cell.textLabel.text = [dic objectForKey:@"title"];
+//    cell.imageView.image = [UIImage imageNamed:[dic objectForKey:@"image"]];
     return cell;
 }
 
