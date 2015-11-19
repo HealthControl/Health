@@ -130,6 +130,33 @@
     
 }
 
+- (IBAction)buttonClicked:(id)sender {
+    UIControl *controlView = (UIControl*)sender;
+    NSString *identifer = nil;
+    switch (controlView.tag) {
+        case 1:
+            identifer = @"glucoseBloodIdentifier";
+            break;
+        case 2:
+            
+            break;
+            
+        case 3:
+            identifer = @"healthReportIdentifer";
+            break;
+        case 4:
+            
+            break;
+        default:
+            break;
+    }
+    
+    if (identifer) {
+        [self performSegueWithIdentifier:identifer sender:self];
+    }
+
+}
+
 
 
 
