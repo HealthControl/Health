@@ -20,6 +20,8 @@
  */
 - (void)setImageWithUrl:(NSURL *)url defaultImage:(UIImage *)defaultImage;
 
+-(void)setImageWithUrlString:(NSString *)urlString defaultImage:(UIImage *)defaultImage;
+
 /**
  清空全部缓存
  */

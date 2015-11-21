@@ -12,6 +12,7 @@
 		89C8A6151BCD520300845F1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6131BCD520300845F1D /* Main.storyboard */; };
 		89C8A6171BCD520300845F1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6161BCD520300845F1D /* Assets.xcassets */; };
 		89C8A61A1BCD520300845F1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6181BCD520300845F1D /* LaunchScreen.storyboard */; };
+		982A12D31C00182300749BB7 /* ExpertsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12D21C00182300749BB7 /* ExpertsDetailViewController.m */; };
 		98F0A6CF1BFA0583008F803B /* ExpertRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6CE1BFA0583008F803B /* ExpertRequest.m */; };
 		98F0A6D21BFA05F4008F803B /* ExpertData.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6D11BFA05F4008F803B /* ExpertData.m */; };
 		98F0A6E11BFA0EBF008F803B /* KBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6D61BFA0EBF008F803B /* KBaseViewController.m */; };
@@ -20,6 +21,9 @@
 		98F0A6E41BFA0EBF008F803B /* GlucoseBloodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6DD1BFA0EBF008F803B /* GlucoseBloodViewController.m */; };
 		98F0A6E71BFA0F44008F803B /* ExpertsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6E61BFA0F44008F803B /* ExpertsListViewController.m */; };
 		98F0A6EB1BFA27C3008F803B /* DTNetImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6EA1BFA27C3008F803B /* DTNetImageView.m */; };
+		98F0A6F21BFCC60C008F803B /* ShopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6F11BFCC60C008F803B /* ShopListViewController.m */; };
+		98F0A6F61BFCD9E1008F803B /* GoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6F51BFCD9E1008F803B /* GoodsList.m */; };
+		98F0A6F91BFCDA14008F803B /* GoodsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6F81BFCDA14008F803B /* GoodsRequest.m */; };
 		A986C4DA1BE6617E00D1B126 /* SSBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A986C4D91BE6617E00D1B126 /* SSBaseRequest.m */; };
 		A986C4DE1BE6624700D1B126 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A986C4DD1BE6624700D1B126 /* LoginRequest.m */; };
 		A986C4E11BE6626B00D1B126 /* LoginData.m in Sources */ = {isa = PBXBuildFile; fileRef = A986C4E01BE6626B00D1B126 /* LoginData.m */; };
@@ -40,6 +44,8 @@
 		89C8A6191BCD520300845F1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C8A61B1BCD520300845F1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		936F7B1B7D421D86A168F7D3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		982A12D11C00182300749BB7 /* ExpertsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertsDetailViewController.h; sourceTree = "<group>"; };
+		982A12D21C00182300749BB7 /* ExpertsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertsDetailViewController.m; sourceTree = "<group>"; };
 		98F0A6CD1BFA0583008F803B /* ExpertRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertRequest.h; sourceTree = "<group>"; };
 		98F0A6CE1BFA0583008F803B /* ExpertRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertRequest.m; sourceTree = "<group>"; };
 		98F0A6D01BFA05F4008F803B /* ExpertData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertData.h; sourceTree = "<group>"; };
@@ -56,6 +62,12 @@
 		98F0A6E61BFA0F44008F803B /* ExpertsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertsListViewController.m; sourceTree = "<group>"; };
 		98F0A6E91BFA27C3008F803B /* DTNetImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNetImageView.h; sourceTree = "<group>"; };
 		98F0A6EA1BFA27C3008F803B /* DTNetImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNetImageView.m; sourceTree = "<group>"; };
+		98F0A6F01BFCC60C008F803B /* ShopListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListViewController.h; sourceTree = "<group>"; };
+		98F0A6F11BFCC60C008F803B /* ShopListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListViewController.m; sourceTree = "<group>"; };
+		98F0A6F41BFCD9E1008F803B /* GoodsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsList.h; sourceTree = "<group>"; };
+		98F0A6F51BFCD9E1008F803B /* GoodsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsList.m; sourceTree = "<group>"; };
+		98F0A6F71BFCDA14008F803B /* GoodsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsRequest.h; sourceTree = "<group>"; };
+		98F0A6F81BFCDA14008F803B /* GoodsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsRequest.m; sourceTree = "<group>"; };
 		A986C4D71BE6617E00D1B126 /* DTInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTInit.h; sourceTree = "<group>"; };
 		A986C4D81BE6617E00D1B126 /* SSBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBaseRequest.h; sourceTree = "<group>"; };
 		A986C4D91BE6617E00D1B126 /* SSBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBaseRequest.m; sourceTree = "<group>"; };
@@ -188,6 +200,8 @@
 			children = (
 				98F0A6E51BFA0F44008F803B /* ExpertsListViewController.h */,
 				98F0A6E61BFA0F44008F803B /* ExpertsListViewController.m */,
+				982A12D11C00182300749BB7 /* ExpertsDetailViewController.h */,
+				982A12D21C00182300749BB7 /* ExpertsDetailViewController.m */,
 			);
 			path = Experts;
 			sourceTree = "<group>";
@@ -195,6 +209,8 @@
 		98F0A6DF1BFA0EBF008F803B /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				98F0A6F01BFCC60C008F803B /* ShopListViewController.h */,
+				98F0A6F11BFCC60C008F803B /* ShopListViewController.m */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -211,10 +227,29 @@
 		98F0A6E81BFA27C3008F803B /* view */ = {
 			isa = PBXGroup;
 			children = (
+				98F0A6EC1BFCC384008F803B /* Experts */,
 				98F0A6E91BFA27C3008F803B /* DTNetImageView.h */,
 				98F0A6EA1BFA27C3008F803B /* DTNetImageView.m */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		98F0A6EC1BFCC384008F803B /* Experts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Experts;
+			sourceTree = "<group>";
+		};
+		98F0A6F31BFCD9D0008F803B /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				98F0A6F41BFCD9E1008F803B /* GoodsList.h */,
+				98F0A6F51BFCD9E1008F803B /* GoodsList.m */,
+				98F0A6F71BFCDA14008F803B /* GoodsRequest.h */,
+				98F0A6F81BFCDA14008F803B /* GoodsRequest.m */,
+			);
+			path = Shop;
 			sourceTree = "<group>";
 		};
 		A98489751BE7349C00591DD3 /* Login */ = {
@@ -227,6 +262,7 @@
 		A986C4D51BE6617E00D1B126 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				98F0A6F31BFCD9D0008F803B /* Shop */,
 				98F0A6CC1BFA0565008F803B /* Expert */,
 				A986C4DB1BE6623200D1B126 /* Login */,
 				A986C4D61BE6617E00D1B126 /* Base */,
@@ -379,6 +415,7 @@
 				98F0A6E11BFA0EBF008F803B /* KBaseViewController.m in Sources */,
 				98F0A6E71BFA0F44008F803B /* ExpertsListViewController.m in Sources */,
 				98F0A6E31BFA0EBF008F803B /* BloodInputViewController.m in Sources */,
+				98F0A6F91BFCDA14008F803B /* GoodsRequest.m in Sources */,
 				A9DDCEF31BFE276900D9C3BD /* HealthReportViewController.m in Sources */,
 				A986C4DE1BE6624700D1B126 /* LoginRequest.m in Sources */,
 				98F0A6CF1BFA0583008F803B /* ExpertRequest.m in Sources */,
@@ -386,6 +423,9 @@
 				98F0A6E41BFA0EBF008F803B /* GlucoseBloodViewController.m in Sources */,
 				98F0A6E21BFA0EBF008F803B /* BloodControlViewController.m in Sources */,
 				98F0A6EB1BFA27C3008F803B /* DTNetImageView.m in Sources */,
+				98F0A6F21BFCC60C008F803B /* ShopListViewController.m in Sources */,
+				982A12D31C00182300749BB7 /* ExpertsDetailViewController.m in Sources */,
+				98F0A6F61BFCD9E1008F803B /* GoodsList.m in Sources */,
 				A986C4DA1BE6617E00D1B126 /* SSBaseRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,6 +20,16 @@
 {
 }
 
+-(void)setImageWithUrlString:(NSString *)urlString defaultImage:(UIImage *)defaultImage
+{
+    if (defaultImage != nil) {
+        [self setImage:defaultImage];
+    }
+    
+    [self sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:defaultImage options:SDWebImageRefreshCached];
+}
+
+
 -(void)setImageWithUrl:(NSURL *)url defaultImage:(UIImage *)defaultImage
 {
     if (defaultImage != nil) {
