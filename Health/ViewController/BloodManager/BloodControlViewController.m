@@ -52,7 +52,6 @@
      
     **/
 
-    
 
     NSDictionary *loginDic = @{@"loginname":@"15652767777", @"password":@"aaaa"};
     [[LoginRequest singleton] loginWithDictionary:loginDic complete:^{

@@ -12,8 +12,8 @@
 #import "GoodsList.h"
 
 @interface GoodsCell : UITableViewCell {
-    IBOutlet UIView *goodsView1;
-    IBOutlet UIView *goodsView2;
+    IBOutlet UIControl *goodsView1;
+    IBOutlet UIControl *goodsView2;
     
     IBOutlet DTNetImageView *goodsImageView1;
     IBOutlet UILabel        *goodsPriceLabel1;
@@ -22,6 +22,10 @@
     IBOutlet DTNetImageView *goodsImageView2;
     IBOutlet UILabel        *goodsPriceLabel2;
     IBOutlet UILabel        *goodsNameLabel2;
+    
+    NSString                *selectID;
+    
+    NSArray                 *dataArray;
 }
 
 - (void)cellForGoods:(NSArray *)goodsArray;
@@ -31,6 +35,7 @@
 @implementation GoodsCell
 
 - (void)cellForGoods:(NSArray *)goodsArray {
+    dataArray = [NSArray arrayWithArray:goodsArray];
     GoodsList *list1 = goodsArray[0];
     [goodsImageView1 setImageWithUrl:[NSURL URLWithString:list1.picture] defaultImage:nil];
     goodsPriceLabel1.text = list1.price;
@@ -45,6 +50,12 @@
     } else {
         goodsView2.hidden = YES;
     }
+}
+
+- (IBAction)goodsSelect:(id)sender {
+//    GoodsList *list = dataArray[((UIControl *)sender).tag];
+//    UIStoryboard *mainStoryBord = [UIStoryboard storyboardWithName:@"main" bundle:nil];
+    
 }
 
 @end

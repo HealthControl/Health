@@ -10,6 +10,7 @@
 #import "ExpertRequest.h"
 #import "ExpertData.h"
 #import "DTNetImageView.h"
+#import "ExpertsDetailViewController.h"
 
 @interface ExpertsListCell : UITableViewCell 
 
@@ -165,6 +166,20 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 105;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (currentTag == 1 || currentTag == 2) {
+        NSMutableArray *array = [ExpertRequest singleton].expertsArray;
+        ExpertData *experts = array[indexPath.row];
+        [self performSegueWithIdentifier:@"expertsDetail" sender:experts];
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    ExpertsDetailViewController *detailVC = [segue destinationViewController];
+    detailVC.doctorID = ((ExpertData *)sender).id;
 }
 
 @end
