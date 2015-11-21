@@ -127,7 +127,6 @@
 			children = (
 				98F0A6E81BFA27C3008F803B /* view */,
 				98F0A6D31BFA0EBF008F803B /* ViewController */,
-				A98489751BE7349C00591DD3 /* Login */,
 				A986C4D51BE6617E00D1B126 /* Model */,
 				89C8A60A1BCD520300845F1D /* AppDelegate.h */,
 				89C8A60B1BCD520300845F1D /* AppDelegate.m */,
@@ -148,6 +147,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		982A12D41C00BED100749BB7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		98F0A6CC1BFA0565008F803B /* Expert */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +168,7 @@
 		98F0A6D31BFA0EBF008F803B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				982A12D41C00BED100749BB7 /* Login */,
 				98F0A6D41BFA0EBF008F803B /* BaseController */,
 				98F0A6D71BFA0EBF008F803B /* BloodManager */,
 				98F0A6DE1BFA0EBF008F803B /* Experts */,
@@ -250,13 +257,6 @@
 				98F0A6F81BFCDA14008F803B /* GoodsRequest.m */,
 			);
 			path = Shop;
-			sourceTree = "<group>";
-		};
-		A98489751BE7349C00591DD3 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		A986C4D51BE6617E00D1B126 /* Model */ = {
