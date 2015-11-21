@@ -10,4 +10,6 @@
 
 @interface KBaseViewController : UIViewController
 
+-(void)showLoginVC;
+
 @end

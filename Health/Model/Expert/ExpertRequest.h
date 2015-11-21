@@ -7,13 +7,14 @@
 //
 
 #import "SSBaseRequest.h"
+#import "ExpertData.h"
 
 @interface ExpertRequest : SSBaseRequest
 
 @property (nonatomic, strong)NSMutableArray *expertsArray;
 @property (nonatomic, strong)NSMutableArray *questionArray;
 @property (nonatomic, strong)NSMutableArray *newsArray;
-
+@property (nonatomic, strong)ExpertDetail *expertsDetail;
 
 + (instancetype)singleton;
 
@@ -31,5 +32,10 @@
  *  糖友资讯
  */
 - (void)getUserNewsList:(Complete)completeBlock failed:(Failed)failedBlock;
+
+/**
+ *  专家详情
+ */
+- (void)getExpertDetail:(NSString *)doctorID complete:(Complete)completeBlock failed:(Failed)failedBlock;
 
 @end

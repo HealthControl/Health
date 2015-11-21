@@ -7,11 +7,11 @@
 //
 
 #import "ExpertRequest.h"
-#import "ExpertData.h"
 
 static int expertsTag;
 static int questionTag;
 static int newsTag;
+static int expertsDetailTag;
 
 @implementation ExpertRequest
 
@@ -63,6 +63,16 @@ static int newsTag;
     [self startPost:uri params:nil tag:&newsTag];
 }
 
+/**
+ *  专家详情
+ */
+- (void)getExpertDetail:(NSString *)doctorID complete:(Complete)completeBlock failed:(Failed)failedBlock {
+    _complete = completeBlock;
+    _failed = failedBlock;
+    NSString *uri = @"Api/Expert/show";
+    [self startPost:uri params:@{@"id":doctorID} tag:&expertsDetailTag];
+}
+
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {
     if ([msg[@"status"] integerValue] == 1) {
         if (tag == &expertsTag) {
@@ -96,6 +106,12 @@ static int newsTag;
                     [self.newsArray addObject:data];
                 }
             }
+        } else if (tag == &expertsDetailTag) {
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                NSDictionary *dic = msg[@"data"];
+                self.expertsDetail = [[ExpertDetail alloc] initWithDictionary:dic];
+            }
+            
         }
         _complete();
     } else {

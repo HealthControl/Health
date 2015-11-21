@@ -20,6 +20,7 @@
 
 @end
 
+// 咨询
 @interface NewsData : Jastor
 
 //@property (nonatomic, strong)NSString *description;
@@ -30,6 +31,20 @@
 
 @end
 
+// 提问
 @interface QuestionData : Jastor
+
+@end
+
+@interface ExpertDetail : Jastor
+
+@property (nonatomic, strong)NSString *id;
+@property (nonatomic, strong)NSString *name;
+@property (nonatomic, strong)NSString *position;
+@property (nonatomic, strong)NSString *title;
+@property (nonatomic, strong)NSString *headpic;
+@property (nonatomic, strong)NSString *introduce;
+@property (nonatomic, strong)NSString *hospital;
+@property (nonatomic, strong)NSString *number;
 
 @end

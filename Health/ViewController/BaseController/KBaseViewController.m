@@ -24,6 +24,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+//弹出登陆页
+-(void)showLoginVC
+{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *loginNav = [sb instantiateViewControllerWithIdentifier:@"loginNavi"];
+    [self presentViewController:loginNav animated:YES completion:nil];
+}
+
 /*
 #pragma mark - Navigation
 

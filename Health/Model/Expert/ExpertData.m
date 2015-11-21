@@ -19,3 +19,8 @@
 @implementation NewsData
 
 @end
+
+@implementation ExpertDetail
+
+
+@end
