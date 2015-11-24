@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     // Do any additional setup after loading the view.
 }
 
@@ -39,7 +40,7 @@
 }
 */
 
-- (void)login{
+- (IBAction) login:(id) sender {
     
     NSString *userName = userNameTextField.text;
     NSString * password = passwordTextField.text;
@@ -49,6 +50,7 @@
     [loginDic setObject:password forKey:@"password"];
     
     [[LoginRequest singleton] loginWithDictionary:loginDic complete:^{
+        NSLog(@"@%", loginDic);
         NSLog(@"login success!");
     } failed:^(NSString *state, NSString *errmsg){
         NSLog(@"login fail!");
