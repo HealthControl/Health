@@ -1512,7 +1512,7 @@ bel</string>
         <!--Navigation Controller-->
         <scene sceneID="HCz-dL-7vZ">
             <objects>
-                <navigationController id="D4q-pT-feU" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="loginNavi" id="D4q-pT-feU" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3pL-4L-KcE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1544,7 +1544,7 @@ bel</string>
                                 <animations/>
                                 <state key="normal" title="登录"/>
                                 <connections>
-                                    <segue destination="ptq-Ux-2Al" kind="push" id="6m6-JS-p2o"/>
+                                    <segue destination="ptq-Ux-2Al" kind="push" identifier="" id="6m6-JS-p2o"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2s-LV-r8G">
@@ -1568,7 +1568,7 @@ bel</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EvO-Ju-NgI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1573.5" y="3080.5"/>
+            <point key="canvasLocation" x="-1423.5" y="3065.5"/>
         </scene>
         <!--登陆-->
         <scene sceneID="mji-6X-FpS">
@@ -1615,6 +1615,9 @@ bel</string>
                                 <state key="normal" title="登录">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="login:" destination="ptq-Ux-2Al" eventType="touchUpInside" id="V0G-TS-P6N"/>
+                                </connections>
                             </button>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ivv-Of-XBh">
                                 <rect key="frame" x="25" y="252" width="325" height="40"/>
@@ -1708,12 +1711,12 @@ bel</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4F-UV-uq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1015.5" y="3027.5"/>
+            <point key="canvasLocation" x="-885.5" y="3087.5"/>
         </scene>
-        <!--View Controller-->
+        <!--注册-->
         <scene sceneID="DbU-LQ-yBr">
             <objects>
-                <viewController id="2qg-Od-c1f" sceneMemberID="viewController">
+                <viewController id="2qg-Od-c1f" userLabel="注册" customClass="RegisterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M2a-JR-ZrM"/>
                         <viewControllerLayoutGuide type="bottom" id="UnV-I7-WSd"/>
@@ -1721,10 +1724,23 @@ bel</string>
                     <view key="view" contentMode="scaleToFill" id="Ojx-2P-ev4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBo-pO-omY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <animations/>
+                            </scrollView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="PBo-pO-omY" secondAttribute="trailing" id="OqJ-kZ-azs"/>
+                            <constraint firstItem="PBo-pO-omY" firstAttribute="top" secondItem="M2a-JR-ZrM" secondAttribute="bottom" id="cNM-7Z-r88"/>
+                            <constraint firstItem="UnV-I7-WSd" firstAttribute="top" secondItem="PBo-pO-omY" secondAttribute="bottom" id="g30-ne-9RP"/>
+                            <constraint firstItem="PBo-pO-omY" firstAttribute="leading" secondItem="Ojx-2P-ev4" secondAttribute="leading" id="ul7-jG-yUR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vhb-pi-udR"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXs-aN-C4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1979,6 +1995,6 @@ bel</string>
         <image name="tangliButtonIcon" width="38" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="w5r-LD-v4s"/>
+        <segue reference="MHO-Wq-pON"/>
     </inferredMetricsTieBreakers>
 </document>
