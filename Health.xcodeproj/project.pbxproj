@@ -15,6 +15,7 @@
 		982A12D31C00182300749BB7 /* ExpertsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12D21C00182300749BB7 /* ExpertsDetailViewController.m */; };
 		982A12FB1C05FB7000749BB7 /* NSString+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12FA1C05FB7000749BB7 /* NSString+UI.m */; };
 		982A12FE1C05FD7200749BB7 /* UIView+DTTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12FD1C05FD7200749BB7 /* UIView+DTTextInput.m */; };
+		98ED80B21C08A4F5006018D5 /* PayResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ED80B11C08A4F5006018D5 /* PayResultViewController.m */; };
 		98F0A6CF1BFA0583008F803B /* ExpertRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6CE1BFA0583008F803B /* ExpertRequest.m */; };
 		98F0A6D21BFA05F4008F803B /* ExpertData.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6D11BFA05F4008F803B /* ExpertData.m */; };
 		98F0A6E11BFA0EBF008F803B /* KBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6D61BFA0EBF008F803B /* KBaseViewController.m */; };
@@ -55,6 +56,8 @@
 		982A12FA1C05FB7000749BB7 /* NSString+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UI.m"; sourceTree = "<group>"; };
 		982A12FC1C05FD7200749BB7 /* UIView+DTTextInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DTTextInput.h"; sourceTree = "<group>"; };
 		982A12FD1C05FD7200749BB7 /* UIView+DTTextInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DTTextInput.m"; sourceTree = "<group>"; };
+		98ED80B01C08A4F5006018D5 /* PayResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayResultViewController.h; sourceTree = "<group>"; };
+		98ED80B11C08A4F5006018D5 /* PayResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayResultViewController.m; sourceTree = "<group>"; };
 		98F0A6CD1BFA0583008F803B /* ExpertRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertRequest.h; sourceTree = "<group>"; };
 		98F0A6CE1BFA0583008F803B /* ExpertRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertRequest.m; sourceTree = "<group>"; };
 		98F0A6D01BFA05F4008F803B /* ExpertData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertData.h; sourceTree = "<group>"; };
@@ -236,6 +239,8 @@
 			children = (
 				98F0A6F01BFCC60C008F803B /* ShopListViewController.h */,
 				98F0A6F11BFCC60C008F803B /* ShopListViewController.m */,
+				98ED80B01C08A4F5006018D5 /* PayResultViewController.h */,
+				98ED80B11C08A4F5006018D5 /* PayResultViewController.m */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -470,6 +475,7 @@
 				98F0A6E21BFA0EBF008F803B /* BloodControlViewController.m in Sources */,
 				98F0A6EB1BFA27C3008F803B /* DTNetImageView.m in Sources */,
 				98F0A6F21BFCC60C008F803B /* ShopListViewController.m in Sources */,
+				98ED80B21C08A4F5006018D5 /* PayResultViewController.m in Sources */,
 				982A12D31C00182300749BB7 /* ExpertsDetailViewController.m in Sources */,
 				98F0A6F61BFCD9E1008F803B /* GoodsList.m in Sources */,
 				A986C4DA1BE6617E00D1B126 /* SSBaseRequest.m in Sources */,
