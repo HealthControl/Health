@@ -31,7 +31,8 @@
     NSMutableDictionary *dic6 = [NSMutableDictionary dictionary];
     [dic6 setObject:@"first" forKey:@"image"];
     
-    [self showLoginVC];
+    /**   先登录   **/
+//    [self showLoginVC];
     
     //dataArray = @[@"1111",@"22222", @"333333",@"44444"];
     dataArray = @[dic1, dic2, dic3, dic4];
