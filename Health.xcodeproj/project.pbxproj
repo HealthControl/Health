@@ -13,6 +13,8 @@
 		89C8A6171BCD520300845F1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6161BCD520300845F1D /* Assets.xcassets */; };
 		89C8A61A1BCD520300845F1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6181BCD520300845F1D /* LaunchScreen.storyboard */; };
 		982A12D31C00182300749BB7 /* ExpertsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12D21C00182300749BB7 /* ExpertsDetailViewController.m */; };
+		982A12FB1C05FB7000749BB7 /* NSString+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12FA1C05FB7000749BB7 /* NSString+UI.m */; };
+		982A12FE1C05FD7200749BB7 /* UIView+DTTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12FD1C05FD7200749BB7 /* UIView+DTTextInput.m */; };
 		98F0A6CF1BFA0583008F803B /* ExpertRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6CE1BFA0583008F803B /* ExpertRequest.m */; };
 		98F0A6D21BFA05F4008F803B /* ExpertData.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6D11BFA05F4008F803B /* ExpertData.m */; };
 		98F0A6E11BFA0EBF008F803B /* KBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6D61BFA0EBF008F803B /* KBaseViewController.m */; };
@@ -49,6 +51,10 @@
 		936F7B1B7D421D86A168F7D3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		982A12D11C00182300749BB7 /* ExpertsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertsDetailViewController.h; sourceTree = "<group>"; };
 		982A12D21C00182300749BB7 /* ExpertsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertsDetailViewController.m; sourceTree = "<group>"; };
+		982A12F91C05FB7000749BB7 /* NSString+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UI.h"; sourceTree = "<group>"; };
+		982A12FA1C05FB7000749BB7 /* NSString+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UI.m"; sourceTree = "<group>"; };
+		982A12FC1C05FD7200749BB7 /* UIView+DTTextInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DTTextInput.h"; sourceTree = "<group>"; };
+		982A12FD1C05FD7200749BB7 /* UIView+DTTextInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DTTextInput.m"; sourceTree = "<group>"; };
 		98F0A6CD1BFA0583008F803B /* ExpertRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertRequest.h; sourceTree = "<group>"; };
 		98F0A6CE1BFA0583008F803B /* ExpertRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertRequest.m; sourceTree = "<group>"; };
 		98F0A6D01BFA05F4008F803B /* ExpertData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertData.h; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 		89C8A6061BCD520300845F1D /* Health */ = {
 			isa = PBXGroup;
 			children = (
+				982A12F81C05FB7000749BB7 /* Utils */,
 				98F0A6E81BFA27C3008F803B /* view */,
 				98F0A6D31BFA0EBF008F803B /* ViewController */,
 				A986C4D51BE6617E00D1B126 /* Model */,
@@ -154,6 +161,15 @@
 				89C8A6081BCD520300845F1D /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		982A12F81C05FB7000749BB7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				982A12F91C05FB7000749BB7 /* NSString+UI.h */,
+				982A12FA1C05FB7000749BB7 /* NSString+UI.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		98F0A6CC1BFA0565008F803B /* Expert */ = {
@@ -269,6 +285,8 @@
 				A93B1AD41C00BFC50061FA03 /* LoginViewController.m */,
 				A93B1ADA1C04A4BA0061FA03 /* RegisterViewController.h */,
 				A93B1ADB1C04A4BA0061FA03 /* RegisterViewController.m */,
+				982A12FC1C05FD7200749BB7 /* UIView+DTTextInput.h */,
+				982A12FD1C05FD7200749BB7 /* UIView+DTTextInput.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -431,10 +449,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				98F0A6D21BFA05F4008F803B /* ExpertData.m in Sources */,
+				982A12FB1C05FB7000749BB7 /* NSString+UI.m in Sources */,
 				A9F276FF1BFA233B00F2AA28 /* MineViewController.m in Sources */,
 				89C8A60C1BCD520300845F1D /* AppDelegate.m in Sources */,
 				A986C4E11BE6626B00D1B126 /* LoginData.m in Sources */,
 				A9F276FC1BFA1DD100F2AA28 /* UserCentreData.m in Sources */,
+				982A12FE1C05FD7200749BB7 /* UIView+DTTextInput.m in Sources */,
 				98F0A6E11BFA0EBF008F803B /* KBaseViewController.m in Sources */,
 				98F0A6E71BFA0F44008F803B /* ExpertsListViewController.m in Sources */,
 				98F0A6E31BFA0EBF008F803B /* BloodInputViewController.m in Sources */,

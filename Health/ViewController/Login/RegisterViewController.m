@@ -7,8 +7,10 @@
 //
 
 #import "RegisterViewController.h"
+#import "UIView+DTTextInput.h"
 
 @interface RegisterViewController () {
+    IBOutlet UIScrollView *textScrollView;
 }
 
 @end
@@ -17,13 +19,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self addTextField];
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)addTextField {
+    
 }
 
 /*
@@ -36,18 +42,5 @@
 }
 */
 
-- (UITextField *)textTitle:(NSString *)titleString frame:(CGRect)frame{
-    UIView *view = [[UIView alloc] initWithFrame:frame];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 100, 23)];
-    titleLabel.font = [UIFont systemFontOfSize:15];
-    titleLabel.textColor = [UIColor colorWithRed:153.0/255.0 green:153.0/255.0 blue:153.0/255.0 alpha:1];
-    [view addSubview:titleLabel];
-    
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLabel.frame) + 10, CGRectGetMinY(titleLabel.frame), CGRectGetWidth(view.frame) - CGRectGetMinX(textField.frame), 34)];
-    [view addSubview:textField];
-    
-    [self.view addSubview:view];
-    return textField;
-}
 
 @end
