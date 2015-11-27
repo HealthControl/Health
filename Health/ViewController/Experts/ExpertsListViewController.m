@@ -107,8 +107,11 @@
 }
 
 - (IBAction)buttonClicked:(id)sender {
-    UIButton *button = (UIButton *)sender;
-    currentTag = button.tag;
+    
+    
+    UIControl *control = (UIControl *)sender;
+    currentTag = control.tag;
+    NSLog(@"buttonClicked %d" , currentTag);
     [self doRequest];
 }
 
