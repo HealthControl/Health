@@ -15,7 +15,10 @@
 		982A12D31C00182300749BB7 /* ExpertsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12D21C00182300749BB7 /* ExpertsDetailViewController.m */; };
 		982A12FB1C05FB7000749BB7 /* NSString+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12FA1C05FB7000749BB7 /* NSString+UI.m */; };
 		982A12FE1C05FD7200749BB7 /* UIView+DTTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12FD1C05FD7200749BB7 /* UIView+DTTextInput.m */; };
+		9874FB501C0DE32300A9594D /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9874FB4F1C0DE32300A9594D /* GoodsDetailViewController.m */; };
 		98ED80B21C08A4F5006018D5 /* PayResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ED80B11C08A4F5006018D5 /* PayResultViewController.m */; };
+		98ED80B61C08B397006018D5 /* GoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ED80B51C08B397006018D5 /* GoodsListCell.m */; };
+		98ED80B91C08B3E3006018D5 /* GoodListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ED80B81C08B3E3006018D5 /* GoodListTableView.m */; };
 		98F0A6CF1BFA0583008F803B /* ExpertRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6CE1BFA0583008F803B /* ExpertRequest.m */; };
 		98F0A6D21BFA05F4008F803B /* ExpertData.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6D11BFA05F4008F803B /* ExpertData.m */; };
 		98F0A6E11BFA0EBF008F803B /* KBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6D61BFA0EBF008F803B /* KBaseViewController.m */; };
@@ -56,8 +59,14 @@
 		982A12FA1C05FB7000749BB7 /* NSString+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UI.m"; sourceTree = "<group>"; };
 		982A12FC1C05FD7200749BB7 /* UIView+DTTextInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DTTextInput.h"; sourceTree = "<group>"; };
 		982A12FD1C05FD7200749BB7 /* UIView+DTTextInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DTTextInput.m"; sourceTree = "<group>"; };
+		9874FB4E1C0DE32300A9594D /* GoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailViewController.h; sourceTree = "<group>"; };
+		9874FB4F1C0DE32300A9594D /* GoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailViewController.m; sourceTree = "<group>"; };
 		98ED80B01C08A4F5006018D5 /* PayResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayResultViewController.h; sourceTree = "<group>"; };
 		98ED80B11C08A4F5006018D5 /* PayResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayResultViewController.m; sourceTree = "<group>"; };
+		98ED80B41C08B397006018D5 /* GoodsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsListCell.h; sourceTree = "<group>"; };
+		98ED80B51C08B397006018D5 /* GoodsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsListCell.m; sourceTree = "<group>"; };
+		98ED80B71C08B3E3006018D5 /* GoodListTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodListTableView.h; sourceTree = "<group>"; };
+		98ED80B81C08B3E3006018D5 /* GoodListTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodListTableView.m; sourceTree = "<group>"; };
 		98F0A6CD1BFA0583008F803B /* ExpertRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertRequest.h; sourceTree = "<group>"; };
 		98F0A6CE1BFA0583008F803B /* ExpertRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertRequest.m; sourceTree = "<group>"; };
 		98F0A6D01BFA05F4008F803B /* ExpertData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertData.h; sourceTree = "<group>"; };
@@ -175,6 +184,17 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		98ED80B31C08B37E006018D5 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				98ED80B41C08B397006018D5 /* GoodsListCell.h */,
+				98ED80B51C08B397006018D5 /* GoodsListCell.m */,
+				98ED80B71C08B3E3006018D5 /* GoodListTableView.h */,
+				98ED80B81C08B3E3006018D5 /* GoodListTableView.m */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
 		98F0A6CC1BFA0565008F803B /* Expert */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +261,8 @@
 				98F0A6F11BFCC60C008F803B /* ShopListViewController.m */,
 				98ED80B01C08A4F5006018D5 /* PayResultViewController.h */,
 				98ED80B11C08A4F5006018D5 /* PayResultViewController.m */,
+				9874FB4E1C0DE32300A9594D /* GoodsDetailViewController.h */,
+				9874FB4F1C0DE32300A9594D /* GoodsDetailViewController.m */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -257,6 +279,7 @@
 		98F0A6E81BFA27C3008F803B /* view */ = {
 			isa = PBXGroup;
 			children = (
+				98ED80B31C08B37E006018D5 /* Shop */,
 				A93B1AD61C04A03A0061FA03 /* Login */,
 				98F0A6EC1BFCC384008F803B /* Experts */,
 				98F0A6E91BFA27C3008F803B /* DTNetImageView.h */,
@@ -460,12 +483,15 @@
 				A986C4E11BE6626B00D1B126 /* LoginData.m in Sources */,
 				A9F276FC1BFA1DD100F2AA28 /* UserCentreData.m in Sources */,
 				982A12FE1C05FD7200749BB7 /* UIView+DTTextInput.m in Sources */,
+				9874FB501C0DE32300A9594D /* GoodsDetailViewController.m in Sources */,
 				98F0A6E11BFA0EBF008F803B /* KBaseViewController.m in Sources */,
 				98F0A6E71BFA0F44008F803B /* ExpertsListViewController.m in Sources */,
+				98ED80B61C08B397006018D5 /* GoodsListCell.m in Sources */,
 				98F0A6E31BFA0EBF008F803B /* BloodInputViewController.m in Sources */,
 				98F0A6F91BFCDA14008F803B /* GoodsRequest.m in Sources */,
 				A9DDCEF31BFE276900D9C3BD /* HealthReportViewController.m in Sources */,
 				A986C4DE1BE6624700D1B126 /* LoginRequest.m in Sources */,
+				98ED80B91C08B3E3006018D5 /* GoodListTableView.m in Sources */,
 				A93B1ADC1C04A4BA0061FA03 /* RegisterViewController.m in Sources */,
 				A93B1AD51C00BFC50061FA03 /* LoginViewController.m in Sources */,
 				98F0A6CF1BFA0583008F803B /* ExpertRequest.m in Sources */,

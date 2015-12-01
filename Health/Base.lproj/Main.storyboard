@@ -624,8 +624,8 @@
                                         <rect key="frame" x="40" y="11" width="27" height="27"/>
                                         <animations/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="高级营养师" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08C-5W-r9r">
-                                        <rect key="frame" x="11" y="45" width="85" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高级营养师" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08C-5W-r9r">
+                                        <rect key="frame" x="21" y="47" width="65" height="16"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -671,15 +671,15 @@
                                         <rect key="frame" x="41" y="15" width="25" height="19"/>
                                         <animations/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="专家咨询" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUC-sS-tRi">
-                                        <rect key="frame" x="19" y="45" width="68" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="专家咨询" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUC-sS-tRi">
+                                        <rect key="frame" x="27" y="47" width="52" height="16"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNi-Ph-71Y">
-                                        <rect key="frame" x="105.5" y="0.0" width="1" height="80"/>
+                                        <rect key="frame" x="105" y="0.0" width="1" height="80"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -718,8 +718,8 @@
                                         <rect key="frame" x="41" y="14" width="25" height="22"/>
                                         <animations/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="糖友资讯" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nb1-CO-A3C">
-                                        <rect key="frame" x="20" y="45" width="68" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="糖友资讯" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nb1-CO-A3C">
+                                        <rect key="frame" x="28" y="47.5" width="52" height="16"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -901,7 +901,7 @@ bel</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZz-Xn-UX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1713" y="-133"/>
+            <point key="canvasLocation" x="-1687" y="-136"/>
         </scene>
         <!--Experts Detail View Controller-->
         <scene sceneID="byY-iG-Mbg">
@@ -1478,11 +1478,12 @@ bel</string>
                         <outlet property="classNameLabel3" destination="5Kz-sb-Yzc" id="uX4-Kc-7WL"/>
                         <outlet property="shopListTableView" destination="ZrG-Nv-dhE" id="iBq-68-iPu"/>
                         <segue destination="AOf-3d-mlU" kind="push" id="S26-3U-XIT"/>
+                        <segue destination="5kq-zw-1GM" kind="push" id="2DI-Zg-L6t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IJo-qY-FG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1411" y="1064"/>
+            <point key="canvasLocation" x="-1608" y="1075"/>
         </scene>
         <!--支付失败-->
         <scene sceneID="L5r-6N-kgN">
@@ -1656,6 +1657,146 @@ bel</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zed-UQ-Edt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-952" y="954"/>
+        </scene>
+        <!--收藏-->
+        <scene sceneID="E9W-92-Rar">
+            <objects>
+                <viewController id="5kq-zw-1GM" userLabel="收藏" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DjX-zu-xA2"/>
+                        <viewControllerLayoutGuide type="bottom" id="dFX-PI-YhX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zB0-gt-f18">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="pTg-Qb-anX" customClass="GoodListTableView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <animations/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="yNQ-ns-qbq" customClass="GoodsListCell">
+                                        <rect key="frame" x="0.0" y="113.5" width="320" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yNQ-ns-qbq" id="a1t-u6-tz3">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oct-Vf-kFR" customClass="DTNetImageView">
+                                                    <rect key="frame" x="16" y="16" width="100" height="100"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="20l-sB-Nsb"/>
+                                                        <constraint firstAttribute="height" constant="100" id="bSJ-5v-CjY"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="药品规格：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ru1-pF-eSP">
+                                                    <rect key="frame" x="131" y="16" width="70" height="17"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="abK-Lg-noa"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="药品介绍：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqy-2F-pMO">
+                                                    <rect key="frame" x="131" y="53.5" width="70" height="17"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="5iq-xd-riy"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="药品规格：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grK-S8-fec">
+                                                    <rect key="frame" x="204" y="53.5" width="70" height="17"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="JqP-n3-7ci"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="药品规格：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iru-Ef-vhP">
+                                                    <rect key="frame" x="204" y="16" width="70" height="17"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="8cT-tD-3uk"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="药品数量：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnA-ia-L0h">
+                                                    <rect key="frame" x="131" y="90.5" width="70" height="17"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="R2g-yy-35S"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="药品规格：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ox-YW-w63">
+                                                    <rect key="frame" x="204" y="90.5" width="70" height="17"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="cCp-c5-0t1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="ru1-pF-eSP" firstAttribute="top" secondItem="a1t-u6-tz3" secondAttribute="top" constant="16" id="1ki-RD-92i"/>
+                                                <constraint firstItem="zqy-2F-pMO" firstAttribute="top" secondItem="ru1-pF-eSP" secondAttribute="bottom" constant="20.5" id="3Bo-DU-sxL"/>
+                                                <constraint firstItem="3Ox-YW-w63" firstAttribute="top" secondItem="grK-S8-fec" secondAttribute="bottom" constant="20" id="4Va-0k-flo"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3Ox-YW-w63" secondAttribute="trailing" constant="10" id="51U-F4-WHZ"/>
+                                                <constraint firstItem="iru-Ef-vhP" firstAttribute="leading" secondItem="ru1-pF-eSP" secondAttribute="trailing" constant="3" id="907-cr-ce8"/>
+                                                <constraint firstItem="grK-S8-fec" firstAttribute="leading" secondItem="zqy-2F-pMO" secondAttribute="trailing" constant="3" id="CQS-gH-f1L"/>
+                                                <constraint firstItem="rnA-ia-L0h" firstAttribute="top" secondItem="zqy-2F-pMO" secondAttribute="bottom" constant="20" id="J0W-ld-XdA"/>
+                                                <constraint firstItem="ru1-pF-eSP" firstAttribute="leading" secondItem="Oct-Vf-kFR" secondAttribute="trailing" constant="15" id="ZH8-te-dgi"/>
+                                                <constraint firstItem="Oct-Vf-kFR" firstAttribute="top" secondItem="a1t-u6-tz3" secondAttribute="top" constant="16" id="c1m-lG-K0K"/>
+                                                <constraint firstItem="zqy-2F-pMO" firstAttribute="leading" secondItem="Oct-Vf-kFR" secondAttribute="trailing" constant="15" id="cTC-e7-KAj"/>
+                                                <constraint firstItem="grK-S8-fec" firstAttribute="top" secondItem="iru-Ef-vhP" secondAttribute="bottom" constant="20.5" id="cax-jw-z6n"/>
+                                                <constraint firstItem="rnA-ia-L0h" firstAttribute="leading" secondItem="Oct-Vf-kFR" secondAttribute="trailing" constant="15" id="eet-XT-5bv"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iru-Ef-vhP" secondAttribute="trailing" constant="10" id="g6H-f7-cUI"/>
+                                                <constraint firstItem="Oct-Vf-kFR" firstAttribute="leading" secondItem="a1t-u6-tz3" secondAttribute="leading" constant="16" id="kGf-Zf-Xdb"/>
+                                                <constraint firstItem="3Ox-YW-w63" firstAttribute="leading" secondItem="rnA-ia-L0h" secondAttribute="trailing" constant="3" id="oPX-es-V3w"/>
+                                                <constraint firstItem="iru-Ef-vhP" firstAttribute="top" secondItem="a1t-u6-tz3" secondAttribute="top" constant="16" id="utz-ZL-NiC"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="grK-S8-fec" secondAttribute="trailing" constant="10" id="ycl-Tk-S8I"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <outlet property="goodsImageView" destination="Oct-Vf-kFR" id="eye-JK-dfJ"/>
+                                            <outlet property="goodsNameLabel" destination="grK-S8-fec" id="Wsf-uf-eLV"/>
+                                            <outlet property="goodsNumberLabel" destination="3Ox-YW-w63" id="dxT-vA-EHo"/>
+                                            <outlet property="goodsWeightLabel" destination="iru-Ef-vhP" id="ljN-SI-IZd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pTg-Qb-anX" firstAttribute="top" secondItem="DjX-zu-xA2" secondAttribute="bottom" id="Jyd-bo-uv5"/>
+                            <constraint firstItem="pTg-Qb-anX" firstAttribute="leading" secondItem="zB0-gt-f18" secondAttribute="leading" id="MY9-mJ-0cm"/>
+                            <constraint firstItem="dFX-PI-YhX" firstAttribute="top" secondItem="pTg-Qb-anX" secondAttribute="bottom" id="NET-MA-ImM"/>
+                            <constraint firstAttribute="trailing" secondItem="pTg-Qb-anX" secondAttribute="trailing" id="OaK-jX-ir9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="plu-GM-R5e"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uVL-5t-2uM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-959" y="1591"/>
         </scene>
         <!--个人中心-->
         <scene sceneID="wDY-7H-ExY">
