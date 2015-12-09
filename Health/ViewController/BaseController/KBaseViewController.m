@@ -7,6 +7,8 @@
 //
 
 #import "KBaseViewController.h"
+#import "LoginData.h"
+#import "UserCentreData.h"
 
 @interface KBaseViewController ()
 
@@ -28,9 +30,18 @@
 //弹出登陆页
 -(void)showLoginVC
 {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UINavigationController *loginNav = [sb instantiateViewControllerWithIdentifier:@"loginNavi"];
-    [self presentViewController:loginNav animated:YES completion:nil];
+    NSDictionary *userInfoDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"userData"];
+    if (userInfoDic && userInfoDic.allKeys.count > 0) {
+        LoginData *loginData = [[LoginData alloc] initWithDictionary:userInfoDic];
+        UserCentreData *userCentre = [UserCentreData singleton];
+        userCentre.userInfo = loginData;
+        userCentre.hasLogin = YES;
+    } else {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController *loginNav = [sb instantiateViewControllerWithIdentifier:@"loginNavi"];
+        [self presentViewController:loginNav animated:YES completion:nil];
+    }
+    
 }
 
 /*

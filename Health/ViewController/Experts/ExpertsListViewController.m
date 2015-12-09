@@ -11,6 +11,7 @@
 #import "ExpertData.h"
 #import "DTNetImageView.h"
 #import "ExpertsDetailViewController.h"
+#import "NewsDetailViewController.h"
 
 @interface ExpertsListCell : UITableViewCell 
 
@@ -51,7 +52,7 @@
 - (void)cellForNews:(NewsData*)news {
     [newsImageView setImageWithUrl:[NSURL URLWithString:news.thumb] defaultImage:nil];
     titleLabel.text = news.title;
-    introLabel.text = news.description;
+    introLabel.text = news.newsDescription;
 }
 
 @end
@@ -59,6 +60,10 @@
 @interface ExpertsListViewController () <UITableViewDataSource, UITableViewDelegate> {
     IBOutlet UITableView *expertsListTableView;
     NSInteger currentTag;
+    
+    IBOutlet UIView *lineView1;
+    IBOutlet UIView *lineView2;
+    IBOutlet UIView *lineView3;
 }
 
 @end
@@ -72,6 +77,31 @@
     expertsListTableView.dataSource = self;
     currentTag = 1;
     [self doRequest];
+    [self reloadLineView:currentTag];
+}
+
+- (void)reloadLineView:(NSInteger)tag {
+    UIColor *unselectColor = rgb_color(153, 153, 153, 1);
+    UIColor *selectColor = rgb_color(229, 87, 87, 1);
+    switch (tag) {
+        case 1:
+            lineView1.backgroundColor = selectColor;
+            lineView2.backgroundColor = unselectColor;
+            lineView3.backgroundColor = unselectColor;
+            break;
+        case 2:
+            lineView1.backgroundColor = unselectColor;
+            lineView2.backgroundColor = selectColor;
+            lineView3.backgroundColor = unselectColor;
+            break;
+        case 3:
+            lineView1.backgroundColor = unselectColor;
+            lineView2.backgroundColor = unselectColor;
+            lineView3.backgroundColor = selectColor;
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)doRequest {
@@ -111,8 +141,9 @@
     
     UIControl *control = (UIControl *)sender;
     currentTag = control.tag;
-    NSLog(@"buttonClicked %d" , currentTag);
+    NSLog(@"buttonClicked %d" , (int)currentTag);
     [self doRequest];
+    [self reloadLineView:currentTag];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -176,13 +207,23 @@
         NSMutableArray *array = [ExpertRequest singleton].expertsArray;
         ExpertData *experts = array[indexPath.row];
         [self performSegueWithIdentifier:@"expertsDetail" sender:experts];
+    } else {
+        NSMutableArray *array = [ExpertRequest singleton].newsArray;
+        NewsData *newsData = [array objectAtIndex:indexPath.row];
+        [self performSegueWithIdentifier:@"newsDetail" sender:newsData];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ExpertsDetailViewController *detailVC = [segue destinationViewController];
-    detailVC.doctorID = ((ExpertData *)sender).id;
+    if ([sender isKindOfClass:[ExpertData class]]) {
+        ExpertsDetailViewController *detailVC = [segue destinationViewController];
+        detailVC.doctorID = ((ExpertData *)sender).id;
+    } else {
+        NewsDetailViewController *newsVC = [segue destinationViewController];
+        newsVC.newsID = ((NewsData *)sender).id;
+    }
+    
 }
 
 @end

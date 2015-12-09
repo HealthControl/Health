@@ -11,7 +11,7 @@
 
 @implementation UIView (DTTextInput)
 
-- (UITextField *)textTitle:(NSString *)titleString frame:(CGRect)frame superView:(UIView *)superView{
+- (UITextField *)textTitle:(NSString *)titleString frame:(CGRect)frame superView:(UIView *)superView type:(int)type{
     UIView *view = [[UIView alloc] initWithFrame:frame];
     [view.layer setCornerRadius:5];
     [view.layer setBorderWidth:0.5f];
@@ -21,10 +21,12 @@
     titleLabel.textColor = [UIColor colorWithRed:153.0/255.0 green:153.0/255.0 blue:153.0/255.0 alpha:1];
     titleLabel.text = titleString;
     CGSize size = [titleString getUISize:titleLabel.font limitWidth:200];
-    titleLabel.frame = CGRectMake(titleLabel.frame.origin.x, titleLabel.frame.origin.y, size.width, titleLabel.frame.size.height);
+    titleLabel.frame = CGRectMake(titleLabel.left, titleLabel.top, size.width, titleLabel.height);
+    titleLabel.center = CGPointMake(titleLabel.center.x, view.height/2);
     [view addSubview:titleLabel];
     
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLabel.frame) + 10, CGRectGetMinY(titleLabel.frame), CGRectGetWidth(view.frame) - CGRectGetMinX(textField.frame), 30)];
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(titleLabel.right+10, titleLabel.top, view.width - titleLabel.right - 10, 30)];
+    textField.center = CGPointMake(textField.center.x, view.height/2);
     [view addSubview:textField];
     [superView addSubview:view];
     return textField;

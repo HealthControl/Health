@@ -65,6 +65,9 @@ static int sendSmsTag;
         if (tag == &registerTag) {
             // 保存用户信息
             LoginData *loginData = [[LoginData alloc] initWithDictionary:msg[@"data"]];
+            UserCentreData *userCentre = [UserCentreData singleton];
+            userCentre.userInfo = loginData;
+            userCentre.hasLogin = YES;
             [[NSUserDefaults standardUserDefaults] setObject:msg[@"data"] forKey:@"userData"];
             NSLog(@"%@", loginData);
         }else if(tag == &loginTag){
@@ -73,6 +76,7 @@ static int sendSmsTag;
             UserCentreData *userCentre = [UserCentreData singleton];
             userCentre.userInfo = loginData;
             userCentre.hasLogin = YES;
+            [[NSUserDefaults standardUserDefaults] setObject:msg[@"data"] forKey:@"userData"];
             NSLog(@"%@", loginData);
         }
         _complete();

@@ -8,7 +8,7 @@
 
 #import <jastor/jastor.h>
 
-@interface ExpertData : Jastor
+@interface ExpertData : NSObject
 
 @property (nonatomic, strong)NSString *id;
 @property (nonatomic, strong)NSString *name;
@@ -21,9 +21,9 @@
 @end
 
 // 咨询
-@interface NewsData : Jastor
+@interface NewsData : NSObject
 
-//@property (nonatomic, strong)NSString *description;
+@property (nonatomic, strong)NSString *newsDescription;
 @property (nonatomic, strong)NSString *id;
 @property (nonatomic, strong)NSString *inputtime;
 @property (nonatomic, strong)NSString *thumb;
@@ -32,11 +32,11 @@
 @end
 
 // 提问
-@interface QuestionData : Jastor
+@interface QuestionData : NSObject
 
 @end
 
-@interface ExpertDetail : Jastor
+@interface ExpertDetail : NSObject
 
 @property (nonatomic, strong)NSString *id;
 @property (nonatomic, strong)NSString *name;
@@ -48,3 +48,15 @@
 @property (nonatomic, strong)NSString *number;
 
 @end
+
+@interface NewsDetail : NSObject
+
+@property (nonatomic, strong) NSString *newsID;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *thumb;
+@property (nonatomic, strong) NSString *newsDescription;
+@property (nonatomic, strong) NSNumber *inputtime;
+@property (nonatomic, strong) NSString *content;
+
+@end
+

@@ -13,7 +13,7 @@
 
 static int goodsListTag;
 static int goodsTypeTag;
-
+static int goodsDetailTag;
 - (id)init
 {
     self  = [super initWithDelegate:self];
@@ -46,6 +46,13 @@ static int goodsTypeTag;
     [self startPost:uri params:nil tag:&goodsTypeTag];
 }
 
+- (void)getGoodsDetailbyID:(NSString *)goodsID complete:(Complete)completeBlock failed:(Failed)failedBlock{
+    _complete = completeBlock;
+    _failed = failedBlock;
+    NSString *uri = [NSString stringWithFormat:@"Api/Product/show"];
+    [self startPost:uri params:@{@"id":goodsID} tag:&goodsDetailTag];
+}
+
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {
     if ([msg[@"status"] integerValue] == 1) {
         if (tag == &goodsListTag) {
@@ -69,6 +76,10 @@ static int goodsTypeTag;
                     GoodsType *goodsType = [[GoodsType alloc] initWithDictionary:dic];
                     [self.goodsTypeArray addObject:goodsType];
                 }
+            }
+        } else if (tag ==  &goodsDetailTag) {
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                self.goodsDetail = [[GoodsDetail alloc] initWithDictionary:msg[@"data"]];
             }
         }
         _complete();

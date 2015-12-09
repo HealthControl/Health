@@ -54,6 +54,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Toast.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YYKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>jastor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,7 +82,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>26D98F8B91940AE64791972B991BA8F1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>30041BA2C05F40F1081A70370B599E76</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3BD2F441B993397195058C1F8559C7CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>49FA5DAFFF876CE85BB9B2EE548DA32A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4F0F4EA56BD80018BF6A3C5D66DC1ABB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,32 +112,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A2206B4C1AE8B0CD6F8300F0282FB2AC</key>
+		<key>650161766B17402DD48DF47C3C8A0FE2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF1588450E2BFCDD9E228728E886031D</key>
+		<key>867ECDA2080C1CADCCE82235BCA1F6C2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C8C597ECCD1F58819036C8DD7B9557BA</key>
+		<key>99D87B8A40BA533A652598B1CBD5F3FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>C9E0A2F331CFFB6AFFB5AE5321DE2E79</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D376E8BCB756CDD1FCEC1B63522B519B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D58AE2F07F8C3A5673018F92FBBD6842</key>
 		<dict>
 			<key>primary</key>
 			<true/>

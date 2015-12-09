@@ -15,3 +15,7 @@
 @implementation GoodsType
 
 @end
+
+@implementation GoodsDetail
+
+@end

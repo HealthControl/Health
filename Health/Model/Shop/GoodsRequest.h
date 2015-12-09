@@ -7,11 +7,13 @@
 //
 
 #import "SSBaseRequest.h"
+#import "GoodsList.h"
 
 @interface GoodsRequest : SSBaseRequest
 
 @property (nonatomic, strong) NSMutableArray *goodsListArray;// 商品列表数组
 @property (nonatomic, strong) NSMutableArray *goodsTypeArray;// 商品类型数组
+@property (nonatomic, strong) GoodsDetail    *goodsDetail;
 
 + (instancetype)singleton;
 
@@ -19,4 +21,7 @@
 - (void)getGoodsList:(NSString *)type complete:(Complete)completeBlock failed:(Failed)failedBlock;
 // 药品种类
 - (void)getGoodsTypeAndcomplete:(Complete)completeBlock failed:(Failed)failedBlock;
+// 药品详情
+- (void)getGoodsDetailbyID:(NSString *)goodsID complete:(Complete)completeBlock failed:(Failed)failedBlock;
+
 @end

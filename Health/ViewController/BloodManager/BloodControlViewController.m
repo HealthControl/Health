@@ -32,7 +32,7 @@
     [dic6 setObject:@"first" forKey:@"image"];
     
     /**   先登录   **/
-//    [self showLoginVC];
+    [self showLoginVC];
     
     //dataArray = @[@"1111",@"22222", @"333333",@"44444"];
     dataArray = @[dic1, dic2, dic3, dic4];

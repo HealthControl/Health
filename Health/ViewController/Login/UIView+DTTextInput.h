@@ -10,6 +10,5 @@
 
 @interface UIView (DTTextInput)
 
-- (UITextField *)textTitle:(NSString *)titleString frame:(CGRect)frame superView:(UIView *)superView;
-
+- (UITextField *)textTitle:(NSString *)titleString frame:(CGRect)frame superView:(UIView *)superView type:(int)type;
 @end

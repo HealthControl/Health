@@ -17,12 +17,6 @@
 
 @end
 
-//id: "1",
-//name: "分类1",
-//icon: "http://cdn-img.easyicon.net/png/11367/1136760.gif",
-//listorder: "0",
-//status: "1"
-
 @interface GoodsType : Jastor
 
 @property (nonatomic, strong) NSString *id;
@@ -30,5 +24,17 @@
 @property (nonatomic, strong) NSString *icon;
 @property (nonatomic, strong) NSString *listorder;
 @property (nonatomic, strong) NSString *status;
+
+@end
+
+@interface GoodsDetail : Jastor
+
+@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *price;
+@property (nonatomic, strong) NSString *specification;
+//@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSArray  *picture;
 
 @end

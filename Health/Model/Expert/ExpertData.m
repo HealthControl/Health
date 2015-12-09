@@ -18,9 +18,21 @@
 
 @implementation NewsData
 
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"newsDescription":@"description"};
+}
+
 @end
 
 @implementation ExpertDetail
 
+
+@end
+
+@implementation NewsDetail
+
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"newsDescription":@"description", @"newsID":@"id"};
+}
 
 @end

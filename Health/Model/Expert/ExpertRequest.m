@@ -12,6 +12,7 @@ static int expertsTag;
 static int questionTag;
 static int newsTag;
 static int expertsDetailTag;
+static int newsDetailTag;
 
 @implementation ExpertRequest
 
@@ -73,6 +74,16 @@ static int expertsDetailTag;
     [self startPost:uri params:@{@"id":doctorID} tag:&expertsDetailTag];
 }
 
+/**
+ *  资讯详情
+ */
+- (void)getNewsDetail:(NSString *)newsID complete:(Complete)completeBlock failed:(Failed)failedBlock {
+    _complete = completeBlock;
+    _failed = failedBlock;
+    NSString *uri = @"/Api/News/show";
+    [self startPost:uri params:@{@"id":newsID} tag:&newsDetailTag];
+}
+
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {
     if ([msg[@"status"] integerValue] == 1) {
         if (tag == &expertsTag) {
@@ -81,7 +92,7 @@ static int expertsDetailTag;
             }
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 for (NSDictionary *dic in msg[@"data"]) {
-                    ExpertData *data = [[ExpertData alloc] initWithDictionary:dic];
+                    ExpertData *data = [ExpertData modelWithDictionary:dic];
                     [self.expertsArray addObject:data];
                 }
             }
@@ -92,7 +103,7 @@ static int expertsDetailTag;
             }
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 for (NSDictionary *dic in msg[@"data"]) {
-                    ExpertData *data = [[ExpertData alloc] initWithDictionary:dic];
+                    ExpertData *data = [ExpertData modelWithDictionary:dic];
                     [self.questionArray addObject:data];
                 }
             }
@@ -102,16 +113,21 @@ static int expertsDetailTag;
             }
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 for (NSDictionary *dic in msg[@"data"]) {
-                    NewsData *data = [[NewsData alloc] initWithDictionary:dic];
+                    NewsData *data = [NewsData modelWithDictionary:dic];
                     [self.newsArray addObject:data];
                 }
             }
         } else if (tag == &expertsDetailTag) {
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 NSDictionary *dic = msg[@"data"];
-                self.expertsDetail = [[ExpertDetail alloc] initWithDictionary:dic];
+                self.expertsDetail = [ExpertDetail modelWithDictionary:dic];
             }
             
+        } else if (tag == &newsDetailTag) {
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                NSDictionary *dic = msg[@"data"];
+                self.newsDetail = [NewsDetail modelWithDictionary:dic];
+            }
         }
         _complete();
     } else {

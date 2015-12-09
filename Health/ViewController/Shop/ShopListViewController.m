@@ -10,6 +10,7 @@
 #import "DTNetImageView.h"
 #import "GoodsRequest.h"
 #import "GoodsList.h"
+#import "GoodsDetailViewController.h"
 
 @interface GoodsCell : UITableViewCell {
     IBOutlet UIControl *goodsView1;
@@ -28,6 +29,8 @@
     NSArray                 *dataArray;
 }
 
+@property (nonatomic, copy) void (^onEvent)(NSString *goodsID);
+
 - (void)cellForGoods:(NSArray *)goodsArray;
 
 @end
@@ -40,7 +43,6 @@
     [goodsImageView1 setImageWithUrl:[NSURL URLWithString:list1.picture] defaultImage:nil];
     goodsPriceLabel1.text = list1.price;
     goodsNameLabel1.text = list1.title;
-    
     if (goodsArray.count > 1) {
         goodsView2.hidden = NO;
         GoodsList *list2 = goodsArray[1];
@@ -53,9 +55,10 @@
 }
 
 - (IBAction)goodsSelect:(id)sender {
-//    GoodsList *list = dataArray[((UIControl *)sender).tag];
-//    UIStoryboard *mainStoryBord = [UIStoryboard storyboardWithName:@"main" bundle:nil];
-    
+    GoodsList *list = [dataArray objectAtIndex:((UIControl *)sender).tag - 1];
+    if (self.onEvent) {
+        self.onEvent(list.id);
+    }
 }
 
 @end
@@ -74,6 +77,8 @@
     IBOutlet UILabel        *classNameLabel2;
     IBOutlet UILabel        *classNameLabel3;
 }
+
+@property (nonatomic, strong) NSString                *currentID;
 
 @end
 
@@ -142,6 +147,12 @@
         }
         
         [cell cellForGoods:[goodsArray subarrayWithRange:range]];
+        __weak typeof(self) weakSelf = self;
+        cell.onEvent = ^(NSString *goodsID) {
+            weakSelf.currentID = goodsID;
+            [weakSelf performSegueWithIdentifier:@"goodsDetail" sender:weakSelf];
+            
+        };
     }
    
     return cell;
@@ -150,6 +161,13 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 135;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    GoodsDetailViewController *goodsDetailVC = [segue destinationViewController];
+    goodsDetailVC.goodsId = self.currentID;
 }
 
 @end

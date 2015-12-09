@@ -1,0 +1,15 @@
+//
+//  Health-Prefix.pch
+//  Health
+//
+//  Created by VickyCao on 12/6/15.
+//  Copyright © 2015 vickycao1221. All rights reserved.
+//
+
+#ifndef Health_Prefix_pch
+#define Health_Prefix_pch
+
+    #import "YYKit.h"
+    #import "DTInit.h"
+    #import "UIView+Toast.h"
+#endif /* Health_Prefix_pch */

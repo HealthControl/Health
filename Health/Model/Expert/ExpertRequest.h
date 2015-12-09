@@ -15,6 +15,7 @@
 @property (nonatomic, strong)NSMutableArray *questionArray;
 @property (nonatomic, strong)NSMutableArray *newsArray;
 @property (nonatomic, strong)ExpertDetail *expertsDetail;
+@property (nonatomic, strong)NewsDetail   *newsDetail;
 
 + (instancetype)singleton;
 
@@ -37,5 +38,10 @@
  *  专家详情
  */
 - (void)getExpertDetail:(NSString *)doctorID complete:(Complete)completeBlock failed:(Failed)failedBlock;
+
+/**
+ *  资讯详情
+ */
+- (void)getNewsDetail:(NSString *)newsID complete:(Complete)completeBlock failed:(Failed)failedBlock;
 
 @end

@@ -10,4 +10,6 @@
 
 @interface GoodsDetailViewController : KBaseViewController
 
+@property (nonatomic, strong) NSString *goodsId;
+
 @end

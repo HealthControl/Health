@@ -25,14 +25,14 @@
     
     mineTableView.dataSource = self;
     mineTableView.delegate =self;
-    NSDictionary *dic1 = @{@"image":@"first",@"title":@"个人档案",@"identifier":@"Identifier1"};
-    NSDictionary *dic2 = @{@"image":@"first",@"title":@"关注亲友",@"identifier":@"Identifier2"};
-    NSDictionary *dic3 = @{@"image":@"first",@"title":@"推荐下载",@"identifier":@"Identifier3"};
-    NSDictionary *dic4 = @{@"image":@"first",@"title":@"修改密码",@"identifier":@"Identifier4"};
-    NSDictionary *dic5 = @{@"image":@"first",@"title":@"我的积分",@"identifier":@"Identifier5"};
-    dataArray = @[dic1,dic2,dic3,dic4,dic5];
+    NSDictionary *dic1 = @{@"image":@"gerndangan",@"title":@"个人档案",@"identifier":@"Identifier1"};
+    NSDictionary *dic2 = @{@"image":@"guanzhuqinyou",@"title":@"关注亲友",@"identifier":@"Identifier2"};
+    NSDictionary *dic3 = @{@"image":@"tuijianxiazai",@"title":@"推荐下载",@"identifier":@"Identifier3"};
+    NSDictionary *dic4 = @{@"image":@"xiugaimima",@"title":@"修改密码",@"identifier":@"Identifier4"};
+    NSDictionary *dic5 = @{@"image":@"wodejifen",@"title":@"我的积分",@"identifier":@"Identifier5"};
+    NSDictionary *dic6 = @{@"image":@"wodedianping",@"title":@"我的的点评",@"identifier":@"Identifier6"};
+    dataArray = @[dic1,dic2,dic3,dic4,dic5,dic6];
 }
-
 
 //界面将要显示时调用
 - (void)viewWillAppear:(BOOL)animated{
@@ -75,9 +75,10 @@
         userIDLabel.text = @"aaaa";
     } else {
         NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
-        //cell.textLabel.text = [dataArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = [dic objectForKey:@"title"];
-        cell.imageView.image = [UIImage imageNamed:[dic objectForKey:@"image"]];
+        UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:1];
+        imageView.image = [UIImage imageNamed:dic[@"image"]];
+        UILabel *titleLabel = (UILabel *)[cell.contentView viewWithTag:2];
+        titleLabel.text = dic[@"title"];
     }
     
     return cell;
@@ -95,6 +96,7 @@
         NSLog(@"identifier = %@", identifier);
 //        [self performSegueWithIdentifier:identifier sender:self];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,6 +104,13 @@
         return 84;
     }
     return 50;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.01f;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 10.f;
 }
 
 @end

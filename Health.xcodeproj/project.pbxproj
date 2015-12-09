@@ -15,7 +15,9 @@
 		982A12D31C00182300749BB7 /* ExpertsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12D21C00182300749BB7 /* ExpertsDetailViewController.m */; };
 		982A12FB1C05FB7000749BB7 /* NSString+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12FA1C05FB7000749BB7 /* NSString+UI.m */; };
 		982A12FE1C05FD7200749BB7 /* UIView+DTTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12FD1C05FD7200749BB7 /* UIView+DTTextInput.m */; };
+		983F1D141C13CD8900F6410B /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983F1D131C13CD8900F6410B /* NewsDetailViewController.m */; };
 		9874FB501C0DE32300A9594D /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9874FB4F1C0DE32300A9594D /* GoodsDetailViewController.m */; };
+		98B297FE1C17242900E91154 /* LoginViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B297FD1C17242900E91154 /* LoginViewController1.m */; };
 		98ED80B21C08A4F5006018D5 /* PayResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ED80B11C08A4F5006018D5 /* PayResultViewController.m */; };
 		98ED80B61C08B397006018D5 /* GoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ED80B51C08B397006018D5 /* GoodsListCell.m */; };
 		98ED80B91C08B3E3006018D5 /* GoodListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ED80B81C08B3E3006018D5 /* GoodListTableView.m */; };
@@ -59,8 +61,13 @@
 		982A12FA1C05FB7000749BB7 /* NSString+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UI.m"; sourceTree = "<group>"; };
 		982A12FC1C05FD7200749BB7 /* UIView+DTTextInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DTTextInput.h"; sourceTree = "<group>"; };
 		982A12FD1C05FD7200749BB7 /* UIView+DTTextInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DTTextInput.m"; sourceTree = "<group>"; };
+		983F1D111C13C96400F6410B /* Health-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Health-Prefix.pch"; sourceTree = "<group>"; };
+		983F1D121C13CD8900F6410B /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
+		983F1D131C13CD8900F6410B /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
 		9874FB4E1C0DE32300A9594D /* GoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailViewController.h; sourceTree = "<group>"; };
 		9874FB4F1C0DE32300A9594D /* GoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailViewController.m; sourceTree = "<group>"; };
+		98B297FC1C17242900E91154 /* LoginViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController1.h; sourceTree = "<group>"; };
+		98B297FD1C17242900E91154 /* LoginViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController1.m; sourceTree = "<group>"; };
 		98ED80B01C08A4F5006018D5 /* PayResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayResultViewController.h; sourceTree = "<group>"; };
 		98ED80B11C08A4F5006018D5 /* PayResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayResultViewController.m; sourceTree = "<group>"; };
 		98ED80B41C08B397006018D5 /* GoodsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsListCell.h; sourceTree = "<group>"; };
@@ -171,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				89C8A6081BCD520300845F1D /* main.m */,
+				983F1D111C13C96400F6410B /* Health-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -250,6 +258,8 @@
 				98F0A6E61BFA0F44008F803B /* ExpertsListViewController.m */,
 				982A12D11C00182300749BB7 /* ExpertsDetailViewController.h */,
 				982A12D21C00182300749BB7 /* ExpertsDetailViewController.m */,
+				983F1D121C13CD8900F6410B /* NewsDetailViewController.h */,
+				983F1D131C13CD8900F6410B /* NewsDetailViewController.m */,
 			);
 			path = Experts;
 			sourceTree = "<group>";
@@ -315,6 +325,8 @@
 				A93B1ADB1C04A4BA0061FA03 /* RegisterViewController.m */,
 				982A12FC1C05FD7200749BB7 /* UIView+DTTextInput.h */,
 				982A12FD1C05FD7200749BB7 /* UIView+DTTextInput.m */,
+				98B297FC1C17242900E91154 /* LoginViewController1.h */,
+				98B297FD1C17242900E91154 /* LoginViewController1.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -481,6 +493,7 @@
 				A9F276FF1BFA233B00F2AA28 /* MineViewController.m in Sources */,
 				89C8A60C1BCD520300845F1D /* AppDelegate.m in Sources */,
 				A986C4E11BE6626B00D1B126 /* LoginData.m in Sources */,
+				98B297FE1C17242900E91154 /* LoginViewController1.m in Sources */,
 				A9F276FC1BFA1DD100F2AA28 /* UserCentreData.m in Sources */,
 				982A12FE1C05FD7200749BB7 /* UIView+DTTextInput.m in Sources */,
 				9874FB501C0DE32300A9594D /* GoodsDetailViewController.m in Sources */,
@@ -492,6 +505,7 @@
 				A9DDCEF31BFE276900D9C3BD /* HealthReportViewController.m in Sources */,
 				A986C4DE1BE6624700D1B126 /* LoginRequest.m in Sources */,
 				98ED80B91C08B3E3006018D5 /* GoodListTableView.m in Sources */,
+				983F1D141C13CD8900F6410B /* NewsDetailViewController.m in Sources */,
 				A93B1ADC1C04A4BA0061FA03 /* RegisterViewController.m in Sources */,
 				A93B1AD51C00BFC50061FA03 /* LoginViewController.m in Sources */,
 				98F0A6CF1BFA0583008F803B /* ExpertRequest.m in Sources */,
@@ -615,6 +629,8 @@
 			baseConfigurationReference = 1CE1545FD0E530B4D2D858D1 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)//Health/Health-Prefix.pch";
 				INFOPLIST_FILE = Health/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.antonio.Health;
@@ -627,6 +643,8 @@
 			baseConfigurationReference = F2911DF79D09AB030F145A18 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)//Health/Health-Prefix.pch";
 				INFOPLIST_FILE = Health/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.antonio.Health;
