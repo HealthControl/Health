@@ -43,5 +43,9 @@
  *  资讯详情
  */
 - (void)getNewsDetail:(NSString *)newsID complete:(Complete)completeBlock failed:(Failed)failedBlock;
+/**
+ *  咨询专家
+ */
+- (void)postComment:(NSString *)comment expertID:(NSString*)expertID complete:(Complete)completeBlock failed:(Failed)failedBlock;
 
 @end

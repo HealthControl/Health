@@ -13,6 +13,7 @@ static int questionTag;
 static int newsTag;
 static int expertsDetailTag;
 static int newsDetailTag;
+static int commentTag;
 
 @implementation ExpertRequest
 
@@ -51,7 +52,7 @@ static int newsDetailTag;
     _complete = completeBlock;
     _failed = failedBlock;
     NSString *uri = @"Api/Expert/lists/type/2";
-    [self startGet:uri tag:&questionTag];
+    [self startPost:uri params:nil tag:&questionTag];
 }
 
 /**
@@ -84,23 +85,35 @@ static int newsDetailTag;
     [self startPost:uri params:@{@"id":newsID} tag:&newsDetailTag];
 }
 
+/**
+ *  咨询专家
+ */
+- (void)postComment:(NSString *)comment expertID:(NSString*)expertID complete:(Complete)completeBlock failed:(Failed)failedBlock {
+    _complete = completeBlock;
+    _failed = failedBlock;
+    NSString *uri = @"Api/Expert/consult";
+    
+    [self startPost:uri params:@{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"content":comment, @"expertid":expertID} tag:&commentTag];
+}
+
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {
     if ([msg[@"status"] integerValue] == 1) {
         if (tag == &expertsTag) {
             if (!self.expertsArray) {
                 self.expertsArray = [NSMutableArray array];
             }
+            [self.expertsArray removeAllObjects];
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 for (NSDictionary *dic in msg[@"data"]) {
                     ExpertData *data = [ExpertData modelWithDictionary:dic];
                     [self.expertsArray addObject:data];
                 }
             }
-            
         }else if(tag == &questionTag) {
             if (!self.questionArray) {
                 self.questionArray = [NSMutableArray array];
             }
+            [self.questionArray removeAllObjects];
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 for (NSDictionary *dic in msg[@"data"]) {
                     ExpertData *data = [ExpertData modelWithDictionary:dic];
@@ -111,6 +124,7 @@ static int newsDetailTag;
             if (!self.newsArray) {
                 self.newsArray = [NSMutableArray array];
             }
+            [self.newsArray removeAllObjects];
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 for (NSDictionary *dic in msg[@"data"]) {
                     NewsData *data = [NewsData modelWithDictionary:dic];
@@ -128,6 +142,8 @@ static int newsDetailTag;
                 NSDictionary *dic = msg[@"data"];
                 self.newsDetail = [NewsDetail modelWithDictionary:dic];
             }
+        } else if (tag == &commentTag) {
+            
         }
         _complete();
     } else {

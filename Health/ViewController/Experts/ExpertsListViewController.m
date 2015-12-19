@@ -137,11 +137,8 @@
 }
 
 - (IBAction)buttonClicked:(id)sender {
-    
-    
     UIControl *control = (UIControl *)sender;
     currentTag = control.tag;
-    NSLog(@"buttonClicked %d" , (int)currentTag);
     [self doRequest];
     [self reloadLineView:currentTag];
 }

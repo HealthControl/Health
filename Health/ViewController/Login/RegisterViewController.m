@@ -74,7 +74,7 @@
             [sendCodeButton setTitleColor:rgb_color(229, 87, 87, 1) forState:UIControlStateNormal];
             [sendCodeButton addTarget:self action:@selector(sendCode) forControlEvents:UIControlEventTouchUpInside];
             sendCodeButton.titleLabel.font = [UIFont systemFontOfSize:15];
-            [view addSubview:sendCodeButton];
+            [field.superview addSubview:sendCodeButton];
         }
         if (i == 1 || i == 2 || i == 3) {
             field.keyboardType = UIKeyboardTypeNumberPad;

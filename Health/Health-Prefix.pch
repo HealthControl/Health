@@ -12,4 +12,5 @@
     #import "YYKit.h"
     #import "DTInit.h"
     #import "UIView+Toast.h"
+    #import "UserCentreData.h"
 #endif /* Health_Prefix_pch */

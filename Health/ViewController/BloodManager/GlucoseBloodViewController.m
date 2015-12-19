@@ -8,7 +8,7 @@
 
 #import "GlucoseBloodViewController.h"
 
-@interface GlucoseBloodViewController () <UITableViewDataSource, UITableViewDelegate>{
+@interface GlucoseBloodViewController () {
     IBOutlet UILabel *noteLabel;
     IBOutlet UIButton *bloodDeviceButton;
     IBOutlet UIButton *inputButton;
@@ -59,28 +59,6 @@
         [self performSegueWithIdentifier:Identifer sender:self];
     }
 }
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    return dataArray.count;
-//}
-//
-//// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-//// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    NSString *Identifier = @"BloodCell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Identifier];
-//    if (!cell) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier];
-//    }
-//    NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
-//    //cell.textLabel.text = [dataArray objectAtIndex:indexPath.row];
-//    cell.textLabel.text = [dic objectForKey:@"title"];
-//    cell.imageView.image = [UIImage imageNamed:[dic objectForKey:@"image"]];
-//    return cell;
-
-//}
-
 
 #pragma mark - Navigation
 

@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JTCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MD5Digest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -45,6 +50,11 @@
 			<false/>
 		</dict>
 		<key>Reachability.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDCycleScrollView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -82,7 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>26D98F8B91940AE64791972B991BA8F1</key>
+		<key>1A5AF0AFE4690E183A38E05140A51078</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +102,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3BD2F441B993397195058C1F8559C7CE</key>
+		<key>3656ED112B72A1C1F69D140669B32420</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,17 +112,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4F0F4EA56BD80018BF6A3C5D66DC1ABB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>5352D432641F0656C90741034E32F31E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>650161766B17402DD48DF47C3C8A0FE2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,7 +122,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>99D87B8A40BA533A652598B1CBD5F3FA</key>
+		<key>8CEB55D34A1113BE8ECA1EB1E24C8F03</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>926EA278BF0F71D6519122D4575E9526</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AC38528D537F80733C7FA21ECF5C3E36</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,7 +142,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>DBC62096569E19929BB1A9340120A454</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>F11A43A26908BD9BE898D3786B801D35</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F1D254C26AFCAF4D0E29619DA5D4C73A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

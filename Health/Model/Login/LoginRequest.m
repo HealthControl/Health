@@ -15,6 +15,7 @@
 static int registerTag;
 static int loginTag;
 static int sendSmsTag;
+static int resetpwdTag;
 
 - (id)init
 {
@@ -60,6 +61,13 @@ static int sendSmsTag;
     [self startPost:uri params:mobile tag:&sendSmsTag];
 }
 
+- (void)resetpwd:(NSDictionary *)resetDic complete:(Complete)complete failed:(Failed)failed {
+    _complete = complete;
+    _failed = failed;
+    NSString *uri = [NSString stringWithFormat:@"Api/Member/chpwd"];
+    [self startPost:uri params:resetDic tag:&resetpwdTag];
+}
+
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {
     if ([msg[@"status"] integerValue] == 1) {
         if (tag == &registerTag) {
@@ -78,6 +86,8 @@ static int sendSmsTag;
             userCentre.hasLogin = YES;
             [[NSUserDefaults standardUserDefaults] setObject:msg[@"data"] forKey:@"userData"];
             NSLog(@"%@", loginData);
+        }else if (tag == &resetpwdTag) {
+            
         }
         _complete();
     } else {

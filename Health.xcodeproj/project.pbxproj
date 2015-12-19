@@ -12,12 +12,17 @@
 		89C8A6151BCD520300845F1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6131BCD520300845F1D /* Main.storyboard */; };
 		89C8A6171BCD520300845F1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6161BCD520300845F1D /* Assets.xcassets */; };
 		89C8A61A1BCD520300845F1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6181BCD520300845F1D /* LaunchScreen.storyboard */; };
+		981C25861C1AA4A30065A4CD /* DianPingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981C25851C1AA4A30065A4CD /* DianPingViewController.m */; };
 		982A12D31C00182300749BB7 /* ExpertsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12D21C00182300749BB7 /* ExpertsDetailViewController.m */; };
 		982A12FB1C05FB7000749BB7 /* NSString+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12FA1C05FB7000749BB7 /* NSString+UI.m */; };
 		982A12FE1C05FD7200749BB7 /* UIView+DTTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12FD1C05FD7200749BB7 /* UIView+DTTextInput.m */; };
 		983F1D141C13CD8900F6410B /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983F1D131C13CD8900F6410B /* NewsDetailViewController.m */; };
 		9874FB501C0DE32300A9594D /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9874FB4F1C0DE32300A9594D /* GoodsDetailViewController.m */; };
 		98B297FE1C17242900E91154 /* LoginViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B297FD1C17242900E91154 /* LoginViewController1.m */; };
+		98D4C9891C21B059005B2DC7 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D4C9881C21B059005B2DC7 /* FriendsViewController.m */; };
+		98D4C98F1C23070B005B2DC7 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D4C98E1C23070B005B2DC7 /* ProfileViewController.m */; };
+		98D4C9921C231710005B2DC7 /* SelectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D4C9911C231710005B2DC7 /* SelectionRequest.m */; };
+		98DFE0921C1C69DD003C0188 /* BuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DFE0911C1C69DD003C0188 /* BuyViewController.m */; };
 		98ED80B21C08A4F5006018D5 /* PayResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ED80B11C08A4F5006018D5 /* PayResultViewController.m */; };
 		98ED80B61C08B397006018D5 /* GoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ED80B51C08B397006018D5 /* GoodsListCell.m */; };
 		98ED80B91C08B3E3006018D5 /* GoodListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ED80B81C08B3E3006018D5 /* GoodListTableView.m */; };
@@ -32,6 +37,14 @@
 		98F0A6F21BFCC60C008F803B /* ShopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6F11BFCC60C008F803B /* ShopListViewController.m */; };
 		98F0A6F61BFCD9E1008F803B /* GoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6F51BFCD9E1008F803B /* GoodsList.m */; };
 		98F0A6F91BFCDA14008F803B /* GoodsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F0A6F81BFCDA14008F803B /* GoodsRequest.m */; };
+		98F192A21C187CF600C4FDF3 /* ResetPWDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F192A11C187CF600C4FDF3 /* ResetPWDViewController.m */; };
+		98F192A51C18841F00C4FDF3 /* JifenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F192A41C18841F00C4FDF3 /* JifenViewController.m */; };
+		98F192A81C18845000C4FDF3 /* MineRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F192A71C18845000C4FDF3 /* MineRequest.m */; };
+		98F52DFD1C1D4B55005C711F /* BloodRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F52DFC1C1D4B55005C711F /* BloodRequest.m */; };
+		98F52E001C1D4CCC005C711F /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F52DFF1C1D4CCC005C711F /* CalendarViewController.m */; };
+		98F52E031C1D6027005C711F /* BloodInputResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F52E021C1D6027005C711F /* BloodInputResultViewController.m */; };
+		98F52E061C1DCE01005C711F /* TrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F52E051C1DCE01005C711F /* TrendViewController.m */; };
+		98F52E091C1DD3DC005C711F /* ZhibiaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F52E081C1DD3DC005C711F /* ZhibiaoViewController.m */; };
 		A93B1AD51C00BFC50061FA03 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A93B1AD41C00BFC50061FA03 /* LoginViewController.m */; };
 		A93B1AD91C04A05B0061FA03 /* ProfileTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A93B1AD81C04A05B0061FA03 /* ProfileTableView.m */; };
 		A93B1ADC1C04A4BA0061FA03 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A93B1ADB1C04A4BA0061FA03 /* RegisterViewController.m */; };
@@ -55,6 +68,8 @@
 		89C8A6191BCD520300845F1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C8A61B1BCD520300845F1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		936F7B1B7D421D86A168F7D3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		981C25841C1AA4A30065A4CD /* DianPingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianPingViewController.h; sourceTree = "<group>"; };
+		981C25851C1AA4A30065A4CD /* DianPingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianPingViewController.m; sourceTree = "<group>"; };
 		982A12D11C00182300749BB7 /* ExpertsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertsDetailViewController.h; sourceTree = "<group>"; };
 		982A12D21C00182300749BB7 /* ExpertsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertsDetailViewController.m; sourceTree = "<group>"; };
 		982A12F91C05FB7000749BB7 /* NSString+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UI.h"; sourceTree = "<group>"; };
@@ -68,6 +83,14 @@
 		9874FB4F1C0DE32300A9594D /* GoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailViewController.m; sourceTree = "<group>"; };
 		98B297FC1C17242900E91154 /* LoginViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController1.h; sourceTree = "<group>"; };
 		98B297FD1C17242900E91154 /* LoginViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController1.m; sourceTree = "<group>"; };
+		98D4C9871C21B059005B2DC7 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		98D4C9881C21B059005B2DC7 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		98D4C98D1C23070B005B2DC7 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		98D4C98E1C23070B005B2DC7 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		98D4C9901C231710005B2DC7 /* SelectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionRequest.h; sourceTree = "<group>"; };
+		98D4C9911C231710005B2DC7 /* SelectionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionRequest.m; sourceTree = "<group>"; };
+		98DFE0901C1C69DD003C0188 /* BuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyViewController.h; sourceTree = "<group>"; };
+		98DFE0911C1C69DD003C0188 /* BuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyViewController.m; sourceTree = "<group>"; };
 		98ED80B01C08A4F5006018D5 /* PayResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayResultViewController.h; sourceTree = "<group>"; };
 		98ED80B11C08A4F5006018D5 /* PayResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayResultViewController.m; sourceTree = "<group>"; };
 		98ED80B41C08B397006018D5 /* GoodsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsListCell.h; sourceTree = "<group>"; };
@@ -96,6 +119,22 @@
 		98F0A6F51BFCD9E1008F803B /* GoodsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsList.m; sourceTree = "<group>"; };
 		98F0A6F71BFCDA14008F803B /* GoodsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsRequest.h; sourceTree = "<group>"; };
 		98F0A6F81BFCDA14008F803B /* GoodsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsRequest.m; sourceTree = "<group>"; };
+		98F192A01C187CF600C4FDF3 /* ResetPWDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPWDViewController.h; sourceTree = "<group>"; };
+		98F192A11C187CF600C4FDF3 /* ResetPWDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPWDViewController.m; sourceTree = "<group>"; };
+		98F192A31C18841F00C4FDF3 /* JifenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JifenViewController.h; sourceTree = "<group>"; };
+		98F192A41C18841F00C4FDF3 /* JifenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JifenViewController.m; sourceTree = "<group>"; };
+		98F192A61C18845000C4FDF3 /* MineRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineRequest.h; sourceTree = "<group>"; };
+		98F192A71C18845000C4FDF3 /* MineRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineRequest.m; sourceTree = "<group>"; };
+		98F52DFB1C1D4B55005C711F /* BloodRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodRequest.h; sourceTree = "<group>"; };
+		98F52DFC1C1D4B55005C711F /* BloodRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodRequest.m; sourceTree = "<group>"; };
+		98F52DFE1C1D4CCC005C711F /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		98F52DFF1C1D4CCC005C711F /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		98F52E011C1D6027005C711F /* BloodInputResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BloodInputResultViewController.h; sourceTree = "<group>"; };
+		98F52E021C1D6027005C711F /* BloodInputResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BloodInputResultViewController.m; sourceTree = "<group>"; };
+		98F52E041C1DCE01005C711F /* TrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendViewController.h; sourceTree = "<group>"; };
+		98F52E051C1DCE01005C711F /* TrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendViewController.m; sourceTree = "<group>"; };
+		98F52E071C1DD3DC005C711F /* ZhibiaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhibiaoViewController.h; sourceTree = "<group>"; };
+		98F52E081C1DD3DC005C711F /* ZhibiaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhibiaoViewController.m; sourceTree = "<group>"; };
 		A93B1AD31C00BFC50061FA03 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		A93B1AD41C00BFC50061FA03 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A93B1AD71C04A05B0061FA03 /* ProfileTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableView.h; sourceTree = "<group>"; };
@@ -247,6 +286,14 @@
 				98F0A6DD1BFA0EBF008F803B /* GlucoseBloodViewController.m */,
 				A9DDCEF11BFE276900D9C3BD /* HealthReportViewController.h */,
 				A9DDCEF21BFE276900D9C3BD /* HealthReportViewController.m */,
+				98F52DFE1C1D4CCC005C711F /* CalendarViewController.h */,
+				98F52DFF1C1D4CCC005C711F /* CalendarViewController.m */,
+				98F52E011C1D6027005C711F /* BloodInputResultViewController.h */,
+				98F52E021C1D6027005C711F /* BloodInputResultViewController.m */,
+				98F52E041C1DCE01005C711F /* TrendViewController.h */,
+				98F52E051C1DCE01005C711F /* TrendViewController.m */,
+				98F52E071C1DD3DC005C711F /* ZhibiaoViewController.h */,
+				98F52E081C1DD3DC005C711F /* ZhibiaoViewController.m */,
 			);
 			path = BloodManager;
 			sourceTree = "<group>";
@@ -273,6 +320,8 @@
 				98ED80B11C08A4F5006018D5 /* PayResultViewController.m */,
 				9874FB4E1C0DE32300A9594D /* GoodsDetailViewController.h */,
 				9874FB4F1C0DE32300A9594D /* GoodsDetailViewController.m */,
+				98DFE0901C1C69DD003C0188 /* BuyViewController.h */,
+				98DFE0911C1C69DD003C0188 /* BuyViewController.m */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -282,6 +331,16 @@
 			children = (
 				A9F276FD1BFA233B00F2AA28 /* MineViewController.h */,
 				A9F276FE1BFA233B00F2AA28 /* MineViewController.m */,
+				98F192A01C187CF600C4FDF3 /* ResetPWDViewController.h */,
+				98F192A11C187CF600C4FDF3 /* ResetPWDViewController.m */,
+				98F192A31C18841F00C4FDF3 /* JifenViewController.h */,
+				98F192A41C18841F00C4FDF3 /* JifenViewController.m */,
+				981C25841C1AA4A30065A4CD /* DianPingViewController.h */,
+				981C25851C1AA4A30065A4CD /* DianPingViewController.m */,
+				98D4C9871C21B059005B2DC7 /* FriendsViewController.h */,
+				98D4C9881C21B059005B2DC7 /* FriendsViewController.m */,
+				98D4C98D1C23070B005B2DC7 /* ProfileViewController.h */,
+				98D4C98E1C23070B005B2DC7 /* ProfileViewController.m */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -316,6 +375,15 @@
 			path = Shop;
 			sourceTree = "<group>";
 		};
+		98F52DFA1C1D4B31005C711F /* Blood */ = {
+			isa = PBXGroup;
+			children = (
+				98F52DFB1C1D4B55005C711F /* BloodRequest.h */,
+				98F52DFC1C1D4B55005C711F /* BloodRequest.m */,
+			);
+			path = Blood;
+			sourceTree = "<group>";
+		};
 		A93B1AD21C00BFB20061FA03 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +411,7 @@
 		A986C4D51BE6617E00D1B126 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				98F52DFA1C1D4B31005C711F /* Blood */,
 				98F0A6F31BFCD9D0008F803B /* Shop */,
 				98F0A6CC1BFA0565008F803B /* Expert */,
 				A986C4DB1BE6623200D1B126 /* Login */,
@@ -370,6 +439,10 @@
 				A986C4E01BE6626B00D1B126 /* LoginData.m */,
 				A9F276FA1BFA1DD100F2AA28 /* UserCentreData.h */,
 				A9F276FB1BFA1DD100F2AA28 /* UserCentreData.m */,
+				98F192A61C18845000C4FDF3 /* MineRequest.h */,
+				98F192A71C18845000C4FDF3 /* MineRequest.m */,
+				98D4C9901C231710005B2DC7 /* SelectionRequest.h */,
+				98D4C9911C231710005B2DC7 /* SelectionRequest.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -488,19 +561,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98F192A21C187CF600C4FDF3 /* ResetPWDViewController.m in Sources */,
 				98F0A6D21BFA05F4008F803B /* ExpertData.m in Sources */,
 				982A12FB1C05FB7000749BB7 /* NSString+UI.m in Sources */,
 				A9F276FF1BFA233B00F2AA28 /* MineViewController.m in Sources */,
 				89C8A60C1BCD520300845F1D /* AppDelegate.m in Sources */,
+				98D4C98F1C23070B005B2DC7 /* ProfileViewController.m in Sources */,
+				98DFE0921C1C69DD003C0188 /* BuyViewController.m in Sources */,
 				A986C4E11BE6626B00D1B126 /* LoginData.m in Sources */,
+				981C25861C1AA4A30065A4CD /* DianPingViewController.m in Sources */,
+				98F192A51C18841F00C4FDF3 /* JifenViewController.m in Sources */,
 				98B297FE1C17242900E91154 /* LoginViewController1.m in Sources */,
+				98F52E031C1D6027005C711F /* BloodInputResultViewController.m in Sources */,
+				98F52DFD1C1D4B55005C711F /* BloodRequest.m in Sources */,
+				98F192A81C18845000C4FDF3 /* MineRequest.m in Sources */,
 				A9F276FC1BFA1DD100F2AA28 /* UserCentreData.m in Sources */,
 				982A12FE1C05FD7200749BB7 /* UIView+DTTextInput.m in Sources */,
 				9874FB501C0DE32300A9594D /* GoodsDetailViewController.m in Sources */,
 				98F0A6E11BFA0EBF008F803B /* KBaseViewController.m in Sources */,
+				98F52E001C1D4CCC005C711F /* CalendarViewController.m in Sources */,
 				98F0A6E71BFA0F44008F803B /* ExpertsListViewController.m in Sources */,
 				98ED80B61C08B397006018D5 /* GoodsListCell.m in Sources */,
+				98F52E061C1DCE01005C711F /* TrendViewController.m in Sources */,
 				98F0A6E31BFA0EBF008F803B /* BloodInputViewController.m in Sources */,
+				98F52E091C1DD3DC005C711F /* ZhibiaoViewController.m in Sources */,
+				98D4C9921C231710005B2DC7 /* SelectionRequest.m in Sources */,
 				98F0A6F91BFCDA14008F803B /* GoodsRequest.m in Sources */,
 				A9DDCEF31BFE276900D9C3BD /* HealthReportViewController.m in Sources */,
 				A986C4DE1BE6624700D1B126 /* LoginRequest.m in Sources */,
@@ -508,6 +593,7 @@
 				983F1D141C13CD8900F6410B /* NewsDetailViewController.m in Sources */,
 				A93B1ADC1C04A4BA0061FA03 /* RegisterViewController.m in Sources */,
 				A93B1AD51C00BFC50061FA03 /* LoginViewController.m in Sources */,
+				98D4C9891C21B059005B2DC7 /* FriendsViewController.m in Sources */,
 				98F0A6CF1BFA0583008F803B /* ExpertRequest.m in Sources */,
 				89C8A6091BCD520300845F1D /* main.m in Sources */,
 				98F0A6E41BFA0EBF008F803B /* GlucoseBloodViewController.m in Sources */,

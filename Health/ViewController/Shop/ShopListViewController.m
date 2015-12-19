@@ -76,6 +76,12 @@
     IBOutlet UILabel        *classNameLabel1;
     IBOutlet UILabel        *classNameLabel2;
     IBOutlet UILabel        *classNameLabel3;
+    
+    IBOutlet UIView         *lineview1;
+    IBOutlet UIView         *lineview2;
+    IBOutlet UIView         *lineview3;
+    
+    BOOL cantouch;
 }
 
 @property (nonatomic, strong) NSString                *currentID;
@@ -88,39 +94,76 @@
     [super viewDidLoad];
     goodsArray = [NSMutableArray array];
     self.title = @"商城";
+    cantouch = NO;
     [[GoodsRequest singleton] getGoodsTypeAndcomplete:^{
         [self reloadTypeView];
     } failed:^(NSString *state, NSString *errmsg) {
         
     }];
+    [self reloadLineView:1];
 }
 
 - (void)reloadTypeView {
+    cantouch = YES;
     NSArray *array = [NSArray arrayWithArray:[GoodsRequest singleton].goodsTypeArray];
     NSArray *viewArray = @[@{@"image":classImageView1, @"label":classNameLabel1}, @{@"image":classImageView2, @"label":classNameLabel2}, @{@"image":classImageView3, @"label":classNameLabel3}];
     for (int i = 0; i < array.count; i++) {
-        if (viewArray.count > i+1) {
-            NSDictionary *dic = viewArray[i];
-            GoodsType *type = array[i];
-            DTNetImageView *image = dic[@"image"];
-            [image setImageWithUrlString:type.icon defaultImage:nil];
-            UILabel *label = dic[@"label"];
-            label.text = type.name;
-        }
+        NSDictionary *dic = viewArray[i];
+        GoodsType *type = array[i];
+        DTNetImageView *image = dic[@"image"];
+        [image setImageWithUrlString:type.icon defaultImage:nil];
+        UILabel *label = dic[@"label"];
+        label.text = type.name;
     }
+    GoodsType *firstType = array[0];
+    [[GoodsRequest singleton] getGoodsList:firstType.id complete:^{
+        [self reloadData];
+    } failed:^(NSString *state, NSString *errmsg) {
+        
+    }];
 }
 
 - (void)reloadData {
-    [goodsArray removeAllObjects];
     [goodsArray addObjectsFromArray:[GoodsRequest singleton].goodsListArray];
     [shopListTableView reloadData];
 }
 
+- (void)reloadLineView:(NSInteger)tag {
+    UIColor *unselectColor = rgb_color(153, 153, 153, 1);
+    UIColor *selectColor = rgb_color(229, 87, 87, 1);
+    switch (tag) {
+        case 1:
+            lineview1.backgroundColor = selectColor;
+            lineview2.backgroundColor = unselectColor;
+            lineview3.backgroundColor = unselectColor;
+            break;
+        case 2:
+            lineview1.backgroundColor = unselectColor;
+            lineview2.backgroundColor = selectColor;
+            lineview3.backgroundColor = unselectColor;
+            break;
+        case 3:
+            lineview1.backgroundColor = unselectColor;
+            lineview2.backgroundColor = unselectColor;
+            lineview3.backgroundColor = selectColor;
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark - IBAction
 - (IBAction)classSelected:(id)sender {
+    if (!cantouch) {
+        return;
+    }
     UIControl *controlView = (UIControl *)sender;
+    [self reloadLineView:controlView.tag];
+    [goodsArray removeAllObjects];
+    [shopListTableView reloadData];
     __weak typeof(self) weakSelf = self;
-    [[GoodsRequest singleton] getGoodsList:[NSString stringWithFormat:@"%d", (int)controlView.tag] complete:^{
+    GoodsType *type = [[GoodsRequest singleton].goodsTypeArray objectAtIndex:(controlView.tag - 1)];
+    [[GoodsRequest singleton] getGoodsList:type.id complete:^{
         [weakSelf reloadData];
     } failed:^(NSString *state, NSString *errmsg) {
         

@@ -27,13 +27,13 @@
 
 @end
 
-@interface GoodsDetail : Jastor
+@interface GoodsDetail : NSObject
 
 @property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *price;
 @property (nonatomic, strong) NSString *specification;
-//@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *newsDescription;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSArray  *picture;
 

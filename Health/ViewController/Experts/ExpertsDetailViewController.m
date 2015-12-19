@@ -12,6 +12,7 @@
 
 @interface ExpertsDetailViewController () <UITableViewDataSource, UITableViewDelegate> {
     IBOutlet UITableView *detailTabelView;
+    IBOutlet UITextView *submitTextView;
 }
 
 @end
@@ -27,6 +28,27 @@
     } failed:^(NSString *state, NSString *errmsg) {
         
     }];
+    
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
+        [submitTextView resignFirstResponder];
+    }];
+    [detailTabelView addGestureRecognizer:gesture];
+}
+
+- (void)commitComment {
+    if (submitTextView.text.length == 0) {
+        [submitTextView resignFirstResponder];
+        [self.view makeToast:@"请输入内容"];
+        return;
+    }
+    [[ExpertRequest singleton] postComment:submitTextView.text expertID:@"" complete:^{
+        [self.view makeToast:@"提问成功"];
+        submitTextView.text = @"";
+        [submitTextView resignFirstResponder];
+    } failed:^(NSString *state, NSString *errmsg) {
+        [self.view makeToast:errmsg];
+    }];
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -70,6 +92,18 @@
     } else if (indexPath.section == 1) {
         identifier = @"referExperts";
         cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        UITextView *textView = [cell.contentView viewWithTag:1];
+        if (!submitTextView) {
+            submitTextView = textView;
+            [submitTextView.layer setBorderColor:[rgb_color(153, 153, 153, 1) CGColor]];
+            [submitTextView.layer setBorderWidth:0.5f];
+            [submitTextView.layer setCornerRadius:5];
+        } else {
+            textView = submitTextView;
+        }
+        
+        UIButton *button = [cell.contentView viewWithTag:2];
+        [button addTarget:self action:@selector(commitComment) forControlEvents:UIControlEventTouchUpInside];
     } else if (indexPath.section == 2) {
         identifier = @"referExperts";
         cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -86,16 +120,13 @@
                 return 100;
             } else {
                 UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-                UILabel *detailLabel = [cell.contentView viewWithTag:1];
-                detailLabel.preferredMaxLayoutWidth = cell.contentView.frame.size.width - 24;
-                
-                [cell setNeedsLayout];
-                [cell layoutIfNeeded];
+                UILabel *label = [cell.contentView viewWithTag:1];
+                ExpertDetail *detail = [ExpertRequest singleton].expertsDetail;
+                label.text = detail.introduce;
+
                 [cell setNeedsUpdateConstraints];
                 [cell updateConstraintsIfNeeded];
-                
-                CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-                return size.height + 1;
+                return [detail.introduce heightForFont:label.font width:label.width]+60;
             }
         }
         case 1:

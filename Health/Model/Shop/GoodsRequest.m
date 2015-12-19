@@ -79,7 +79,7 @@ static int goodsDetailTag;
             }
         } else if (tag ==  &goodsDetailTag) {
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
-                self.goodsDetail = [[GoodsDetail alloc] initWithDictionary:msg[@"data"]];
+                self.goodsDetail = [GoodsDetail modelWithDictionary:msg[@"data"]];
             }
         }
         _complete();

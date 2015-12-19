@@ -24,6 +24,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)buttonClick:(id)sender {
+    NSInteger buttonTag = ((UIControl *)sender).tag;
+    NSString *identifier = @"";
+    switch (buttonTag) {
+        case 1:
+            
+            break;
+        case 2:
+            identifier = @"trendidentifer";
+            break;
+        case 3:
+            identifier = @"zhibiao";
+            break;
+        default:
+            break;
+    }
+    if (identifier) {
+        [self performSegueWithIdentifier:identifier sender:self];
+    }
+}
+
 /*
 #pragma mark - Navigation
 

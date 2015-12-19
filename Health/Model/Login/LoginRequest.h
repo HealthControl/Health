@@ -20,4 +20,6 @@
 
 //发送验证码
 -(void) sendSms:(NSDictionary *) mobile complete:(Complete)complete failed:(Failed) failed;
+//重置密码
+- (void)resetpwd:(NSDictionary *)resetDic complete:(Complete)complete failed:(Failed) failed;
 @end

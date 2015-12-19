@@ -18,4 +18,8 @@
 
 @implementation GoodsDetail
 
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"newsDescription":@"description"};
+}
+
 @end

@@ -8,9 +8,13 @@
 
 #import "GoodsDetailViewController.h"
 #import "GoodsRequest.h"
+#import "SDCycleScrollView.h"
 
 @interface GoodsDetailViewController () <UITableViewDataSource, UITableViewDelegate>{
     IBOutlet UITableView *goodsDetailTableView;
+    IBOutlet SDCycleScrollView *cycleScrollView;
+    IBOutlet UILabel *numberLabel;
+    NSMutableArray *dataArray;
 }
 
 @end
@@ -21,103 +25,83 @@
     [super viewDidLoad];
     goodsDetailTableView.delegate = self;
     goodsDetailTableView.dataSource = self;
+    dataArray = [[NSMutableArray alloc] init];
     [self loadRequest];
 }
 
 - (void)loadRequest {
     [[GoodsRequest singleton] getGoodsDetailbyID:self.goodsId complete:^{
-        [goodsDetailTableView reloadData];
+        [self reloadView];
     } failed:^(NSString *state, NSString *errmsg) {
         
     }];
 }
 
+- (void)reloadView {
+    GoodsDetail *detail = [GoodsRequest singleton].goodsDetail;
+    cycleScrollView.imageURLStringsGroup = detail.picture;
+    cycleScrollView.autoScrollTimeInterval = 5;
+    [dataArray addObjectsFromArray:@[@{@"【药品价格】":detail.price}, @{@"【药品规格】":detail.specification}, @{@"【药品介绍】":detail.newsDescription}, @{@"【详情描述】":detail.content}]];
+    [goodsDetailTableView reloadData];
+}
+
+- (IBAction)addOrReduce:(id)sender {
+    int number = [numberLabel.text intValue];
+    NSInteger buttonTag = ((UIButton *)sender).tag;
+    if (buttonTag == 1) {
+        if (number > 1) {
+            number--;
+        } else {
+            [self.view makeToast:@"个数不能小于1"];
+        }
+    } else {
+        number++;
+    }
+    numberLabel.text = [NSString stringWithFormat:@"%d", number];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 7;
+    return dataArray.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier = @"";
     GoodsDetail *detail = [GoodsRequest singleton].goodsDetail;
-    switch (indexPath.row) {
-        case 0:
-            identifier = @"goodsName";
-            break;
-        case 1:
-            identifier = @"goodsName";
-            break;
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-            identifier = @"goodsIntro";
-            break;
-        case 6:
-            identifier = @"goodsNumber";
-            break;
-        default:
-            break;
+    if (indexPath.row == 0) {
+        identifier = @"goodsName";
+    } else {
+        identifier = @"goodsIntro";
     }
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    switch (indexPath.row) {
-        case 0:
-            
-            break;
-        case 1:
-        {
-            UILabel *label = [cell.contentView viewWithTag:1];
-            label.text = detail.title;
-        }
-            break;
-        case 2: {
-            UILabel *label1 = [cell.contentView viewWithTag:1];
-            UILabel *label2 = [cell.contentView viewWithTag:2];
-            label1.text = @"【药品价格】";
-            label2.text = detail.price;
-            
-        }
-        case 3:
-        {
-            UILabel *label1 = [cell.contentView viewWithTag:1];
-            UILabel *label2 = [cell.contentView viewWithTag:2];
-            label1.text = @"【药品规格】";
-            label2.text = detail.specification;
-            
-        }
-        case 4:
-        {
-            UILabel *label1 = [cell.contentView viewWithTag:1];
-            UILabel *label2 = [cell.contentView viewWithTag:2];
-            label1.text = @"【药品介绍】";
-//            label2.text = detail.description;
-            
-        }
-        case 5:
-        {
-            UILabel *label1 = [cell.contentView viewWithTag:1];
-            UILabel *label2 = [cell.contentView viewWithTag:2];
-            label1.text = @"【详情描述】";
-            label2.text = detail.content;
-            
-        }
-            break;
-        case 6:
-            identifier = @"goodsNumber";
-            break;
-        default:
-            break;
+    if (indexPath.row == 0) {
+        UILabel *label = [cell.contentView viewWithTag:1];
+        label.text = detail.title;
+    } else {
+        UILabel *label1 = [cell.contentView viewWithTag:1];
+        UILabel *label2 = [cell.contentView viewWithTag:2];
+        NSDictionary *dic = [dataArray objectAtIndex:indexPath.row-1];
+        label1.text = [dic.allKeys firstObject];
+        label2.text = [dic.allValues firstObject];
     }
     return cell;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return 44;
+    }
+    
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    UILabel *label = [cell.contentView viewWithTag:2];
+    NSDictionary *dic = [dataArray objectAtIndex:indexPath.row - 1];
+    NSString *text = [[dic allValues] firstObject];
+    label.text = text;
+    [cell setNeedsUpdateConstraints];
+    
+    [cell updateConstraintsIfNeeded];
+    
+    return [text heightForFont:label.font width:label.width] + 30;
 }
-*/
 
 @end

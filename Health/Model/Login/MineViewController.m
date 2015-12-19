@@ -30,8 +30,8 @@
     NSDictionary *dic3 = @{@"image":@"tuijianxiazai",@"title":@"推荐下载",@"identifier":@"Identifier3"};
     NSDictionary *dic4 = @{@"image":@"xiugaimima",@"title":@"修改密码",@"identifier":@"Identifier4"};
     NSDictionary *dic5 = @{@"image":@"wodejifen",@"title":@"我的积分",@"identifier":@"Identifier5"};
-    NSDictionary *dic6 = @{@"image":@"wodedianping",@"title":@"我的的点评",@"identifier":@"Identifier6"};
-    dataArray = @[dic1,dic2,dic3,dic4,dic5,dic6];
+    NSDictionary *dic6 = @{@"image":@"wodedianping",@"title":@"我的点评",@"identifier":@"Identifier6"};
+    dataArray = @[dic1,dic2,dic4,dic5,dic6];
 }
 
 //界面将要显示时调用
@@ -69,10 +69,10 @@
         DTNetImageView *headImage = [(DTNetImageView *)cell.contentView viewWithTag:1];
         UILabel        *userNameLabel = [(UILabel *)cell.contentView viewWithTag:2];
         UILabel        *userIDLabel = [(UILabel *)cell.contentView viewWithTag:3];
-//        [UserCentreData singleton].userInfo.username
+        LoginData *data = [UserCentreData singleton].userInfo;
         [headImage setImageWithUrl:[NSURL URLWithString:@""] defaultImage:nil];
-        userNameLabel.text = @"sssss";
-        userIDLabel.text = @"aaaa";
+        userNameLabel.text = data.username;
+        userIDLabel.text = data.userid;
     } else {
         NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
         UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:1];
@@ -94,7 +94,7 @@
     }
     if (identifier) {
         NSLog(@"identifier = %@", identifier);
-//        [self performSegueWithIdentifier:identifier sender:self];
+        [self performSegueWithIdentifier:identifier sender:self];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
