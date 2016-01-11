@@ -16,6 +16,7 @@ static int registerTag;
 static int loginTag;
 static int sendSmsTag;
 static int resetpwdTag;
+static int findpwdTag;
 
 - (id)init
 {
@@ -68,6 +69,13 @@ static int resetpwdTag;
     [self startPost:uri params:resetDic tag:&resetpwdTag];
 }
 
+- (void)findPwd:(NSDictionary *)findpwd complete:(Complete)complete failed:(Failed)failed {
+    _complete = complete;
+    _failed = failed;
+    [self startPost:@"Api/Member/findpwd" params:findpwd tag:&findpwdTag];
+    
+}
+
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {
     if ([msg[@"status"] integerValue] == 1) {
         if (tag == &registerTag) {
@@ -80,11 +88,11 @@ static int resetpwdTag;
             NSLog(@"%@", loginData);
         }else if(tag == &loginTag){
             // 保存用户信息
-            LoginData *loginData = [[LoginData alloc] initWithDictionary:msg[@"data"]];
+            LoginData *loginData = [LoginData modelWithDictionary:msg[@"data"]];
             UserCentreData *userCentre = [UserCentreData singleton];
             userCentre.userInfo = loginData;
             userCentre.hasLogin = YES;
-            [[NSUserDefaults standardUserDefaults] setObject:msg[@"data"] forKey:@"userData"];
+            [[NSUserDefaults standardUserDefaults] setObject:[loginData modelToJSONObject] forKey:@"userData"];
             NSLog(@"%@", loginData);
         }else if (tag == &resetpwdTag) {
             

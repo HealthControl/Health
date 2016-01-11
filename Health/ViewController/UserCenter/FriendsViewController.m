@@ -8,36 +8,42 @@
 
 #import "FriendsViewController.h"
 #import "MineRequest.h"
+#import "FriendsDetailViewController.h"
 
 @interface AddFriendsCell : UITableViewCell {
-    IBOutlet UITextField *relationField;
-    IBOutlet UITextField *phoneField;
+    
 }
+
+@property (nonatomic, weak)IBOutlet UITextField *relationField;
+@property (nonatomic, weak)IBOutlet UITextField *phoneField;
 
 @end
 
 @implementation AddFriendsCell
 
 - (IBAction)sumbitAdd:(id)sender {
-    if (relationField.text.length == 0) {
+    if (_relationField.text.length == 0) {
         [self.viewController.view makeToast:@"关系不能为空"];
         return;
     }
-    if (phoneField.text.length == 0) {
+    if (_phoneField.text.length == 0) {
         [self.viewController.view makeToast:@"手机号不能为空"];
         return;
     }
     
-    [[MineRequest singleton] addFriendsReletion:relationField.text mobil:phoneField.text complete:^{
+    [[MineRequest singleton] addFriendsReletion:_relationField.text mobil:_phoneField.text complete:^{
         [(FriendsViewController *)self.viewController loadData];
-        [self.viewController.view makeToast:@"添加成功"];
-        relationField.text = @"";
-        phoneField.text = @"";
-        [relationField resignFirstResponder];
-        [phoneField resignFirstResponder];
+        
     } failed:^(NSString *state, NSString *errmsg) {
-        [self.viewController.view makeToast:errmsg];
+        [self makeToast:errmsg];
     }];
+}
+
+- (void)reloadcell {
+    [self.relationField resignFirstResponder];
+    self.relationField.text = @"";
+    self.phoneField.text = @"";
+    [self.phoneField resignFirstResponder];
 }
 
 @end
@@ -61,9 +67,7 @@
 - (IBAction)deleteFriends:(id)sender {
     [[MineRequest singleton] deleteFriends:saveDic[@"id"] complete:^{
         [(FriendsViewController *)self.viewController loadData];
-        [self.viewController.view makeToast:@"删除成功"];
     } failed:^(NSString *state, NSString *errmsg) {
-        [self.viewController.view makeToast:errmsg];
     }];
 }
 
@@ -122,9 +126,28 @@
     if (indexPath.row < dataArray.count) {
         NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
         [(DeleteFriendsCell *)cell cellForDic:dic];
+    } else {
+        [(AddFriendsCell *)cell reloadcell];
     }
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 57;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row < dataArray.count) {
+        NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
+        [self performSegueWithIdentifier:@"showfriendsDetail" sender:dic];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    FriendsDetailViewController *detailVC = [segue destinationViewController];
+    detailVC.friendsDic = (NSDictionary *)sender;
 }
 
 @end

@@ -71,7 +71,7 @@ Class object_getClass(id object);
     self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
     //如果报接受类型不一致请替换一致text/html
-    self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html", nil];
     
     //清求时间设置
     self.manager.requestSerializer.timeoutInterval = 30;
@@ -226,9 +226,33 @@ Class object_getClass(id object);
 //        [self requestFinished:responseObject tag:tag];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        [self requestFailed:tag];
-        [self.delegate getError:@{@"error":@"aaa"} tag:tag];
+        if ([self.delegate respondsToSelector:@selector(getError:tag:)]) {
+            [self.delegate getError:@{@"error":@"aaa"} tag:tag];
+        }
+
     }];
 }
 
 
+/**
+ * 上传文件
+ */
+- (void)uploadFileURI:(NSString *)aUri params:(NSDictionary*)params fileData:(NSData *)fileData keyName:(NSString *)aKeyName tag:(int *)tag
+{
+    [self httpInit];
+    
+    [self.manager POST:[NSString stringWithFormat:@"%@%@",self.baseUrl,aUri]  parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        NSData *imageData = fileData;
+        NSString *fileName = [NSString stringWithFormat:@"%@.jpg",[[NSDate date] stringWithFormat:@"yyyy-MM-dd"]];
+        
+        //将得到的二进制图片拼接到表单中 /** data,指定上传的二进制流;name,服务器端所需参数名;fileName,指定文件名;mimeType,指定文件格式 */
+        [formData appendPartWithFileData:imageData name:aKeyName fileName:fileName mimeType:@"image/jpg"];
+        
+    }success:^(AFHTTPRequestOperation *operation, id responseObject){
+        [self.delegate getFinished:responseObject tag:tag];
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+}
 @end

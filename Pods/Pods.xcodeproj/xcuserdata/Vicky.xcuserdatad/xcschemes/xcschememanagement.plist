@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BabyBluetooth.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JTCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -64,6 +69,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Toast.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,6 +92,21 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>025D53C4B0C28AEFBA303817D260F9C4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>063917D5CA8FF056E4C605BE5C55072B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>08118B8D8C046742167BF7774D612639</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>16866E2BDD583B773B2AF9DC32F9F953</key>
 		<dict>
 			<key>primary</key>
@@ -92,17 +117,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1A5AF0AFE4690E183A38E05140A51078</key>
+		<key>2191B67E52A07A9570443F10244CF62C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>30041BA2C05F40F1081A70370B599E76</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3656ED112B72A1C1F69D140669B32420</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,6 +137,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5D31359459AEFD0BA2D8D248E31C14B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>867ECDA2080C1CADCCE82235BCA1F6C2</key>
 		<dict>
 			<key>primary</key>
@@ -127,12 +152,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>926EA278BF0F71D6519122D4575E9526</key>
+		<key>B0B4002D54AF146763323C655FF140FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC38528D537F80733C7FA21ECF5C3E36</key>
+		<key>BBAD5A8F505DE4413E22C990531A342C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,17 +167,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DBC62096569E19929BB1A9340120A454</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>F11A43A26908BD9BE898D3786B801D35</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F1D254C26AFCAF4D0E29619DA5D4C73A</key>
+		<key>F1ACDCA220025CBFDF59160654044979</key>
 		<dict>
 			<key>primary</key>
 			<true/>

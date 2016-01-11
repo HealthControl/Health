@@ -23,3 +23,10 @@
 }
 
 @end
+@implementation BuyDetail
+
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"newsDescription":@"description"};
+}
+
+@end

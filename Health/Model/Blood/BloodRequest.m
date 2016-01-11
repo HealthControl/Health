@@ -14,6 +14,10 @@ static int calendarTag;
 static int inputTag;
 static int trendTag;
 static int indicatorTag;
+static int getRiskContent;
+static int postRiskContent;
+static int getRiskReport;
+static int getTodayBlood;
 
 - (id)init
 {
@@ -63,6 +67,33 @@ static int indicatorTag;
     [self startPost:uri params:@{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token} tag:&indicatorTag];
 }
 
+- (void)getRiskContent:(Complete)completeBlock failed:(Failed)failed {
+    _complete = completeBlock;
+    _failed = failed;
+    NSString *uri = @"Api/Evaluate/item";
+    [self startPost:uri params:nil tag:&getRiskContent];
+}
+
+- (void)postRiskData:(NSDictionary *)postDic complete:(Complete)completeBlock failed:(Failed)failed {
+    _complete = completeBlock;
+    _failed = failed;
+    NSString *uri = @"Api/Evaluate/submit";
+    [self startPost:uri params:postDic tag:&postRiskContent];
+}
+
+- (void)getRiskReport:(NSString *)reportID complete:(Complete)completeBlock failed:(Failed)failed {
+    _complete = completeBlock;
+    _failed = failed;
+    NSString *uri = @"Api/Evaluate/report";
+    [self startPost:uri params:@{@"id":reportID, @"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token} tag:&getRiskReport];
+}
+
+- (void)getTodayBloodComplete:(Complete)completeBlock failed:(Failed)failed {
+    _complete = completeBlock;
+    _failed = failed;
+    [self startPost:@"Api/Bloodsugar/newest" params:@{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token} tag:&getTodayBlood];
+}
+
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {
     NSLog(@"msg: %@", msg);
     if ([msg[@"status"] integerValue] == 1) {
@@ -81,6 +112,23 @@ static int indicatorTag;
         } else if (tag == &indicatorTag) {
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 self.indicatorDic = [NSDictionary dictionaryWithDictionary:msg[@"data"]];
+            }
+        } else if (tag == &getRiskContent) {
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                self.riskContentArray = [NSMutableArray array];
+                [self.riskContentArray addObjectsFromArray:msg[@"data"]];
+            }
+        } else if (tag ==  &postRiskContent) {
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                self.reportID = msg[@"data"];
+            }
+        } else if (tag == &getRiskReport) {
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                self.riskReportDic = [NSMutableDictionary dictionaryWithDictionary:msg[@"data"]];
+            }
+        } else if (tag == &getTodayBlood) {
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                self.todayBlood = [NSString stringWithFormat:@"%0.2f", [msg[@"data"] floatValue]];
             }
         }
         _complete();

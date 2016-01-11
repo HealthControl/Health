@@ -10,7 +10,7 @@
 #import "BloodRequest.h"
 #import "JTCalendar.h"
 
-@interface CalendarViewController () <JTCalendarDelegate>{
+@interface CalendarViewController () <JTCalendarDelegate, UIWebViewDelegate>{
     IBOutlet UIWebView *webView;
     IBOutlet JTCalendarMenuView *calendarMenuView;
     IBOutlet JTHorizontalCalendarView *calendarContentView;
@@ -115,5 +115,7 @@
     [self loadRequest:_dateSelected];
 }
 
-
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    return YES;
+}
 @end

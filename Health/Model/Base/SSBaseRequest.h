@@ -49,7 +49,7 @@ typedef void (^Failed)(NSString *state,NSString *errmsg);
  * 发送post请求
  */
 - (void)startPost:(NSString*)url params:(NSDictionary*)params tag:(int *)tag;
-
+- (void)uploadFileURI:(NSString *)aUri params:(NSDictionary*)params fileData:(NSData *)fileData keyName:(NSString *)aKeyName tag:(int *)tag;
 @end
 
 #pragma mark delegate

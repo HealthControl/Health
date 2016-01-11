@@ -9,9 +9,12 @@
 #import "BloodInputViewController.h"
 #import "BloodInputResultViewController.h"
 #import "BloodRequest.h"
+#import "CustomRuleView.h"
+#import "GlucoseBloodViewController.h"
 
 @interface BloodInputViewController () <UIPickerViewDataSource, UIPickerViewDelegate>{
-    IBOutlet UISlider *slider;
+    IBOutlet CustomRuleView *bloodRuleView;
+    
     IBOutlet UILabel *mmLabel;
     
     IBOutlet UILabel *periodLabel;
@@ -33,10 +36,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"测试结果";
-    slider.backgroundColor = [UIColor clearColor];
-    UIImage *thumbImage = [UIImage imageNamed:@"bloodThumb"];
-    [slider setThumbImage:thumbImage forState:UIControlStateHighlighted];
-    [slider setThumbImage:thumbImage forState:UIControlStateNormal];
     
     periodLabel.text = @"空腹";
     timeLabel.text = [[NSDate date] stringWithFormat:@"MM月dd日   HH:mm"];
@@ -50,7 +49,27 @@
         [textField resignFirstResponder];
     }];
     [bottomView addGestureRecognizer:tapGesture];
+    
+    bloodRuleView.maximumValue = 40;
+    bloodRuleView.minimumValue = 0;
+    bloodRuleView.backImage = [UIImage imageNamed:@"cexuetang"];
+    bloodRuleView.value = 10;
+    if (self.resultStr) {
+        bloodRuleView.value = [self.resultStr floatValue];
+    }
+    
+    mmLabel.text = [NSString stringWithFormat:@"%0.2f",bloodRuleView.value];
+    __weak typeof(self) weakSelf = self;
+    bloodRuleView.onvalueChange = ^(float value) {
+        [weakSelf sliderChange:value];
+    };
 }
+//
+//- (void)viewDidLayoutSubviews {
+//    [super viewDidLayoutSubviews];
+//    pickerView.frame = CGRectMake(0, self.view.height, pickerView.width, pickerView.height);
+//    datePicker.frame = CGRectMake(0, self.view.height, datePicker.width, datePicker.height);
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -60,19 +79,20 @@
 #pragma mark - IBAction
 - (void)showPeriodPicker {
     [self removeTimerPicker];
-    pickerView.transform = CGAffineTransformMakeTranslation(0, -pickerView.height);
+    pickerView.superview.transform = CGAffineTransformMakeTranslation(0, -pickerView.height);
 }
 
 - (void)showTimePicker {
-    datePicker.transform = CGAffineTransformMakeTranslation(0, -datePicker.height);
+    [self removePeriodPicker];
+    datePicker.superview.transform = CGAffineTransformMakeTranslation(0, -datePicker.height);
 }
 
 - (void)removePeriodPicker {
-    pickerView.transform = CGAffineTransformIdentity;
+    pickerView.superview.transform = CGAffineTransformIdentity;
 }
 
 - (void)removeTimerPicker {
-    datePicker.transform = CGAffineTransformIdentity;
+    datePicker.superview.transform = CGAffineTransformIdentity;
 }
 
 - (void)commit {
@@ -86,8 +106,8 @@
     }];
 }
 
-- (IBAction)sliderChange:(id)sender {
-    mmLabel.text = [NSString stringWithFormat:@"%0.1f", ((UISlider *)sender).value];
+- (void)sliderChange:(float)sender {
+    mmLabel.text = [NSString stringWithFormat:@"%0.1f", sender];
 }
 
 - (IBAction)buttonClick:(id)sender {
@@ -138,4 +158,18 @@
     resultVC.resultDic = [BloodRequest singleton].testResultDic;
 }
 
+-(BOOL)navigationShouldPopOnBackButton{
+    UIViewController *vc = nil;
+    for (UIViewController *v in self.navigationController.viewControllers) {
+        if ([v isKindOfClass:[GlucoseBloodViewController class]]) {
+            vc = v;
+        }
+    }
+    if (vc) {
+        [self.navigationController popToViewController:vc animated:YES];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    return YES;
+}
 @end

@@ -14,6 +14,11 @@ static int friendsListTag;
 static int deleteFriensTag;
 static int addFriendsTag;
 static int getProfileTag;
+static int getMyinfoTag;
+static int postProfileTag;
+static int uploadImageTag;
+static int getxieyiTag;
+static int friendsBloodTag;
 
 @implementation MineRequest
 
@@ -82,10 +87,45 @@ static int getProfileTag;
     [self startPost:uri params:@{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token} tag:&getProfileTag];
 }
 
+- (void)getMyInfo:(Complete)completeBlock failed:(Failed)failedBlock {
+    _complete = completeBlock;
+    _failed = failedBlock;
+    NSString *uri = @"Api/member/userinfo";
+    [self startPost:uri params:@{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token} tag:&getMyinfoTag];
+}
+
+- (void)postProfile:(NSDictionary *)postData complete:(Complete)completeBlock failed:(Failed)failedBlock {
+    _complete = completeBlock;
+    _failed = failedBlock;
+    NSString *uri = @"Api/Member/info";
+    [self startPost:uri params:postData tag:&postProfileTag];
+}
+
+- (void)uploadHeadImage:(UIImage *)image complete:(Complete)completeBlock failed:(Failed)failedBlock {
+    _complete = completeBlock;
+    _failed = failedBlock;
+    NSDictionary *dic = @{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token};
+    
+    [self uploadFileURI:@"Api/Member/headpic" params:dic fileData:UIImageJPEGRepresentation(image, 0.8) keyName:@"head" tag:&uploadImageTag];
+}
+
+- (void)getxieyiComplete:(Complete)completeBlock failed:(Failed)failedBlock {
+    _complete = completeBlock;
+    _failed = failedBlock;
+    [self startPost:@"Api/other/agreement" params:nil tag:&getxieyiTag];
+}
+
+- (void)getFriendsBlood:(NSString *)mobile complete:(Complete)completeBlock failed:(Failed)failedBlock {
+    _complete = completeBlock;
+    _failed = failedBlock;
+    NSDictionary *dic = @{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"mobile":mobile};
+    [self startPost:@"Api/friend/bloodsugar" params:dic tag:&friendsBloodTag];
+}
+
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {
     if ([msg[@"status"] integerValue] == 1) {
         if (tag == &jifenTag) {
-            
+            self.jifen = [NSString stringWithFormat:@"%d", [msg[@"data"] intValue]];
         } else if (tag == &commentTag) {
             
         } else if (tag == &friendsListTag) {
@@ -99,8 +139,16 @@ static int getProfileTag;
             
         } else if (tag == &getProfileTag) {
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
-                self.profileDic = msg[@"data"];
+                self.profileInfo = [UserInfo modelWithDictionary:msg[@"data"]];
             }   
+        } else if (tag == &getMyinfoTag) {
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                [UserCentreData singleton].userInfo = [LoginData modelWithDictionary:msg[@"data"]];
+            }
+        } else if (tag == &friendsBloodTag) {
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                self.friendsBloodUrl = msg[@"data"];
+            }
         }
         _complete();
     } else {

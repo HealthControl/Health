@@ -22,4 +22,6 @@
 -(void) sendSms:(NSDictionary *) mobile complete:(Complete)complete failed:(Failed) failed;
 //重置密码
 - (void)resetpwd:(NSDictionary *)resetDic complete:(Complete)complete failed:(Failed) failed;
+// 找回密码
+- (void)findPwd:(NSDictionary *)findpwd complete:(Complete)complete failed:(Failed)failed;
 @end

@@ -15,6 +15,10 @@
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *mobile;
 @property (nonatomic, strong) NSString *token;
+@property (nonatomic, strong) NSString *regdate;
+@property (nonatomic, strong) NSString *lastdate;
+@property (nonatomic, strong) NSString *point;
+@property (nonatomic, strong) NSString *userpic;
 
 @end
 

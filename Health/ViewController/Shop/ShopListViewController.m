@@ -40,13 +40,13 @@
 - (void)cellForGoods:(NSArray *)goodsArray {
     dataArray = [NSArray arrayWithArray:goodsArray];
     GoodsList *list1 = goodsArray[0];
-    [goodsImageView1 setImageWithUrl:[NSURL URLWithString:list1.picture] defaultImage:nil];
+    [goodsImageView1 setImageWithUrl:[NSURL URLWithString:list1.thumb] defaultImage:nil];
     goodsPriceLabel1.text = list1.price;
     goodsNameLabel1.text = list1.title;
     if (goodsArray.count > 1) {
         goodsView2.hidden = NO;
         GoodsList *list2 = goodsArray[1];
-        [goodsImageView2 setImageWithUrl:[NSURL URLWithString:list2.picture] defaultImage:nil];
+        [goodsImageView2 setImageWithUrl:[NSURL URLWithString:list2.thumb] defaultImage:nil];
         goodsPriceLabel2.text = list2.price;
         goodsNameLabel2.text = list2.title;
     } else {

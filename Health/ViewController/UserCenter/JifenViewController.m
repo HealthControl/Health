@@ -21,11 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [[MineRequest singleton] getJifen:[UserCentreData singleton].userInfo.userid complete:^{
-//        jifenLabel.text = @"";
-//    } failed:^(NSString *state, NSString *errmsg) {
-//        
-//    }];
+    [[MineRequest singleton] getJifen:[UserCentreData singleton].userInfo.userid complete:^{
+        jifenLabel.text = [MineRequest singleton].jifen;
+    } failed:^(NSString *state, NSString *errmsg) {
+        
+    }];
 }
 
 @end

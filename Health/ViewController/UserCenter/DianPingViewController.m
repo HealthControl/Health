@@ -44,7 +44,7 @@
     }
     [[MineRequest singleton] postDianping:subjectTextView.text complete:^{
         [self.view makeToast:@"点评成功"];
-        [self.navigationController popViewControllerAnimated:YES];
+//        [self.navigationController popViewControllerAnimated:YES];
     } failed:^(NSString *state, NSString *errmsg) {
         
     }];

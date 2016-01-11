@@ -23,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     textFieldArray = [NSMutableArray array];
-    self.navigationController.navigationBarHidden = YES;
     [self addIconImageView];
     [self addTextField];
     [self addContractButton];
@@ -32,6 +31,11 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keybordresignFirstResponder)];
     [textScrollView addGestureRecognizer:tapGesture];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -109,7 +113,7 @@
     [contractButton setTitle:@"我已阅读并接受《血糖高管协议》" forState:UIControlStateNormal];
     [contractButton setTitleColor:rgb_color(153, 153, 153, 1) forState:UIControlStateNormal];
     contractButton.titleLabel.font = [UIFont systemFontOfSize:13];
-    [contractButton addTarget:self action:@selector(registerButton) forControlEvents:UIControlEventTouchUpInside];
+    [contractButton addTarget:self action:@selector(xieyiClick) forControlEvents:UIControlEventTouchUpInside];
     [textScrollView addSubview:contractButton];
     totalHeight = contractButton.bottom;
 }
@@ -173,6 +177,10 @@
     } failed:^(NSString *state, NSString *errmsg) {
         [self.view makeToast:errmsg];
     }];
+}
+
+- (void)xieyiClick {
+    [self performSegueWithIdentifier:@"zhucexieyi" sender:nil];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {

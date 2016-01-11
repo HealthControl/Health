@@ -143,7 +143,10 @@ static int commentTag;
                 self.newsDetail = [NewsDetail modelWithDictionary:dic];
             }
         } else if (tag == &commentTag) {
-            
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                NSDictionary *dic = [[NSDictionary alloc] initWithDictionary:msg[@"data"]];
+                self.commentDic = dic;
+            }
         }
         _complete();
     } else {

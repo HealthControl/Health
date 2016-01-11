@@ -12,6 +12,21 @@
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
+@property (nonatomic, strong) NSMutableArray *areaArray;
+@property (nonatomic, strong) NSMutableArray *areaNameArray;
+
+@property (nonatomic, strong) NSMutableArray *bloodTypeArray;
+@property (nonatomic, strong) NSMutableArray *bloodTypeNameArray;
+
+@property (nonatomic, strong) NSMutableArray *professionArray;
+@property (nonatomic, strong) NSMutableArray *professionNameArray;
+
+@property (nonatomic, strong) NSMutableArray *complicationArray;
+@property (nonatomic, strong) NSMutableArray *complicationNameArray;
+
+
+
+
 + (instancetype)singleton;
 
 // 获取地区

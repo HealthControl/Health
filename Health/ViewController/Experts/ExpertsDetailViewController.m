@@ -13,6 +13,7 @@
 @interface ExpertsDetailViewController () <UITableViewDataSource, UITableViewDelegate> {
     IBOutlet UITableView *detailTabelView;
     IBOutlet UITextView *submitTextView;
+    NSMutableArray *commentArray;
 }
 
 @end
@@ -23,6 +24,7 @@
     [super viewDidLoad];
     detailTabelView.delegate = self;
     detailTabelView.dataSource = self;
+    commentArray = [NSMutableArray array];
     [[ExpertRequest singleton] getExpertDetail:self.doctorID complete:^{
         [detailTabelView reloadData];
     } failed:^(NSString *state, NSString *errmsg) {
@@ -41,10 +43,14 @@
         [self.view makeToast:@"请输入内容"];
         return;
     }
-    [[ExpertRequest singleton] postComment:submitTextView.text expertID:@"" complete:^{
+    [[ExpertRequest singleton] postComment:submitTextView.text expertID:self.doctorID complete:^{
         [self.view makeToast:@"提问成功"];
         submitTextView.text = @"";
         [submitTextView resignFirstResponder];
+        
+        [commentArray addObject:[ExpertRequest singleton].commentDic];
+        
+        [detailTabelView reloadSection:2 withRowAnimation:UITableViewRowAnimationFade];
     } failed:^(NSString *state, NSString *errmsg) {
         [self.view makeToast:errmsg];
     }];
@@ -61,6 +67,8 @@
             
         case 1:
             return 1;
+        case 2:
+            return commentArray.count;
         default:
             break;
     }
@@ -105,8 +113,14 @@
         UIButton *button = [cell.contentView viewWithTag:2];
         [button addTarget:self action:@selector(commitComment) forControlEvents:UIControlEventTouchUpInside];
     } else if (indexPath.section == 2) {
-        identifier = @"referExperts";
+        identifier = @"questions";
         cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        UILabel *timeLabel = [cell.contentView viewWithTag:1];
+        UILabel *contentLabel = [cell.contentView viewWithTag:2];
+        NSDictionary *dic = [commentArray objectAtIndex:indexPath.row];
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:[dic[@"addtime"] floatValue]];
+        timeLabel.text = [date stringWithFormat:@"yyyy-MM-dd"];
+        contentLabel.text = [NSString stringWithFormat:@"咨询内容: %@",dic[@"content"]];
     }
     
     return cell;
@@ -131,7 +145,12 @@
         }
         case 1:
             return 216;
-        case 2:
+        case 2: {
+            NSDictionary *dic = [commentArray objectAtIndex:indexPath.row];
+             return [[NSString stringWithFormat:@"咨询内容: %@",dic[@"content"]]  heightForFont:[UIFont systemFontOfSize:14] width:[UIScreen mainScreen].bounds.size.width - 16]+43;
+        }
+            
+            
             break;
         default:
             break;

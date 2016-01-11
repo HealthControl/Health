@@ -10,4 +10,6 @@
 
 @interface BloodInputViewController : KBaseViewController
 
+@property (nonatomic, strong) NSString *resultStr;
+
 @end

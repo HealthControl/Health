@@ -37,32 +37,57 @@ static int getComplicationTag;
 
 // 获取地区
 - (void)getAreaComplete:(Complete)compleBlock {
-    [self getUrl:@"Api/Member/area" tag:getAreaTag complete:compleBlock];
+    _complete = compleBlock;
+    [self startPost:@"Api/Member/area" params:nil tag:&getAreaTag];
 }
 // BloodType
 - (void)bloodTypeComplete:(Complete)compleBlock {
-    [self getUrl:@"Api/Member/type" tag:getBloodTypeTag complete:compleBlock];
+    _complete = compleBlock;
+    [self startPost:@"Api/Member/type" params:nil tag:&getBloodTypeTag];
 }
 // 职业
 - (void)professionTypeComplete:(Complete)compleBlock {
-    [self getUrl:@"Api/Member/profession" tag:getProfessionTag complete:compleBlock];
+    _complete = compleBlock;
+    [self startPost:@"Api/Member/profession" params:nil tag:&getProfessionTag];
 }
 // 并发症
 - (void)complicationComplete:(Complete)compleBlock {
-    [self getUrl:@"Api/Member/complication" tag:getComplicationTag complete:compleBlock];
-}
-
-- (void)getUrl:(NSString *)url tag:(int)tag complete:(Complete)complBlock {
-    _complete = complBlock;
-    [self startPost:url params:nil tag:&tag];
+    _complete = compleBlock;
+    [self startPost:@"Api/Member/complication" params:nil tag:&getComplicationTag];
 }
 
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {
     if ([msg[@"status"] integerValue] == 1) {
-        self.dataArray = [NSMutableArray array];
-        for (NSDictionary *dic in msg[@"data"]) {
-            [self.dataArray addObject:dic[@"value"]];
+        if (tag == &getAreaTag) {
+            self.areaArray = [NSMutableArray array];
+            self.areaNameArray = [NSMutableArray array];
+            [self.areaArray addObjectsFromArray:msg[@"data"]];
+            for (NSDictionary *dic in msg[@"data"]) {
+                [self.areaNameArray addObject:dic[@"value"]];
+            }
+        } else if (tag == &getBloodTypeTag) {
+            self.bloodTypeArray = [NSMutableArray array];
+            self.bloodTypeNameArray = [NSMutableArray array];
+            [self.bloodTypeArray addObjectsFromArray:msg[@"data"]];
+            for (NSDictionary *dic in msg[@"data"]) {
+                [self.bloodTypeNameArray addObject:dic[@"value"]];
+            }
+        } else if (tag == &getProfessionTag) {
+            self.professionArray = [NSMutableArray array];
+            self.professionNameArray = [NSMutableArray array];
+            [self.professionArray addObjectsFromArray:msg[@"data"]];
+            for (NSDictionary *dic in msg[@"data"]) {
+                [self.professionNameArray addObject:dic[@"value"]];
+            }
+        } else if (tag == &getComplicationTag) {
+            self.complicationArray = [NSMutableArray array];
+            self.complicationNameArray = [NSMutableArray array];
+            [self.complicationArray addObjectsFromArray:msg[@"data"]];
+            for (NSDictionary *dic in msg[@"data"]) {
+                [self.complicationNameArray addObject:dic[@"value"]];
+            }
         }
+    
         _complete();
     }
 }

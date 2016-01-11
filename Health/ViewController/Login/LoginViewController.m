@@ -21,8 +21,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    __weak typeof(self) weakSelf = self;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
+        [weakSelf hiddenKeybord];
+    }];
+    [self.view addGestureRecognizer:tapGesture];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,6 +39,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)hiddenKeybord {
+    [userNameTextField resignFirstResponder];
+    [passwordTextField resignFirstResponder];
+}
 /*
 #pragma mark - Navigation
 
@@ -50,17 +63,12 @@
     [loginDic setObject:password forKey:@"password"];
     
     [[LoginRequest singleton] loginWithDictionary:loginDic complete:^{
-        NSLog(@"@%", loginDic);
         NSLog(@"login success!");
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            
+        }];
     } failed:^(NSString *state, NSString *errmsg){
         NSLog(@"login fail!");
     }];
-    
-
-    
-     
-     
-     
 }
-
 @end

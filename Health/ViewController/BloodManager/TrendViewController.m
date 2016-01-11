@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [[BloodRequest singleton] getTrend:^{
         [self reloadWebView];
     } failed:^(NSString *state, NSString *errmsg) {

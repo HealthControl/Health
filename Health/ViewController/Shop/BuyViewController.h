@@ -10,4 +10,6 @@
 
 @interface BuyViewController : KBaseViewController
 
+@property (nonatomic, strong) NSMutableArray *buyArray;
+
 @end

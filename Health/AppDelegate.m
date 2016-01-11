@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "DTInit.h"
 #import "UserCentreData.h"
+#import "SelectionRequest.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface AppDelegate ()
 
@@ -20,6 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.tabbarController = (UITabBarController *)self.window.rootViewController;
     [self setupTabbarItems];
+    [self preload];
     // Override point for customization after application launch.
     return YES;
 }
@@ -49,19 +52,49 @@
 }
 
 - (void)setupTabbarItems {
-    NSArray *selectImageArray = @[@"xuetang", @"zhuanjia", @"shangcheng", @"wode"];
-    NSArray *originImageArray= @[@"xuetang-weidianji", @"zhuanjia-weidianji", @"shangcheng-weidianji", @"wode-weidianji"];
-    for (int i = 0; i < self.tabbarController.tabBar.items.count; i++) {
-        UITabBarItem *item = self.tabbarController.tabBar.items[i];
-        [item setFinishedSelectedImage:[UIImage imageNamed:selectImageArray[i]] withFinishedUnselectedImage:[UIImage imageNamed:originImageArray[i]]];
-        [item setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+    NSArray <NSString *> *selectImageArray = @[@"xuetang", @"zhuanjia", @"shangcheng", @"wode"];
+    NSArray <NSString *> *originImageArray= @[@"xuetang-weidianji", @"zhuanjia-weidianji", @"shangcheng-weidianji", @"wode-weidianji"];
+    
+    for (int i = 0; i < self.tabbarController.viewControllers.count; i++) {
+        UINavigationController *navVC = self.tabbarController.viewControllers[i];
+        navVC.tabBarItem.image = [UIImage imageNamed:originImageArray[i]];
+        navVC.tabBarItem.selectedImage = [[UIImage imageNamed:selectImageArray[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        
+        
+        [navVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                       rgb_color(150, 150, 150, 1), NSForegroundColorAttributeName, nil]
                             forState:UIControlStateNormal];
-        [item setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+        [navVC.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                       rgb_color(230, 109, 106, 1), NSForegroundColorAttributeName,
                                       nil] forState:UIControlStateSelected];
     }
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
     
+    //跳转支付宝钱包进行支付，处理支付结果
+    [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+        NSLog(@"result = %@",resultDic);
+    }];
+    
+    return YES;
+}
+
+- (void)preload {
+    [[SelectionRequest singleton] professionTypeComplete:^{
+    }];
+    
+    [[SelectionRequest singleton] getAreaComplete:^{
+    }];
+    
+    [[SelectionRequest singleton] bloodTypeComplete:^{
+    }];
+    
+    [[SelectionRequest singleton] complicationComplete:^{
+    }];
 }
 
 @end

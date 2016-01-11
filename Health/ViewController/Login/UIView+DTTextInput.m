@@ -26,6 +26,7 @@
     [view addSubview:titleLabel];
     
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(titleLabel.right+10, titleLabel.top, view.width - titleLabel.right - 10, 30)];
+    textField.textColor = rgb_color(51, 51, 51, 1);
     textField.center = CGPointMake(textField.center.x, view.height/2);
     [view addSubview:textField];
     [superView addSubview:view];

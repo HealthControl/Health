@@ -33,6 +33,7 @@ PODS:
     - Reachability
   - ASIHTTPRequest/S3 (1.8.2):
     - ASIHTTPRequest/Core
+  - BabyBluetooth (0.5.0)
   - jastor (0.2.1)
   - JTCalendar (2.1.4)
   - MD5Digest (1.0.1)
@@ -42,10 +43,12 @@ PODS:
     - REFormattedNumberField (~> 1.1.5)
     - REValidation (~> 0.1.4)
   - REValidation (0.1.4)
+  - Reveal-iOS-SDK (1.6.2)
   - SDCycleScrollView (1.3)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
+  - SVProgressHUD (2.0-beta)
   - Toast (3.0)
   - YYKit (0.9.6):
     - YYKit/no-arc (= 0.9.6)
@@ -54,18 +57,22 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.5.4)
   - ASIHTTPRequest (~> 1.8.2)
+  - BabyBluetooth (~> 0.5.0)
   - jastor (~> 0.2.1)
   - JTCalendar (~> 2.1.4)
   - MD5Digest (~> 1.0.1)
   - RETableViewManager (~> 1.6)
+  - Reveal-iOS-SDK
   - SDCycleScrollView (~> 1.3)
   - SDWebImage (~> 3.7.3)
+  - SVProgressHUD (~> 2.0-beta)
   - Toast (~> 3.0)
   - YYKit (~> 0.9.6)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   ASIHTTPRequest: ec013992946676b7978dcbde6396d57312d21db4
+  BabyBluetooth: dae3d3edc48d13939deebd457bb57d35f64dae19
   jastor: fe9ff71f4b683698253d6a0d9a2561987fd9aff3
   JTCalendar: 9b1352c7ec41cc26b19c189d6608ba48060a53d9
   MD5Digest: 2757ae2ee239148912a42063135c6fab2fa082f9
@@ -73,8 +80,10 @@ SPEC CHECKSUMS:
   REFormattedNumberField: be3d55dd709f65541fb26b7e1709da07903147f8
   RETableViewManager: 9667ecb29c005c32df40a1dd1828224840a351a2
   REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f
+  Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   SDCycleScrollView: 90e43636fcc8e6a7f74e8b64d87418a8e96549b4
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  SVProgressHUD: c83337f10ed32d701c423d519059a249973c8662
   Toast: 32c59229abfcf41850162b83bb9259dc84372473
   YYKit: 7e27f6b55883bfe3ec2b98e7ad9c38fcbb92a1c5
 

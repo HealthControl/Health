@@ -29,7 +29,7 @@
     NSString *identifier = @"";
     switch (buttonTag) {
         case 1:
-            
+            identifier = @"myprofile";
             break;
         case 2:
             identifier = @"trendidentifer";

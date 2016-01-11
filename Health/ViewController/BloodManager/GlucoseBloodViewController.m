@@ -7,6 +7,7 @@
 //
 
 #import "GlucoseBloodViewController.h"
+#import "BlueToothResultViewController.h"
 
 @interface GlucoseBloodViewController () {
     IBOutlet UILabel *noteLabel;
@@ -45,6 +46,7 @@
     switch (button.tag) {
         case 1:
             // button1 执行的方法
+            Identifer = @"seachbluetooth";
             NSLog(@"button1 pressed");
             break;
         case 2:
@@ -66,7 +68,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if (Identifer) {
+    if ([Identifer isEqualToString:@"seachbluetooth"]) {
+        BlueToothResultViewController *blueToothVC = [segue destinationViewController];
+        blueToothVC.isFromDevice = YES;
 //        [self performSegueWithIdentifier:Identifer sender:self];
     }
     

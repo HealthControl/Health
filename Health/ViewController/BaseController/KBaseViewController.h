@@ -11,5 +11,6 @@
 @interface KBaseViewController : UIViewController
 
 -(void)showLoginVC;
+- (void)showGuideView;
 
 @end

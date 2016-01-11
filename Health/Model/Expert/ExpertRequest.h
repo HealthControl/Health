@@ -16,6 +16,7 @@
 @property (nonatomic, strong)NSMutableArray *newsArray;
 @property (nonatomic, strong)ExpertDetail *expertsDetail;
 @property (nonatomic, strong)NewsDetail   *newsDetail;
+@property (nonatomic, strong)NSDictionary *commentDic;
 
 + (instancetype)singleton;
 
