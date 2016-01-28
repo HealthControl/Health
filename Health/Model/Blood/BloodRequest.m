@@ -18,6 +18,7 @@ static int getRiskContent;
 static int postRiskContent;
 static int getRiskReport;
 static int getTodayBlood;
+static int getWarning;
 
 - (id)init
 {
@@ -84,7 +85,7 @@ static int getTodayBlood;
 - (void)getRiskReport:(NSString *)reportID complete:(Complete)completeBlock failed:(Failed)failed {
     _complete = completeBlock;
     _failed = failed;
-    NSString *uri = @"Api/Evaluate/report";
+    NSString *uri = @"Api/Evaluate/result";
     [self startPost:uri params:@{@"id":reportID, @"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token} tag:&getRiskReport];
 }
 
@@ -92,6 +93,12 @@ static int getTodayBlood;
     _complete = completeBlock;
     _failed = failed;
     [self startPost:@"Api/Bloodsugar/newest" params:@{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token} tag:&getTodayBlood];
+}
+
+- (void)getWarning:(Complete)completeBlock failed:(Failed)failed {
+    _complete = completeBlock;
+    _failed = failed;
+    [self startPost:@"Api/Bloodsugar/warning" params:@{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token} tag:&getWarning];
 }
 
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {
@@ -124,11 +131,15 @@ static int getTodayBlood;
             }
         } else if (tag == &getRiskReport) {
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
-                self.riskReportDic = [NSMutableDictionary dictionaryWithDictionary:msg[@"data"]];
+                self.riskReportStr = msg[@"data"];
             }
         } else if (tag == &getTodayBlood) {
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 self.todayBlood = [NSString stringWithFormat:@"%0.2f", [msg[@"data"] floatValue]];
+            }
+        } else if (tag == &getWarning) {
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                self.warningDic = [NSMutableDictionary dictionaryWithDictionary:msg[@"data"]];
             }
         }
         _complete();

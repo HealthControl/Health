@@ -9,7 +9,6 @@
 #import "RiskAssessmentViewController.h"
 #import "RiskModel.h"
 #import "BloodRequest.h"
-#import "RiskReportVC.h"
 #import "CustomButton.h"
 
 @interface RiskAssessmentViewController () <UITableViewDataSource, UITableViewDelegate> {

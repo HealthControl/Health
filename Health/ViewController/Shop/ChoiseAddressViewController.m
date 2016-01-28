@@ -96,9 +96,12 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ModifyAddressViewController *modifyVC = [segue destinationViewController];
-    modifyVC.select = self.select;
-    modifyVC.addressDic = (NSDictionary *)sender;
+    UIViewController *viewController = [segue destinationViewController];
+    if ([viewController isKindOfClass:[ModifyAddressViewController class]]) {
+        ModifyAddressViewController *modifyVC = [segue destinationViewController];
+        modifyVC.select = self.select;
+        modifyVC.addressDic = (NSDictionary *)sender;
+    }
 }
 
 @end

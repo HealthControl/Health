@@ -10,4 +10,17 @@
 
 @implementation PayResultViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+}
+
+- (IBAction)payAgain:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)scanGoods:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 @end

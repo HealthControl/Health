@@ -259,6 +259,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     BloodInputViewController *inputVC = [segue destinationViewController];
     inputVC.resultStr = (NSString *)sender;
+    inputVC.isFromDevice = YES;
 }
 
 - (void)testResult:(NSString *)str {

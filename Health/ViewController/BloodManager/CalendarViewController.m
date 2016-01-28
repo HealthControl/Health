@@ -28,12 +28,13 @@
     
     _todayDate = [NSDate date];
     [self loadCalendarView];
-    
     [self loadRequest:_todayDate];
 }
 
 - (void)loadRequest:(NSDate *)date {
-    [[BloodRequest singleton] getCalendar:[NSString stringWithFormat:@"%f", [date timeIntervalSince1970]] complete:^{
+    
+    NSString *currentDate = [date stringWithFormat:@"yyyy-MM-dd"];
+    [[BloodRequest singleton] getCalendar:currentDate complete:^{
         [self loadWebView];
     } failed:^(NSString *state, NSString *errmsg) {
         

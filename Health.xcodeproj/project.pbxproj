@@ -12,6 +12,7 @@
 		89C8A6151BCD520300845F1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6131BCD520300845F1D /* Main.storyboard */; };
 		89C8A6171BCD520300845F1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6161BCD520300845F1D /* Assets.xcassets */; };
 		89C8A61A1BCD520300845F1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6181BCD520300845F1D /* LaunchScreen.storyboard */; };
+		980D32BF1C46761D00367DDB /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 980D32BB1C46761D00367DDB /* libWeChatSDK.a */; };
 		981C25861C1AA4A30065A4CD /* DianPingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981C25851C1AA4A30065A4CD /* DianPingViewController.m */; };
 		98232B761C29C1C10008FB9B /* NewAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98232B751C29C1C10008FB9B /* NewAddressViewController.m */; };
 		98232BDB1C2BE6D90008FB9B /* CustomRuleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98232BDA1C2BE6D90008FB9B /* CustomRuleView.m */; };
@@ -56,6 +57,7 @@
 		98B8E9AE1C29AB8B00C1E9B4 /* guide-02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98B8E9AA1C29AB8B00C1E9B4 /* guide-02.jpg */; };
 		98B8E9AF1C29AB8B00C1E9B4 /* guide-03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98B8E9AB1C29AB8B00C1E9B4 /* guide-03.jpg */; };
 		98B8E9B01C29AB8B00C1E9B4 /* guide-04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98B8E9AC1C29AB8B00C1E9B4 /* guide-04.jpg */; };
+		98D15B401C53D9FC005D8A85 /* NewRiskReportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D15B3F1C53D9FC005D8A85 /* NewRiskReportVC.m */; };
 		98D4C9891C21B059005B2DC7 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D4C9881C21B059005B2DC7 /* FriendsViewController.m */; };
 		98D4C98F1C23070B005B2DC7 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D4C98E1C23070B005B2DC7 /* ProfileViewController.m */; };
 		98D4C9921C231710005B2DC7 /* SelectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D4C9911C231710005B2DC7 /* SelectionRequest.m */; };
@@ -115,6 +117,10 @@
 		89C8A6191BCD520300845F1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C8A61B1BCD520300845F1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		936F7B1B7D421D86A168F7D3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		980D32BB1C46761D00367DDB /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		980D32BC1C46761D00367DDB /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		980D32BD1C46761D00367DDB /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		980D32BE1C46761D00367DDB /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		981C25841C1AA4A30065A4CD /* DianPingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianPingViewController.h; sourceTree = "<group>"; };
 		981C25851C1AA4A30065A4CD /* DianPingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianPingViewController.m; sourceTree = "<group>"; };
 		98232B741C29C1C10008FB9B /* NewAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAddressViewController.h; sourceTree = "<group>"; };
@@ -267,6 +273,8 @@
 		98B8E9AA1C29AB8B00C1E9B4 /* guide-02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "guide-02.jpg"; sourceTree = "<group>"; };
 		98B8E9AB1C29AB8B00C1E9B4 /* guide-03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "guide-03.jpg"; sourceTree = "<group>"; };
 		98B8E9AC1C29AB8B00C1E9B4 /* guide-04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "guide-04.jpg"; sourceTree = "<group>"; };
+		98D15B3E1C53D9FC005D8A85 /* NewRiskReportVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewRiskReportVC.h; sourceTree = "<group>"; };
+		98D15B3F1C53D9FC005D8A85 /* NewRiskReportVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRiskReportVC.m; sourceTree = "<group>"; };
 		98D4C9871C21B059005B2DC7 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
 		98D4C9881C21B059005B2DC7 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		98D4C98D1C23070B005B2DC7 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -368,6 +376,7 @@
 			files = (
 				98ABCA2F1C425C67002751F4 /* MessageUI.framework in Frameworks */,
 				985264121C32DBFA00CF024F /* CoreMotion.framework in Frameworks */,
+				980D32BF1C46761D00367DDB /* libWeChatSDK.a in Frameworks */,
 				9852640E1C32DBE500CF024F /* libz.tbd in Frameworks */,
 				98A1C9F51C36963A003C3973 /* libssl.a in Frameworks */,
 				98A1C9F41C36963A003C3973 /* libcrypto.a in Frameworks */,
@@ -445,6 +454,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		980D32BA1C46761D00367DDB /* Wechat */ = {
+			isa = PBXGroup;
+			children = (
+				980D32BB1C46761D00367DDB /* libWeChatSDK.a */,
+				980D32BC1C46761D00367DDB /* WechatAuthSDK.h */,
+				980D32BD1C46761D00367DDB /* WXApi.h */,
+				980D32BE1C46761D00367DDB /* WXApiObject.h */,
+			);
+			path = Wechat;
+			sourceTree = "<group>";
+		};
 		982A12F81C05FB7000749BB7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +481,7 @@
 		985264011C32DAF500CF024F /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				980D32BA1C46761D00367DDB /* Wechat */,
 				985264021C32DAF500CF024F /* Alipay */,
 			);
 			path = SDK;
@@ -615,6 +636,8 @@
 				98D4C9B11C26511D005B2DC7 /* RiskBirthdayVC.m */,
 				98D4C9B31C26512D005B2DC7 /* RiskReportVC.h */,
 				98D4C9B41C26512D005B2DC7 /* RiskReportVC.m */,
+				98D15B3E1C53D9FC005D8A85 /* NewRiskReportVC.h */,
+				98D15B3F1C53D9FC005D8A85 /* NewRiskReportVC.m */,
 			);
 			name = risk;
 			sourceTree = "<group>";
@@ -1019,6 +1042,7 @@
 				98ED80B61C08B397006018D5 /* GoodsListCell.m in Sources */,
 				98F52E061C1DCE01005C711F /* TrendViewController.m in Sources */,
 				98F0A6E31BFA0EBF008F803B /* BloodInputViewController.m in Sources */,
+				98D15B401C53D9FC005D8A85 /* NewRiskReportVC.m in Sources */,
 				98A1C9EA1C369402003C3973 /* base64.m in Sources */,
 				98F52E091C1DD3DC005C711F /* ZhibiaoViewController.m in Sources */,
 				98D4C9AC1C265104005B2DC7 /* RIskHeightVC.m in Sources */,
@@ -1175,6 +1199,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Health/SDK/Alipay",
@@ -1209,6 +1234,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Health/SDK/Alipay",
+					"$(PROJECT_DIR)/Health/SDK/Wechat",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ptang.xuetang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1224,6 +1250,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing PingTang Mobile Internet Medical Technology Co., Ltd. (F6MFWSZ6FS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing PingTang Mobile Internet Medical Technology Co., Ltd. (F6MFWSZ6FS)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Health/SDK/Alipay",
@@ -1258,6 +1285,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Health/SDK/Alipay",
+					"$(PROJECT_DIR)/Health/SDK/Wechat",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ptang.xuetang;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -96,7 +96,7 @@
 }
 
 - (void)commit {
-    NSDictionary *dic = @{@"userid": [UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"value":mmLabel.text, @"period":periodLabel.text, @"time":timeLabel.text, @"remark":textField.text, @"type":@"2"};
+    NSDictionary *dic = @{@"userid": [UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"value":mmLabel.text, @"period":periodLabel.text, @"time":timeLabel.text, @"remark":textField.text, @"type":self.isFromDevice?@"1":@"2"};
     
     [[BloodRequest singleton] postInputData:dic complete:^{
         [self.view makeToast:@"提交成功"];

@@ -100,10 +100,16 @@
 
 - (void)openAlipay {
     NSDictionary *orderDic = [GoodsRequest singleton].orderDic;
+    
     [[AlipaySDK defaultService] payOrder:orderDic[@"alipay_string"] fromScheme:@"ptangAlipay" callback:^(NSDictionary *resultDic) {
         NSLog(@"reslut = %@",resultDic);
+        if ([resultDic[@"resultStatus"] integerValue] == 9000) {
+            // 支付成功
+            [self performSegueWithIdentifier:@"paysuccess" sender:self];
+        } else {
+            [self performSegueWithIdentifier:@"payfailed" sender:self];
+        }
     }];
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

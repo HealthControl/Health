@@ -11,5 +11,6 @@
 @interface BloodInputViewController : KBaseViewController
 
 @property (nonatomic, strong) NSString *resultStr;
+@property (nonatomic, assign) BOOL isFromDevice;
 
 @end

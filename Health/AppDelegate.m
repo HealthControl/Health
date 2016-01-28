@@ -11,8 +11,9 @@
 #import "UserCentreData.h"
 #import "SelectionRequest.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "WXApi.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <WXApiDelegate>
 
 @end
 
@@ -22,6 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.tabbarController = (UITabBarController *)self.window.rootViewController;
     [self setupTabbarItems];
+    [WXApi registerApp:@"wx5b8e2d8083fd6016"];
     [self preload];
     // Override point for customization after application launch.
     return YES;
@@ -75,12 +77,14 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     
-    //跳转支付宝钱包进行支付，处理支付结果
-    [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-        NSLog(@"result = %@",resultDic);
-    }];
-    
-    return YES;
+    if ([[url scheme] isEqualToString:@"ptangAlipay"]) {
+        //跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+        }];
+        return YES;
+    }
+    return [WXApi handleOpenURL:url delegate:self];
 }
 
 - (void)preload {
@@ -95,6 +99,32 @@
     
     [[SelectionRequest singleton] complicationComplete:^{
     }];
+}
+
+-(void) onReq:(BaseReq*)req {
+    
+}
+
+-(void)onResp:(BaseResp*)resp
+{
+    if([resp isKindOfClass:[SendMessageToWXResp class]])
+    {
+        NSString *errmsg = @"";
+        switch (resp.errCode) {
+            case 0:
+                // 发送成功
+                errmsg = @"发送成功";
+                break;
+            case -2:
+                // 发送取消
+                errmsg = @"取消发送";
+                break;
+            default:
+                errmsg = @"发送失败";
+                break;
+        }
+        [self.window makeToast:errmsg];
+    }
 }
 
 @end

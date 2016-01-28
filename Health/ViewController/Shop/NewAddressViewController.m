@@ -85,6 +85,7 @@
     dic[@"province"] = proviceItem.value;
     dic[@"city"] = streetItem.value;
     dic[@"address"] = addItem.value;
+    dic[@"postcode"] = codeItem.value;
     dic[@"mobile"] = phoneItem.value;
     [[GoodsRequest singleton] addAddress:dic complete:^{
         [self.navigationController popViewControllerAnimated:YES];

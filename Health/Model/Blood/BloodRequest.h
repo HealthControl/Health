@@ -16,9 +16,9 @@
 @property (nonatomic, strong) NSDictionary *indicatorDic;
 @property (nonatomic, strong) NSMutableArray *riskContentArray;
 @property (nonatomic, strong) NSString *reportID;
-@property (nonatomic, strong) NSMutableDictionary *riskReportDic;
+@property (nonatomic, strong) NSString *riskReportStr;
 @property (nonatomic, strong) NSString *todayBlood;
-
+@property (nonatomic, strong) NSMutableDictionary *warningDic;
 + (instancetype)singleton;
 
 // 糖历
@@ -37,4 +37,6 @@
 - (void)getRiskReport:(NSString *)reportID complete:(Complete)completeBlock failed:(Failed)failed;
 // 今天的血糖
 - (void)getTodayBloodComplete:(Complete)completeBlock failed:(Failed)failed;
+// 预警与报告
+- (void)getWarning:(Complete)completeBlock failed:(Failed)failed;
 @end

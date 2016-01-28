@@ -11,6 +11,7 @@
 #import "DTNetImageView.h"
 #import "LoginRequest.h"
 #import "MineRequest.h"
+#import "WXApi.h"
 
 @interface MineViewController ()<UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     NSArray *dataArray;
@@ -30,7 +31,7 @@
     mineTableView.delegate =self;
     NSDictionary *dic1 = @{@"image":@"gerndangan",@"title":@"个人档案",@"identifier":@"Identifier1"};
     NSDictionary *dic2 = @{@"image":@"guanzhuqinyou",@"title":@"关注亲友",@"identifier":@"Identifier2"};
-    NSDictionary *dic3 = @{@"image":@"tuijianxiazai",@"title":@"二维码下载",@"identifier":@"Identifier3"};
+    NSDictionary *dic3 = @{@"image":@"tuijianxiazai",@"title":@"推荐下载",@"identifier":@"Identifier3"};
     NSDictionary *dic4 = @{@"image":@"xiugaimima",@"title":@"修改密码",@"identifier":@"Identifier4"};
     NSDictionary *dic5 = @{@"image":@"wodejifen",@"title":@"我的积分",@"identifier":@"Identifier5"};
     NSDictionary *dic6 = @{@"image":@"wodedianping",@"title":@"我的点评",@"identifier":@"Identifier6"};
@@ -186,7 +187,27 @@
     if (identifier) {
         NSLog(@"identifier = %@", identifier);
         if ([identifier isEqualToString:@"Identifier3"]) {
-            [self showQcodeView];
+            UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"分享" message:@"请选择方式" preferredStyle:UIAlertControllerStyleActionSheet];
+            [controller addAction:[UIAlertAction actionWithTitle:@"微信好友" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                // 微信好友
+                [self sendWXMessage:WXSceneSession];
+            }]];
+
+            [controller addAction:[UIAlertAction actionWithTitle:@"微信朋友圈" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                // 朋友圈
+                [self sendWXMessage:WXSceneTimeline];
+            }]];
+            
+            [controller addAction:[UIAlertAction actionWithTitle:@"扫描二维码" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self showQcodeView];
+            }]];
+            
+            [controller addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                
+            }]];
+            [self presentViewController:controller
+                               animated:YES completion:nil];
+            
         } else {
             [self performSegueWithIdentifier:identifier sender:self];
         }
@@ -206,6 +227,23 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 10.f;
+}
+
+- (void)sendWXMessage:(int)scene {
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = @"平糖分享";
+    message.description = @"一站式糖尿病健康管理平台";
+    [message setThumbImage:[UIImage imageNamed:@"logoIcon.png"]];
+    
+    WXWebpageObject *ext = [WXWebpageObject object];
+    ext.webpageUrl = @"http://xuetang.libokai.cn/download";
+    message.mediaObject = ext;
+    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    req.bText = NO;
+    req.message = message;
+    req.scene = scene;
+    
+    [WXApi sendReq:req];
 }
 
 @end

@@ -24,9 +24,9 @@
     reportTableView.delegate = self;
     reportTableView.dataSource = self;
     dataArray = [NSMutableArray array];
-    sectionTitle = @[@"评估结论:", @"风险因素分析:", @"平糖为您制定以下目标:"];
+    sectionTitle = @[@"风险预警:", @"风险因素分析:", @"报告建议:", @"用药与治疗建议:", @"运动与饮食建议:"];
     __weak typeof(self) weakSelf = self;
-    [[BloodRequest singleton] getRiskReport:@"14" complete:^{
+    [[BloodRequest singleton] getWarning:^{
         [weakSelf rebuiltData];
     } failed:^(NSString *state, NSString *errmsg) {
         
@@ -34,21 +34,22 @@
 }
 
 - (void)rebuiltData {
-    NSDictionary *reportDic =[BloodRequest singleton].riskReportDic;
-    NSDictionary *dic1 = @{@"title":@"评估结论:",@"data":@[reportDic[@"conclusion"]]};
-    NSDictionary *dic2 = @{@"title":@"风险因素分析:",@"data":@[[NSString stringWithFormat:@"不可控风险因素:%@",reportDic[@"uncontrollable"]], [NSString stringWithFormat:@"可控风险因素:%@",reportDic[@"controllable"]]]};
-//    [NSString stringWithFormat:@"近期目标：%@",reportDic[@"goal_short"]];
-    NSDictionary *dic3 = @{@"title":@"评估结论:",@"data":@[[NSString stringWithFormat:@"近期目标:%@",reportDic[@"goal_short"]], [NSString stringWithFormat:@"远期目标:%@",reportDic[@"goal_long"]]]};
-    [dataArray addObject:dic1];
-    [dataArray addObject:dic2];
-    [dataArray addObject:dic3];
+    NSDictionary *reportDic = [BloodRequest singleton].warningDic;
+    for (int i = 0; i < reportDic.allKeys.count; i++) {
+        NSString *value = reportDic.allValues[i];
+        NSDictionary *dic;
+        if (i < sectionTitle.count) {
+            dic = @{@"title":sectionTitle[i], @"data":value};
+        } else {
+            dic = @{@"title":@"", @"data":value};
+        }
+        [dataArray addObject:dic];
+    }
     [reportTableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSDictionary *dic = dataArray[section];
-    NSArray *array = dic[@"data"];
-    return array.count;
+    return 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -59,18 +60,12 @@
     NSString *identifiter = @"reportCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifiter];
     NSDictionary *dic = dataArray[indexPath.section];
-    NSArray *reportArray = dic[@"data"];
-    NSString *title = reportArray[indexPath.row];
+//    NSArray *reportArray = dic[@"data"];
+    NSString *title = dic[@"data"];
     UILabel *label = [cell.contentView viewWithTag:1];
-    
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:title];
-    //设置字体
-    [attrString addAttribute:NSForegroundColorAttributeName value:rgb_color(51, 204, 204, 1) range:[title rangeOfString:@"不可控风险因素:"]];
-    [attrString addAttribute:NSForegroundColorAttributeName value:rgb_color(51, 204, 204, 1) range:[title rangeOfString:@"可控风险因素:"]];
-    [attrString addAttribute:NSForegroundColorAttributeName value:rgb_color(51, 204, 204, 1) range:[title rangeOfString:@"远期目标:"]];
-    [attrString addAttribute:NSForegroundColorAttributeName value:rgb_color(51, 204, 204, 1) range:[title rangeOfString:@"近期目标:"]];
-    
-    label.attributedText = attrString;
+    label.text = title;
+    [cell setNeedsUpdateConstraints];
+    [cell updateConstraintsIfNeeded];
     return cell;
 }
 
@@ -91,22 +86,21 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-    UILabel *label = [cell.contentView viewWithTag:1];
+//    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+//    UILabel *label = [cell.contentView viewWithTag:1];
     
     NSDictionary *dic = dataArray[indexPath.section];
-    NSArray *reportArray = dic[@"data"];
-    NSString *title = reportArray[indexPath.row];
-    label.text = title;
-    [cell setNeedsUpdateConstraints];
-    [cell updateConstraintsIfNeeded];
-    
-    return [title heightForFont:label.font width:label.width]+40;
+    NSString *title = dic[@"data"];
+//    label.text = title;
+//    [cell setNeedsUpdateConstraints];
+//    [cell updateConstraintsIfNeeded];
+    float height = ([title heightForFont:[UIFont systemFontOfSize:14] width:self.view.width - 30])+40;
+    return height;
 }
 
--(BOOL)navigationShouldPopOnBackButton{
-    [self.navigationController popToRootViewControllerAnimated:YES];
-    return YES;
-}
+//-(BOOL)navigationShouldPopOnBackButton{
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+//    return YES;
+//}
 
 @end

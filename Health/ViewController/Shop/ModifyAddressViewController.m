@@ -30,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = NO;
     manager = [[RETableViewManager alloc] initWithTableView:modifyTableView delegate:self];
     manager.style.cellHeight = 60;
     [self addSection];
@@ -54,7 +55,7 @@
     [section addItem:nameItem];
     phoneItem = [RETextItem itemWithTitle:@"手机号码" value:self.addressDic[@"mobile"] placeholder:@"手机号码"];
     [section addItem:phoneItem];
-    codeItem = [RETextItem itemWithTitle:@"邮政编码" value:@"" placeholder:@"邮政编码"];
+    codeItem = [RETextItem itemWithTitle:@"邮政编码" value:self.addressDic[@"postcode"] placeholder:@"邮政编码"];
     [section addItem:codeItem];
     proviceItem = [RETextItem itemWithTitle:@"省市区" value:self.addressDic[@"province"] placeholder:@""];
     [section addItem:proviceItem];
@@ -96,6 +97,7 @@
     dic[@"city"] = streetItem.value;
     dic[@"address"] = addItem.value;
     dic[@"mobile"] = phoneItem.value;
+    dic[@"postcode"] = codeItem.value;
     [[GoodsRequest singleton] editAddress:dic complete:^{
         if (self.select) {
             self.select();
