@@ -3598,18 +3598,6 @@ bel</string>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jeP-5x-C3c" id="F1a-5O-EeX">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xo-hh-GHQ">
-                                                    <rect key="frame" x="15" y="12.5" width="75" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="9Xo-hh-GHQ" firstAttribute="centerY" secondItem="F1a-5O-EeX" secondAttribute="centerY" id="3mL-yg-82y"/>
-                                                <constraint firstItem="9Xo-hh-GHQ" firstAttribute="leading" secondItem="F1a-5O-EeX" secondAttribute="leading" constant="15" id="HYT-nJ-XdY"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>

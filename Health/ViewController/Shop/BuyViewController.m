@@ -12,10 +12,21 @@
 #import "DTNetImageView.h"
 #import "ChoiseAddressViewController.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "WXApi.h"
+
+//@interface PayWayCell : UITableViewCell
+//{
+//    IBOutlet UILabel *titleLabel;
+//    IBOutlet UIImageView *selectImageView;
+//}
+//
+//@end
 
 @interface BuyViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate>{
     IBOutlet UITableView *buyTableView;
     NSString *points;
+    BOOL isWechatPay;
+    NSArray *paywayArray;
 }
 
 @property (nonatomic, strong) IBOutlet UILabel     *totalLabel;
@@ -41,6 +52,8 @@
 //        
 //    }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payresult:) name:@"wechatpayResult" object:nil];
+    
     [self total];
     [[MineRequest singleton] getJifen:[UserCentreData singleton].userInfo.userid complete:^{
         [buyTableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
@@ -60,6 +73,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [buyTableView reloadSection:0 withRowAnimation:UITableViewRowAnimationNone];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)total {
@@ -90,11 +107,13 @@
     dic[@"point"] = points;
     dic[@"addressid"] = [GoodsRequest singleton].addressDic[@"id"];
     dic[@"delivery_method"] = @"顺丰";
+    dic[@"payment_method"] = isWechatPay?@"wxpay":@"alipay";
     
     [[GoodsRequest singleton] postOrder:dic complete:^{
-        [self openAlipay];
+//        [self openAlipay];
+        isWechatPay?[self openWechat]:[self openAlipay];
     } failed:^(NSString *state, NSString *errmsg) {
-        
+        [self.view makeToast:errmsg];
     }];
 }
 
@@ -105,16 +124,42 @@
         NSLog(@"reslut = %@",resultDic);
         if ([resultDic[@"resultStatus"] integerValue] == 9000) {
             // 支付成功
-            [self performSegueWithIdentifier:@"paysuccess" sender:self];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+//            [self performSegueWithIdentifier:@"paysuccess" sender:self];
         } else {
-            [self performSegueWithIdentifier:@"payfailed" sender:self];
+//            [self performSegueWithIdentifier:@"payfailed" sender:self];
         }
     }];
+}
+
+- (void)openWechat {
+//    NSMutableString *stamp  = [[NSDate date] timeIntervalSince1970];
+    NSDictionary *dict = [GoodsRequest singleton].orderDic[@"wxpay_string"];
+//    //调起微信支付
+    PayReq* req             = [[PayReq alloc] init];
+    req.partnerId           = [dict objectForKey:@"partnerid"];
+    req.prepayId            = [dict objectForKey:@"prepayid"];
+    req.nonceStr            = [dict objectForKey:@"noncestr"];
+    req.timeStamp           = [[dict objectForKey:@"timestamp"] intValue];
+    req.package             = [dict objectForKey:@"package"];
+    req.sign                = [dict objectForKey:@"sign"];
+    [WXApi sendReq:req];
+}
+
+- (void)payresult:(NSNotification *)notify {
+    NSDictionary *dic = notify.userInfo;
+    BOOL isSuccess = [dic[@"result"] boolValue];
+    if (isSuccess) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 1) {
         return self.buyArray.count;
+    }
+    if (section == 3) {
+        return 2;
     }
     return 1;
 }
@@ -180,6 +225,13 @@
         case 3:
             identifter = @"payCell";
             cell = [tableView dequeueReusableCellWithIdentifier:identifter];
+            if (indexPath.row == 0) {
+                cell.textLabel.text = @"支付宝支付";
+                cell.imageView.image = [UIImage imageNamed:isWechatPay?@"unselect":@"select"];
+            } else {
+                cell.textLabel.text = @"微信支付";
+                cell.imageView.image = [UIImage imageNamed:isWechatPay?@"select":@"unselect"];
+            }
             break;
         default:
             break;
@@ -221,6 +273,13 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (indexPath.section == 0) {
         [self performSegueWithIdentifier:@"showAddress" sender:self];
+    } else if (indexPath.section == 3) {
+        if (indexPath.row == 1) {
+            isWechatPay = YES;
+        } else {
+            isWechatPay = NO;
+        }
+        [tableView reloadSection:indexPath.section withRowAnimation:UITableViewRowAnimationNone];
     }
 }
 

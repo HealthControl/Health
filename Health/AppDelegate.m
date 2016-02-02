@@ -23,7 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.tabbarController = (UITabBarController *)self.window.rootViewController;
     [self setupTabbarItems];
-    [WXApi registerApp:@"wx5b8e2d8083fd6016"];
+    [WXApi registerApp:@"wx5b8e2d8083fd6016" withDescription:@"health1.0"];
     [self preload];
     // Override point for customization after application launch.
     return YES;
@@ -124,6 +124,24 @@
                 break;
         }
         [self.window makeToast:errmsg];
+    } else if([resp isKindOfClass:[PayResp class]]){
+        //支付返回结果，实际支付结果需要去微信服务器端查询
+        NSString *strMsg = [NSString stringWithFormat:@"支付结果"];
+        BOOL isSuccess;
+        switch (resp.errCode) {
+            case WXSuccess:
+                strMsg = @"支付成功！";
+                NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+                isSuccess = YES;
+                break;
+                
+            default:
+                strMsg = [NSString stringWithFormat:@"支付失败: %@",resp.errStr];
+                NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
+                break;
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"wechatpayResult" object:nil userInfo:@{@"result":@(isSuccess)}];
+        [self.window makeToast:strMsg];
     }
 }
 
