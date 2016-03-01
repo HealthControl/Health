@@ -12,8 +12,11 @@
 
 @interface RegisterViewController () <UITextFieldDelegate>{
     IBOutlet UIScrollView *textScrollView;
+    UIButton *sendCodeButton;
     NSMutableArray *textFieldArray;
+    NSTimer *buttonTimer;
     float totalHeight;
+    int time;
 }
 
 @end
@@ -30,6 +33,7 @@
     [self addLoginButton];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keybordresignFirstResponder)];
     [textScrollView addGestureRecognizer:tapGesture];
+    time = 60;
     // Do any additional setup after loading the view.
 }
 
@@ -72,7 +76,7 @@
         if (i == 2) {
             field = [view textTitle:titleArray[i] frame:CGRectMake(25, totalHeight+i*10, self.view.width - 50, 40) superView:textScrollView type:1];
             field.frame = CGRectMake(field.left, field.top, field.width/2, field.height);
-            UIButton *sendCodeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            sendCodeButton = [UIButton buttonWithType:UIButtonTypeCustom];
             sendCodeButton.frame = CGRectMake(field.right, field.top, field.width, field.height);
             [sendCodeButton setTitle:@"发送验证码" forState:UIControlStateNormal];
             [sendCodeButton setTitleColor:rgb_color(229, 87, 87, 1) forState:UIControlStateNormal];
@@ -82,6 +86,9 @@
         }
         if (i == 1 || i == 2 || i == 3) {
             field.keyboardType = UIKeyboardTypeNumberPad;
+            if (i == 3) {
+                field.placeholder = @"没有可忽略";
+            }
         }
         if (i == 4 || i == 5) {
             field.secureTextEntry = YES;
@@ -102,7 +109,7 @@
     NSDictionary *mobileDic = @{@"mobile":phoneText.text};
     [[LoginRequest singleton] sendSms:mobileDic complete:^{
         [self.view makeToast:@"验证码发送成功"];
-        
+        [self startTimer];
     } failed:^(NSString *state, NSString *errmsg) {
         [self.view makeToast:@"验证码发送失败"];
     }];
@@ -111,7 +118,7 @@
 - (void)addContractButton {
     UIButton *contractButton = [UIButton buttonWithType:UIButtonTypeCustom];
     contractButton.frame = CGRectMake(25, totalHeight+55, 273, 40);
-    [contractButton setTitle:@"我已阅读并接受《血糖高管协议》" forState:UIControlStateNormal];
+    [contractButton setTitle:@"我已阅读并接受《平糖协议》" forState:UIControlStateNormal];
     [contractButton setTitleColor:rgb_color(153, 153, 153, 1) forState:UIControlStateNormal];
     contractButton.titleLabel.font = [UIFont systemFontOfSize:13];
     [contractButton addTarget:self action:@selector(xieyiClick) forControlEvents:UIControlEventTouchUpInside];
@@ -178,6 +185,31 @@
     } failed:^(NSString *state, NSString *errmsg) {
         [self.view makeToast:errmsg];
     }];
+}
+
+- (void)startTimer {
+    sendCodeButton.enabled = NO;
+    
+    if (!buttonTimer) {
+        buttonTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateButtonTitle) userInfo:nil repeats:YES];
+    }
+}
+
+- (void)updateButtonTitle {
+    time--;
+    if (time >= 0) {
+        [sendCodeButton setTitle:[NSString stringWithFormat:@"%d秒", time] forState:UIControlStateDisabled];
+    } else {
+        [self closeTimer];
+    }
+}
+
+- (void)closeTimer {
+    time = 60;
+    sendCodeButton.enabled = YES;
+    [sendCodeButton setTitle:@"发送验证码" forState:UIControlStateNormal];
+    [buttonTimer invalidate];
+    buttonTimer = nil;
 }
 
 - (void)xieyiClick {
