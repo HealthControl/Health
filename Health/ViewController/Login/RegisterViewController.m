@@ -98,10 +98,11 @@
         [self.view makeToast:@"手机号不能为空"];
         return;
     }
-    
+    [phoneText resignFirstResponder];
     NSDictionary *mobileDic = @{@"mobile":phoneText.text};
     [[LoginRequest singleton] sendSms:mobileDic complete:^{
         [self.view makeToast:@"验证码发送成功"];
+        
     } failed:^(NSString *state, NSString *errmsg) {
         [self.view makeToast:@"验证码发送失败"];
     }];
