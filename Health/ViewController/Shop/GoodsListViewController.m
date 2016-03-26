@@ -37,9 +37,9 @@
     singlePriceLabel.text = [NSString stringWithFormat:@"￥%@", buyDetail.price];
     [thumImageView setImageWithURL:[NSURL URLWithString:buyDetail.thumb] options:YYWebImageOptionProgressiveBlur];
     
-    guigeLabel.text = [NSString stringWithFormat:@"药品规格:%@ ", buyDetail.specification];
+    guigeLabel.text = [NSString stringWithFormat:@"商品规格:%@ ", buyDetail.specification];
     
-    introLabel.text = [NSString stringWithFormat:@"药品介绍:%@ ", buyDetail.newsDescription];
+    introLabel.text = [NSString stringWithFormat:@"商品介绍:%@ ", buyDetail.newsDescription];
 
     numberLabel.text = [NSString stringWithFormat:@"%d", [buyDetail.number intValue]];
 }

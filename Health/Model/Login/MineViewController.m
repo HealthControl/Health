@@ -164,7 +164,7 @@
         LoginData *data = [UserCentreData singleton].userInfo;
         [headImage setImageWithUrl:[NSURL URLWithString:data.userpic] defaultImage:nil];
         userNameLabel.text = data.username;
-        userIDLabel.text = [NSString stringWithFormat:@"账号: %@", data.userid];
+        userIDLabel.text = [NSString stringWithFormat:@"账号: %@", data.mobile];
     } else {
         NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
         UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:1];

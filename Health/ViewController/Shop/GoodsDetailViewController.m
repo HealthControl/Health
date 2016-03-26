@@ -44,7 +44,7 @@
     GoodsDetail *detail = [GoodsRequest singleton].goodsDetail;
     cycleScrollView.imageURLStringsGroup = detail.picture;
     cycleScrollView.autoScrollTimeInterval = 5;
-    [dataArray addObjectsFromArray:@[@{@"【药品价格】":detail.price}, @{@"【药品规格】":detail.specification}, @{@"【药品介绍】":detail.newsDescription}, @{@"【详情描述】":detail.content}]];
+    [dataArray addObjectsFromArray:@[@{@"【商品价格】":detail.price}, @{@"【商品规格】":detail.specification}, @{@"【商品介绍】":detail.newsDescription}, @{@"【详情描述】":detail.content}]];
     [goodsDetailTableView reloadData];
 }
 

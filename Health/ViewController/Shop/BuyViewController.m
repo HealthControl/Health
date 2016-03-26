@@ -202,11 +202,11 @@
             UILabel *label1 = [cell.contentView viewWithTag:2];
             label1.text = [NSString stringWithFormat:@"%@    ￥%@", detail.title, detail.price];
             UILabel *label2 = [cell.contentView viewWithTag:3];
-            label2.text = [NSString stringWithFormat:@"药品规格:%@ ", detail.specification];
+            label2.text = [NSString stringWithFormat:@"商品规格:%@ ", detail.specification];
             UILabel *label3 = [cell.contentView viewWithTag:4];
-            label3.text = [NSString stringWithFormat:@"药品介绍:%@ ", detail.newsDescription];
+            label3.text = [NSString stringWithFormat:@"商品介绍:%@ ", detail.newsDescription];
             UILabel *label4 = [cell.contentView viewWithTag:5];
-            label4.text = [NSString stringWithFormat:@"药品数量:%d", [detail.number intValue]];
+            label4.text = [NSString stringWithFormat:@"商品数量:%d", [detail.number intValue]];
     }
             break;
         case 2:{

@@ -19,7 +19,7 @@ static int postRiskContent;
 static int getRiskReport;
 static int getTodayBlood;
 static int getWarning;
-
+static int getPeriod;
 - (id)init
 {
     self  = [super initWithDelegate:self];
@@ -101,6 +101,12 @@ static int getWarning;
     [self startPost:@"Api/Bloodsugar/warning" params:@{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token} tag:&getWarning];
 }
 
+- (void)getperiod:(Complete)completeBlock failed:(Failed)failed {
+    _complete = completeBlock;
+    _failed = failed;
+    [self startPost:@"Api/Bloodsugar/measure_period" params:nil tag:&getPeriod];
+}
+
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {
     NSLog(@"msg: %@", msg);
     if ([msg[@"status"] integerValue] == 1) {
@@ -140,6 +146,10 @@ static int getWarning;
         } else if (tag == &getWarning) {
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 self.warningDic = [NSMutableDictionary dictionaryWithDictionary:msg[@"data"]];
+            }
+        } else if (tag == &getPeriod) {
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                self.periodArray = [NSMutableArray arrayWithArray:msg[@"data"]];
             }
         }
         _complete();

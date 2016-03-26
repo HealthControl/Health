@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSString *riskReportStr;
 @property (nonatomic, strong) NSString *todayBlood;
 @property (nonatomic, strong) NSMutableDictionary *warningDic;
+@property (nonatomic, strong) NSMutableArray *periodArray;
 + (instancetype)singleton;
 
 // 糖历
@@ -39,4 +40,6 @@
 - (void)getTodayBloodComplete:(Complete)completeBlock failed:(Failed)failed;
 // 预警与报告
 - (void)getWarning:(Complete)completeBlock failed:(Failed)failed;
+
+- (void)getperiod:(Complete)completeBlock failed:(Failed)failed;
 @end

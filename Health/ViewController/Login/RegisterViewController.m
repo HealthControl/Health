@@ -198,7 +198,7 @@
 - (void)updateButtonTitle {
     time--;
     if (time >= 0) {
-        [sendCodeButton setTitle:[NSString stringWithFormat:@"%d秒", time] forState:UIControlStateDisabled];
+        [sendCodeButton setTitle:[NSString stringWithFormat:@"%d秒后再次发送", time] forState:UIControlStateDisabled];
     } else {
         [self closeTimer];
     }

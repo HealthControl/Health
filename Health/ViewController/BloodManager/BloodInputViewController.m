@@ -25,7 +25,7 @@
     
     IBOutlet UIView *bottomView;
     IBOutlet UITextField *textField;
-    NSArray *pickerArray;
+    NSMutableArray *pickerArray;
 }
 
 @end
@@ -39,9 +39,7 @@
     
     periodLabel.text = @"空腹";
     timeLabel.text = [[NSDate date] stringWithFormat:@"MM月dd日   HH:mm"];
-    pickerView.delegate = self;
-    pickerView.dataSource = self;
-    pickerArray = @[@"空腹", @"饭前", @"饭后"];
+    pickerArray = [NSMutableArray array];
     datePicker.maximumDate = [NSDate date];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
         [self removeTimerPicker];
@@ -63,6 +61,19 @@
     bloodRuleView.onvalueChange = ^(float value) {
         [weakSelf sliderChange:value];
     };
+    [[BloodRequest singleton] getperiod:^{
+        for (NSDictionary *dic in [BloodRequest singleton].periodArray) {
+            [pickerArray addObject:dic[@"value"]];
+        }
+        
+        if (pickerArray.count > 0) {
+            periodLabel.text = pickerArray[0];
+        }
+        pickerView.delegate = self;
+        pickerView.dataSource = self;
+    } failed:^(NSString *state, NSString *errmsg) {
+        
+    }];
 }
 //
 //- (void)viewDidLayoutSubviews {
