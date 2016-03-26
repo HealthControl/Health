@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -5378,7 +5378,7 @@ bel</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mg5-Ko-IWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2055" y="1976"/>
+            <point key="canvasLocation" x="-2094" y="2148"/>
         </scene>
         <!--找回密码-->
         <scene sceneID="jPj-SS-T0y">
@@ -5761,12 +5761,12 @@ bel</string>
         <image name="zhuanjia" width="25" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4LW-dW-0uL"/>
-        <segue reference="jTh-FU-OyZ"/>
-        <segue reference="Z9Q-Wo-VwM"/>
-        <segue reference="UYK-SN-eOz"/>
-        <segue reference="RR6-DM-WAh"/>
+        <segue reference="1R7-Ax-fha"/>
         <segue reference="FeU-uC-G93"/>
+        <segue reference="jTh-FU-OyZ"/>
+        <segue reference="UYK-SN-eOz"/>
+        <segue reference="Z9Q-Wo-VwM"/>
+        <segue reference="RR6-DM-WAh"/>
         <segue reference="g5v-rX-LNb"/>
         <segue reference="w5r-LD-v4s"/>
     </inferredMetricsTieBreakers>
