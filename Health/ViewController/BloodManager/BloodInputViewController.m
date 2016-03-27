@@ -166,7 +166,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     BloodInputResultViewController *resultVC = [segue destinationViewController];
-    resultVC.resultDic = [BloodRequest singleton].testResultDic;
+    resultVC.resultID = [[BloodRequest singleton].testResultDic objectForKey:@"id"];
 }
 
 -(BOOL)navigationShouldPopOnBackButton{

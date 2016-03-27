@@ -19,6 +19,8 @@ static int postProfileTag;
 static int uploadImageTag;
 static int getxieyiTag;
 static int friendsBloodTag;
+static int addJifen;
+static int payListTag;
 
 @implementation MineRequest
 
@@ -47,6 +49,13 @@ static int friendsBloodTag;
     _complete = completeBlock;
     _failed = failedBlock;
     [self startPost:uri params:@{@"userid":userID} tag:&jifenTag];
+}
+
+- (void)addJifenComplete:(Complete)completeBlock failed:(Failed)failedBlock {
+    NSString *uri = @"Api/other/point";
+    _complete = completeBlock;
+    _failed = failedBlock;
+    [self startPost:uri params:@{@"userid":[UserCentreData singleton].userInfo.userid, @"type":@"share"} tag:&addJifen];
 }
 
 - (void)postDianping:(NSString *)content complete:(Complete)completeBlock failed:(Failed)failedBlock {
@@ -122,6 +131,13 @@ static int friendsBloodTag;
     [self startPost:@"Api/friend/bloodsugar" params:dic tag:&friendsBloodTag];
 }
 
+- (void)getPayListMobile:(NSString *)mobile complete:(Complete)completeBlock failed:(Failed)failedBlock {
+    _complete = completeBlock;
+    _failed = failedBlock;
+    NSDictionary *dic = @{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"mobile":mobile};
+    [self startPost:@"Api/Friend/pay_lists" params:dic tag:&payListTag];
+}
+
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {
     if ([msg[@"status"] integerValue] == 1) {
         if (tag == &jifenTag) {
@@ -148,6 +164,14 @@ static int friendsBloodTag;
         } else if (tag == &friendsBloodTag) {
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 self.friendsBloodUrl = msg[@"data"];
+            }
+        } else if (tag == &payListTag) {
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                if ([msg[@"status"] boolValue]) {
+                    self.payList = [NSMutableArray arrayWithArray:msg[@"data"]];
+                } else {
+                    _failed(msg[@"error"], msg[@"msg"]);
+                }
             }
         }
         _complete();

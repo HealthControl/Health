@@ -20,6 +20,8 @@ static int getRiskReport;
 static int getTodayBlood;
 static int getWarning;
 static int getPeriod;
+static int getResultWeb;
+
 - (id)init
 {
     self  = [super initWithDelegate:self];
@@ -39,11 +41,15 @@ static int getPeriod;
 }
 
 - (void)getCalendar:(NSString *)date complete:(Complete)completeBlock failed:(Failed)failed {
+    [self getCalendar:date uid:nil complete:completeBlock failed:failed];
+}
+
+- (void)getCalendar:(NSString *)date uid:(NSString *)uid complete:(Complete)completeBlock failed:(Failed)failed {
     _complete = completeBlock;
     _failed = failed;
     NSString *uri = @"Api/Bloodsugar/calendar";
-//    [UserCentreData singleton].userInfo.token
-    NSDictionary *postDic = @{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"date": date};
+    NSString *userid = uid?uid:[UserCentreData singleton].userInfo.userid;
+    NSDictionary *postDic = @{@"userid":userid, @"token":[UserCentreData singleton].userInfo.token, @"date": date};
     [self startPost:uri params:postDic tag:&calendarTag];
 }
 
@@ -107,6 +113,18 @@ static int getPeriod;
     [self startPost:@"Api/Bloodsugar/measure_period" params:nil tag:&getPeriod];
 }
 
+- (void)getTestResultUrlID:(NSString *)resultid complete:(Complete)completeBlock failed:(Failed)failed {
+    _complete = completeBlock;
+    _failed = failed;
+    NSDictionary *requestdic = nil;
+    if (resultid) {
+        requestdic = @{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"id":resultid};
+    } else {
+        requestdic = @{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token};
+    }
+    [self startPost:@"Api/Bloodsugar/reminder" params:nil tag:&getResultWeb];
+}
+
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {
     NSLog(@"msg: %@", msg);
     if ([msg[@"status"] integerValue] == 1) {
@@ -150,6 +168,10 @@ static int getPeriod;
         } else if (tag == &getPeriod) {
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 self.periodArray = [NSMutableArray arrayWithArray:msg[@"data"]];
+            }
+        } else if (tag == &getResultWeb) {
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                self.resultUrl = msg[@"data"];
             }
         }
         _complete();

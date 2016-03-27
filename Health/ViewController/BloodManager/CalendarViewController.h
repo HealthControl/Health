@@ -10,4 +10,6 @@
 
 @interface CalendarViewController : KBaseViewController
 
+@property (nonatomic, strong)NSString *userID;
+
 @end

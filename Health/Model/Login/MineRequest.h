@@ -17,7 +17,8 @@
 @property (nonatomic, strong) NSMutableDictionary *profileDic;
 @property (nonatomic, strong) UserInfo            *profileInfo;
 @property (nonatomic, strong) NSString *jifen;
-@property (nonatomic, strong) NSString *friendsBloodUrl;
+@property (nonatomic, strong) NSDictionary *friendsBloodUrl;
+@property (nonatomic, strong) NSArray *payList;
 // 获取积分
 - (void)getJifen:(NSString *)userID complete:(Complete)completeBlock failed:(Failed)failedBlock;
 // 我的点评
@@ -40,4 +41,8 @@
 - (void)getxieyiComplete:(Complete)completeBlock failed:(Failed)failedBlock;
 
 - (void)getFriendsBlood:(NSString *)mobile complete:(Complete)completeBlock failed:(Failed)failedBlock;
+
+- (void)addJifenComplete:(Complete)completeBlock failed:(Failed)failedBlock;
+- (void)getPayListMobile:(NSString *)mobile complete:(Complete)completeBlock failed:(Failed)failedBlock;
+
 @end

@@ -20,6 +20,8 @@
 @property (nonatomic, strong) NSString *todayBlood;
 @property (nonatomic, strong) NSMutableDictionary *warningDic;
 @property (nonatomic, strong) NSMutableArray *periodArray;
+@property (nonatomic, strong) NSString *resultUrl;
+
 + (instancetype)singleton;
 
 // 糖历
@@ -42,4 +44,8 @@
 - (void)getWarning:(Complete)completeBlock failed:(Failed)failed;
 
 - (void)getperiod:(Complete)completeBlock failed:(Failed)failed;
+
+- (void)getCalendar:(NSString *)date uid:(NSString *)uid complete:(Complete)completeBlock failed:(Failed)failed;
+// 血糖测试结果
+- (void)getTestResultUrlID:(NSString *)resultid complete:(Complete)completeBlock failed:(Failed)failed;
 @end

@@ -9,6 +9,9 @@
 #import "FriendsViewController.h"
 #import "MineRequest.h"
 #import "FriendsDetailViewController.h"
+#import "CalendarViewController.h"
+#import "UIView+Toast.h"
+#import "GoodsRequest.h"
 
 @interface AddFriendsCell : UITableViewCell {
     
@@ -51,24 +54,50 @@
 @interface DeleteFriendsCell : UITableViewCell {
     IBOutlet UILabel *relationLabel;
     IBOutlet UILabel *phoneLabel;
+    IBOutlet UIButton *deleteButton;
     NSDictionary *saveDic;
+    int from;
 }
+
+@property (nonatomic, copy) void (^onEvent)();
+@property (nonatomic, strong) NSString *number;
+@property (nonatomic, strong) NSString *productID;
 
 @end
 
 @implementation DeleteFriendsCell
 
-- (void)cellForDic:(NSDictionary *)dic {
+- (void)cellForDic:(NSDictionary *)dic isAdd:(int)isAdd{
     saveDic = dic;
     relationLabel.text = dic[@"relation"];
     phoneLabel.text = dic[@"mobile"];
+    if (isAdd == 1) {
+        deleteButton.hidden = YES;
+    } else
+    {
+        deleteButton.hidden = NO;
+    }
+    from = isAdd;
 }
 
 - (IBAction)deleteFriends:(id)sender {
-    [[MineRequest singleton] deleteFriends:saveDic[@"id"] complete:^{
-        [(FriendsViewController *)self.viewController loadData];
-    } failed:^(NSString *state, NSString *errmsg) {
-    }];
+    __weak typeof(self) weakSelf = self;
+    if (from == 0) {
+        [[MineRequest singleton] deleteFriends:saveDic[@"id"] complete:^{
+            [(FriendsViewController *)weakSelf.viewController loadData];
+        } failed:^(NSString *state, NSString *errmsg) {
+        }];
+    } else {
+        [[GoodsRequest singleton] addFriendsBuy:saveDic[@"mobile"] productId:self.productID number:self.number complete:^{
+            if (weakSelf.onEvent) {
+                [self.viewController.view makeToast:@"邀请成功"];
+                weakSelf.onEvent();
+            }
+        } failed:^(NSString *state, NSString *errmsg) {
+            
+        }];
+    }
+    
 }
 
 @end
@@ -81,6 +110,10 @@
 @end
 
 @implementation FriendsViewController
+
+- (void)loadView {
+    [super loadView];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -105,6 +138,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.fromWhere == 1) {
+        return dataArray.count;
+    }
     return dataArray.count + 1;
 }
 
@@ -125,10 +161,19 @@
 
     if (indexPath.row < dataArray.count) {
         NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
-        [(DeleteFriendsCell *)cell cellForDic:dic];
+        [(DeleteFriendsCell *)cell cellForDic:dic isAdd:self.fromWhere];
+        __weak typeof(self) weakSelf = self;
+        ((DeleteFriendsCell *)cell).onEvent = ^() {
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        };
+        if (self.fromWhere == 2) {
+            ((DeleteFriendsCell *)cell).productID = self.productID;
+            ((DeleteFriendsCell *)cell).number = self.number;
+        }
     } else {
         [(AddFriendsCell *)cell reloadcell];
     }
+    
     
     return cell;
 }
@@ -139,15 +184,46 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row < dataArray.count) {
-        NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
-        [self performSegueWithIdentifier:@"showfriendsDetail" sender:dic];
+    NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
+    if (!dic[@"info"] || [dic[@"info"] isKindOfClass:[NSNull class]]) {
+        [self.view makeToast:@"该亲友信息不完整, 请重新添加"];
+        return;
+    }
+    switch (self.fromWhere) {
+        case 0:
+            if (indexPath.row < dataArray.count) {
+                [self performSegueWithIdentifier:@"showfriendsDetail" sender:dic];
+            }
+            break;
+        case 1:
+            [self performSegueWithIdentifier:@"friendsCalendar" sender:dic];
+            break;
+        case 2: {
+            // 添加代购
+        }
+            
+            break;
+        default:
+            break;
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    FriendsDetailViewController *detailVC = [segue destinationViewController];
-    detailVC.friendsDic = (NSDictionary *)sender;
+    switch (self.fromWhere) {
+        case 0:
+        {
+            FriendsDetailViewController *detailVC = [segue destinationViewController];
+            detailVC.friendsDic = (NSDictionary *)sender;
+        }
+            break;
+        case 1:{
+            CalendarViewController *calendarVC = [segue destinationViewController];
+            calendarVC.userID = ((NSDictionary *)sender)[@"info"][@"userid"];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 @end

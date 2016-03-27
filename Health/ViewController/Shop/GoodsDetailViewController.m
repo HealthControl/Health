@@ -12,6 +12,7 @@
 #import "BuyViewController.h"
 #import "GoodsListViewController.h"
 #import <MessageUI/MessageUI.h>
+#import "FriendsViewController.h"
 
 @interface GoodsDetailViewController () <UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate>{
     IBOutlet UITableView *goodsDetailTableView;
@@ -89,16 +90,7 @@
         return;
     } else if (t.tag == 4) {
         // 找人代购
-        if( [MFMessageComposeViewController canSendText] ){
-            
-            MFMessageComposeViewController * controller = [[MFMessageComposeViewController alloc]init]; //autorelease];
-            controller.messageComposeDelegate = self;
-            controller.body = @"我已在平糖中已选好商品，请帮我付款";
-            controller.title = @"平糖";
-            [self presentViewController:controller animated:YES completion:nil];
-        }else{
-            [self.view makeToast:@"设备没有短信功能"];
-        }
+        [self performSegueWithIdentifier:@"choiseFriends" sender:self];
     }
     
     [[GoodsRequest singleton] addToChart:dic complete:^{
@@ -178,6 +170,11 @@
     }else if ([segue.identifier isEqualToString:@"lijigoumai"]) {
         BuyViewController *buyVC = [segue destinationViewController];
         buyVC.buyArray = [NSMutableArray arrayWithArray:[GoodsRequest singleton].buyArray];
+    } else if ([segue.identifier isEqualToString:@"choiseFriends"]) {
+        FriendsViewController *fVC = [segue destinationViewController];
+        fVC.productID = self.goodsId;
+        fVC.number = numberLabel.text;
+        fVC.fromWhere = 2;
     }
 }
 

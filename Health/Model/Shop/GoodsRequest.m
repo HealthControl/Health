@@ -24,6 +24,8 @@ static int postOrderTag;
 static int getAddressTag;
 static int deleteAddressTag;
 static int deleteChartsTag;
+static int addDaigou;
+
 - (id)init
 {
     self  = [super initWithDelegate:self];
@@ -133,6 +135,14 @@ static int deleteChartsTag;
     _failed = failed;
     NSDictionary *dic = @{@"id":addressID, @"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token};
     [self startPost:@"Api/Address/setdefault" params:dic tag:&deleteAddressTag];
+}
+
+- (void)addFriendsBuy:(NSString *)mobile productId:(NSString *)productID number:(NSString *)number complete:(Complete)completeBlock failed:(Failed)failedBlock {
+    _complete = completeBlock;
+    _failed = failedBlock;
+    NSDictionary *dic = @{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"mobile":mobile, @"proid":productID, @"number":number?number:@"1"};
+    [self startPost:@"Api/Friend/pay_add" params:dic tag:&addDaigou];
+    
 }
 
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {

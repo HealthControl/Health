@@ -10,6 +10,6 @@
 
 @interface BloodInputResultViewController : KBaseViewController
 
-@property (nonatomic, strong) NSDictionary *resultDic;
+@property (nonatomic, strong) NSString *resultID;
 
 @end

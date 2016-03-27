@@ -39,7 +39,7 @@
 
 - (void)cellForExpert:(ExpertData *)expert {
     [self.headerImageView setImageWithUrl:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://xuetang.libokai.cn/", expert.headpic]] defaultImage:nil];
-    self.titleLabel.text = expert.title;
+    self.titleLabel.text = expert.name;
     self.positionLabel.text = expert.position;
     self.hospitalLabel.text = expert.hospital;
     self.descriptionLabel.text = expert.introduce;

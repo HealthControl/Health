@@ -7,13 +7,10 @@
 //
 
 #import "BloodInputResultViewController.h"
+#import "BloodRequest.h"
 
-@interface BloodInputResultViewController () {
-    IBOutlet UILabel *timelLabel;
-    IBOutlet UILabel *mmLabel;
-    IBOutlet UILabel *resultLabel;
-    IBOutlet UIView  *bottomView;
-}
+@interface BloodInputResultViewController ()
+@property (nonatomic, weak) IBOutlet UIWebView *resultWebView;
 
 @end
 
@@ -21,25 +18,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[self.resultDic[@"addtime"] floatValue]];
-    timelLabel.text = [date stringWithFormat:@"MM月dd日   HH:mm"];
-    mmLabel.text = self.resultDic[@"value"];
-    resultLabel.text = self.resultDic[@"reminder"];
-//    resultLabel.text = [self result:mmLabel.text];
-    [bottomView.layer setBorderWidth:0.5f];
-    [bottomView.layer setBorderColor:[rgb_color(204, 204, 204, 1) CGColor]];
+    __weak typeof(self) weakSelf = self;
+    [[BloodRequest singleton] getTestResultUrlID:self.resultID complete:^{
+        [weakSelf.resultWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[BloodRequest singleton].resultUrl]]];
+    } failed:^(NSString *state, NSString *errmsg) {
+        
+    }];
+    
+    self.title = @"测量结果";
 }
 
-- (NSString *)result:(NSString *)value {
-    NSString *result = @"正常";
-    float floatValue = [value floatValue];
-    if (floatValue < 4) {
-        result = @"偏低";
-    }
-    if (floatValue > 6) {
-        result = @"偏高";
-    }
-    return result;
-}
 
 @end

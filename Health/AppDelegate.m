@@ -12,6 +12,7 @@
 #import "SelectionRequest.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
+#import "MineRequest.h"
 
 @interface AppDelegate () <WXApiDelegate>
 
@@ -113,7 +114,15 @@
         switch (resp.errCode) {
             case 0:
                 // 发送成功
+            {
                 errmsg = @"发送成功";
+                [[MineRequest singleton] addJifenComplete:^{
+                    
+                } failed:^(NSString *state, NSString *errmsg) {
+                    
+                }];
+                
+            }
                 break;
             case -2:
                 // 发送取消

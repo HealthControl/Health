@@ -9,5 +9,11 @@
 #import "KBaseViewController.h"
 
 @interface FriendsViewController : KBaseViewController
+
+@property (nonatomic, assign) int fromWhere;
+@property (nonatomic, strong) NSString *productID;
+@property (nonatomic, strong) NSString *number;
+
 - (void)loadData;
+
 @end

@@ -48,5 +48,8 @@
 - (void)addToFav:(NSDictionary *)favDic complete:(Complete)completeBlock failed:(Failed)failedBlock;
 - (void)getFavs:(Complete)completeBlock failed:(Failed)failedBlock;
 - (void)deleteCharts:(NSString *)goodsId isFromFav:(BOOL)isFromFav complete:(Complete)completeBlock failed:(Failed)failedBlock;
+
+// 亲友代购
+- (void)addFriendsBuy:(NSString *)mobile productId:(NSString *)productID number:(NSString *)number complete:(Complete)completeBlock failed:(Failed)failedBlock;
 @end
 

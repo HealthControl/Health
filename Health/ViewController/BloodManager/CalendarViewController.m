@@ -9,6 +9,7 @@
 #import "CalendarViewController.h"
 #import "BloodRequest.h"
 #import "JTCalendar.h"
+#import "FriendsViewController.h"
 
 @interface CalendarViewController () <JTCalendarDelegate, UIWebViewDelegate>{
     IBOutlet UIWebView *webView;
@@ -17,6 +18,8 @@
     JTCalendarManager *calendarManager;
     NSDate *_dateSelected;
     NSDate *_todayDate;
+    
+    IBOutlet UIBarButtonItem *rightButtonItem;
 }
 
 @end
@@ -28,17 +31,30 @@
     
     _todayDate = [NSDate date];
     [self loadCalendarView];
+    rightButtonItem.enabled = self.userID?NO:YES;
     [self loadRequest:_todayDate];
 }
 
+- (IBAction)rightbutton:(id)sender {
+    [self performSegueWithIdentifier:@"showfriends" sender:self];
+}
+
 - (void)loadRequest:(NSDate *)date {
-    
     NSString *currentDate = [date stringWithFormat:@"yyyy-MM-dd"];
-    [[BloodRequest singleton] getCalendar:currentDate complete:^{
-        [self loadWebView];
-    } failed:^(NSString *state, NSString *errmsg) {
-        
-    }];
+    if (self.userID) {
+        [[BloodRequest singleton] getCalendar:currentDate uid:self.userID complete:^{
+            [self loadWebView];
+        } failed:^(NSString *state, NSString *errmsg) {
+            
+        }];
+    } else {
+        [[BloodRequest singleton] getCalendar:currentDate complete:^{
+            [self loadWebView];
+        } failed:^(NSString *state, NSString *errmsg) {
+            
+        }];
+    }
+    
 }
 
 - (void)loadWebView {
@@ -119,4 +135,11 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     return YES;
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    FriendsViewController *resultVC = [segue destinationViewController];
+    resultVC.fromWhere = 1;
+}
+
 @end
