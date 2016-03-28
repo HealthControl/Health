@@ -35,6 +35,23 @@
         [submitTextView resignFirstResponder];
     }];
     [detailTabelView addGestureRecognizer:gesture];
+    [self getReplyAndComment];
+}
+
+- (void)getReplyAndComment {
+    @weakify(self)
+    [[ExpertRequest singleton] getReplyAndComment:self.doctorID complete:^{
+        @strongify(self);
+        [self reloadCommentData];
+    } failed:^(NSString *state, NSString *errmsg) {
+        
+    }];
+}
+
+- (void)reloadCommentData {
+    [commentArray removeAllObjects];
+    [commentArray addObjectsFromArray:[ExpertRequest singleton].commentArray];
+    [detailTabelView reloadData];
 }
 
 - (void)commitComment {
@@ -43,14 +60,13 @@
         [self.view makeToast:@"请输入内容"];
         return;
     }
+    @weakify(self)
     [[ExpertRequest singleton] postComment:submitTextView.text expertID:self.doctorID complete:^{
+        @strongify(self)
         [self.view makeToast:@"提问成功"];
         submitTextView.text = @"";
         [submitTextView resignFirstResponder];
-        
-        [commentArray addObject:[ExpertRequest singleton].commentDic];
-        
-        [detailTabelView reloadSection:2 withRowAnimation:UITableViewRowAnimationFade];
+        [self getReplyAndComment];
     } failed:^(NSString *state, NSString *errmsg) {
         [self.view makeToast:errmsg];
     }];
@@ -87,9 +103,9 @@
             UILabel *nameLabel = [cell.contentView viewWithTag:2];
             UILabel *titleLabel = [cell.contentView viewWithTag:3];
             UILabel *IDLabel = [cell.contentView viewWithTag:4];
-            [headerView setImageWithUrlString:detail.headpic defaultImage:nil];
+            [headerView setImageWithUrlString:[NSString stringWithFormat:@"%@", detail.headpic]  defaultImage:nil];
             nameLabel.text = detail.name;
-            titleLabel.text = detail.title;
+            titleLabel.text = [NSString stringWithFormat:@"%@  %@", detail.position,detail.title];
             IDLabel.text = [NSString stringWithFormat:@"医生编码: %@", detail.number];
         } else {
             identifier = @"expertsDetail";
@@ -117,10 +133,15 @@
         cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         UILabel *timeLabel = [cell.contentView viewWithTag:1];
         UILabel *contentLabel = [cell.contentView viewWithTag:2];
-        NSDictionary *dic = [commentArray objectAtIndex:indexPath.row];
-        NSDate *date = [NSDate dateWithTimeIntervalSince1970:[dic[@"addtime"] floatValue]];
+        CommentData *data = [commentArray objectAtIndex:indexPath.row];
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:[data.addtime  floatValue]];
         timeLabel.text = [date stringWithFormat:@"yyyy-MM-dd"];
-        contentLabel.text = [NSString stringWithFormat:@"咨询内容: %@",dic[@"content"]];
+        if (!data.isreply) {
+            contentLabel.text = [NSString stringWithFormat:@"咨询内容: %@",data.content];
+        } else {
+            contentLabel.text = [NSString stringWithFormat:@"回复: %@",data.reply];
+        }
+        
     }
     
     return cell;
@@ -146,8 +167,14 @@
         case 1:
             return 216;
         case 2: {
-            NSDictionary *dic = [commentArray objectAtIndex:indexPath.row];
-             return [[NSString stringWithFormat:@"咨询内容: %@",dic[@"content"]]  heightForFont:[UIFont systemFontOfSize:14] width:[UIScreen mainScreen].bounds.size.width - 16]+43;
+            CommentData *dic = [commentArray objectAtIndex:indexPath.row];
+            float height = 0;
+            if (dic.isreply) {
+                height = [[NSString stringWithFormat:@"回复内容: %@",dic.reply]  heightForFont:[UIFont systemFontOfSize:14] width:[UIScreen mainScreen].bounds.size.width - 16]+43;
+            } else {
+                height = [[NSString stringWithFormat:@"咨询内容: %@",dic.content]  heightForFont:[UIFont systemFontOfSize:14] width:[UIScreen mainScreen].bounds.size.width - 16]+43;
+            }
+            return height;
         }
             
             

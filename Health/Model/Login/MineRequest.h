@@ -18,7 +18,7 @@
 @property (nonatomic, strong) UserInfo            *profileInfo;
 @property (nonatomic, strong) NSString *jifen;
 @property (nonatomic, strong) NSDictionary *friendsBloodUrl;
-@property (nonatomic, strong) NSArray *payList;
+@property (nonatomic, strong) NSMutableArray *payList;
 // 获取积分
 - (void)getJifen:(NSString *)userID complete:(Complete)completeBlock failed:(Failed)failedBlock;
 // 我的点评

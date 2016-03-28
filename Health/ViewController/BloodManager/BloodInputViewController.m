@@ -107,7 +107,12 @@
 }
 
 - (void)commit {
-    NSDictionary *dic = @{@"userid": [UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"value":mmLabel.text, @"period":periodLabel.text, @"time":timeLabel.text, @"remark":textField.text, @"type":self.isFromDevice?@"1":@"2"};
+//    [BloodRequest singleton].periodArray
+    NSInteger index =  [pickerArray indexOfObject:periodLabel.text];
+    NSDictionary *pickerDic = [[BloodRequest singleton].periodArray objectAtIndex:index];
+    NSTimeInterval interval = [datePicker.date timeIntervalSince1970];
+    
+    NSDictionary *dic = @{@"userid": [UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"value":mmLabel.text, @"period":pickerDic[@"key"], @"time":[NSString stringWithFormat:@"%0f", interval], @"remark":textField.text, @"type":self.isFromDevice?@"1":@"2"};
     
     [[BloodRequest singleton] postInputData:dic complete:^{
         [self.view makeToast:@"提交成功"];

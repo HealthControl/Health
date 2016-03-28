@@ -27,9 +27,7 @@
 - (void)cellForDic:(NSDictionary *)dic {
     userNameLabel.text = dic[@"username"];
     relationLabel.text = dic[@"relation"];
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[dic[@"updatedate"] floatValue]];
-    NSString *timeString = [date stringWithFormat:@"yyyy-MM-dd"];
-    timeLabel.text = timeString;
+    timeLabel.text = dic[@"updatedate"];
     [userHeaderImageView setImageWithUrl:[NSURL URLWithString:dic[@"userpic"]] defaultImage:nil];
 }
 
@@ -81,6 +79,7 @@
         
     }];
     [self reloadData];
+    [totalButton setTitle:@"实付: 0.00" forState:UIControlStateNormal];
 }
 
 - (void)reloadData {
@@ -149,6 +148,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2) {
+        return 205;
+    }
     return 100;
 }
 
@@ -167,7 +169,7 @@
             [(UserBloodCell *)cell cellForDic:[MineRequest singleton].friendsBloodUrl];
             break;
         case 2:{
-                identifier = @"goodsDetailCell";
+                identifier = @"goodslistCell";
                 cell = [tableView dequeueReusableCellWithIdentifier:identifier];
                 [(GoodsBuyListCell *)cell cellForBuyDetail:self.payArray[indexPath.row]];
                 
@@ -197,7 +199,7 @@
             height = 5;
             break;
         case 2:
-            height = 20;
+            height = 25;
             break;
         default:
             break;

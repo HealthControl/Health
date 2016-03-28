@@ -7,6 +7,7 @@
 //
 
 #import "MineRequest.h"
+#import "GoodsRequest.h"
 
 static int jifenTag;
 static int commentTag;
@@ -168,7 +169,11 @@ static int payListTag;
         } else if (tag == &payListTag) {
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 if ([msg[@"status"] boolValue]) {
-                    self.payList = [NSMutableArray arrayWithArray:msg[@"data"]];
+                    self.payList = [NSMutableArray array];
+                    for (NSDictionary *dic in msg[@"data"]) {
+                        BuyDetail *detail = [BuyDetail modelWithDictionary:dic];
+                        [self.payList addObject:detail];
+                    }
                 } else {
                     _failed(msg[@"error"], msg[@"msg"]);
                 }

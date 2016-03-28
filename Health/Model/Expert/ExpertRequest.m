@@ -14,6 +14,7 @@ static int newsTag;
 static int expertsDetailTag;
 static int newsDetailTag;
 static int commentTag;
+static int getCommentTag;
 
 @implementation ExpertRequest
 
@@ -96,6 +97,13 @@ static int commentTag;
     [self startPost:uri params:@{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"content":comment, @"expertid":expertID} tag:&commentTag];
 }
 
+- (void)getReplyAndComment:(NSString *)expertsID complete:(Complete)completeBlock failed:(Failed)failedBlock {
+    _complete = completeBlock;
+    _failed = failedBlock;
+    NSString *uri = @"Api/Expert/consult_list";
+    [self startPost:uri params:@{@"userid":[UserCentreData singleton].userInfo.userid,  @"expertid":expertsID} tag:&getCommentTag];
+}
+
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {
     if ([msg[@"status"] integerValue] == 1) {
         if (tag == &expertsTag) {
@@ -146,6 +154,14 @@ static int commentTag;
             if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
                 NSDictionary *dic = [[NSDictionary alloc] initWithDictionary:msg[@"data"]];
                 self.commentDic = dic;
+            }
+        } else if (tag == &getCommentTag) {
+            if (![msg[@"data"] isKindOfClass:[NSNull class]]) {
+                self.commentArray = [NSMutableArray array];
+                for (NSDictionary *dic in msg[@"data"]) {
+                    CommentData *data = [CommentData modelWithDictionary:dic];
+                    [self.commentArray addObject:data];   
+                }
             }
         }
         _complete();

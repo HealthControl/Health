@@ -60,3 +60,15 @@
 
 @end
 
+@interface CommentData : NSObject
+
+@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *userid;
+@property (nonatomic, strong) NSString *content;
+@property (nonatomic, assign) BOOL isreply;
+@property (nonatomic, strong) NSString *reply;
+@property (nonatomic, strong) NSString *replytime;
+@property (nonatomic, strong) NSString *addtime;
+@property (nonatomic, strong) NSString *expertid;
+
+@end

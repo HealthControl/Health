@@ -17,7 +17,7 @@
 @property (nonatomic, strong)ExpertDetail *expertsDetail;
 @property (nonatomic, strong)NewsDetail   *newsDetail;
 @property (nonatomic, strong)NSDictionary *commentDic;
-
+@property (nonatomic, strong)NSMutableArray *commentArray;
 + (instancetype)singleton;
 
 /**
@@ -48,5 +48,8 @@
  *  咨询专家
  */
 - (void)postComment:(NSString *)comment expertID:(NSString*)expertID complete:(Complete)completeBlock failed:(Failed)failedBlock;
+
+// 咨询和回复
+- (void)getReplyAndComment:(NSString *)expertsID complete:(Complete)completeBlock failed:(Failed)failedBlock;
 
 @end
