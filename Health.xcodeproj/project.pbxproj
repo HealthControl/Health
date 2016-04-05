@@ -13,6 +13,7 @@
 		89C8A6171BCD520300845F1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6161BCD520300845F1D /* Assets.xcassets */; };
 		89C8A61A1BCD520300845F1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6181BCD520300845F1D /* LaunchScreen.storyboard */; };
 		980D32BF1C46761D00367DDB /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 980D32BB1C46761D00367DDB /* libWeChatSDK.a */; };
+		9817ADB01CB2C60200C57D35 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9817ADAF1CB2C60200C57D35 /* StoreKit.framework */; };
 		981C25861C1AA4A30065A4CD /* DianPingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981C25851C1AA4A30065A4CD /* DianPingViewController.m */; };
 		98232B761C29C1C10008FB9B /* NewAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98232B751C29C1C10008FB9B /* NewAddressViewController.m */; };
 		98232BDB1C2BE6D90008FB9B /* CustomRuleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98232BDA1C2BE6D90008FB9B /* CustomRuleView.m */; };
@@ -122,6 +123,7 @@
 		980D32BC1C46761D00367DDB /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		980D32BD1C46761D00367DDB /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		980D32BE1C46761D00367DDB /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		9817ADAF1CB2C60200C57D35 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		981C25841C1AA4A30065A4CD /* DianPingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianPingViewController.h; sourceTree = "<group>"; };
 		981C25851C1AA4A30065A4CD /* DianPingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianPingViewController.m; sourceTree = "<group>"; };
 		98232B741C29C1C10008FB9B /* NewAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAddressViewController.h; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9817ADB01CB2C60200C57D35 /* StoreKit.framework in Frameworks */,
 				98ABCA2F1C425C67002751F4 /* MessageUI.framework in Frameworks */,
 				985264121C32DBFA00CF024F /* CoreMotion.framework in Frameworks */,
 				980D32BF1C46761D00367DDB /* libWeChatSDK.a in Frameworks */,
@@ -395,6 +398,7 @@
 		2B2035D9519B8DDE7E0C9CDA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9817ADAF1CB2C60200C57D35 /* StoreKit.framework */,
 				98ABCA2E1C425C67002751F4 /* MessageUI.framework */,
 				985264111C32DBFA00CF024F /* CoreMotion.framework */,
 				9852640F1C32DBF000CF024F /* CoreTelephony.framework */,
@@ -1255,8 +1259,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

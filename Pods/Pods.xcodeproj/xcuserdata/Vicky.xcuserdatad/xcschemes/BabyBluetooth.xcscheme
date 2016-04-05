@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7DD9B010FA510D6227F1982"
+               BlueprintIdentifier = "EE692BDA07353E41F0B05565"
                BuildableName = "libBabyBluetooth.a"
                BlueprintName = "BabyBluetooth"
                ReferencedContainer = "container:Pods.xcodeproj">

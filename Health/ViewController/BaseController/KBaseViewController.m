@@ -12,8 +12,9 @@
 #import "GuideViewController.h"
 #import "MYIntroductionView.h"
 #import "AppDelegate.h"
+#import <StoreKit/StoreKit.h>
 
-@interface KBaseViewController ()<MYIntroductionDelegate>
+@interface KBaseViewController ()<MYIntroductionDelegate, SKStoreProductViewControllerDelegate>
 
 @end
 
@@ -56,6 +57,87 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)evaluate{
+    
+    //初始化控制器
+    SKStoreProductViewController *storeProductViewContorller = [[SKStoreProductViewController alloc] init];
+    //设置代理请求为当前控制器本身
+    storeProductViewContorller.delegate = self;
+    //加载一个新的视图展示
+    [storeProductViewContorller loadProductWithParameters:
+     //appId唯一的
+     @{SKStoreProductParameterITunesItemIdentifier : @"1078140724"} completionBlock:^(BOOL result, NSError *error) {
+         //block回调
+         if(error){
+             NSLog(@"error %@ with userInfo %@",error,[error userInfo]);
+         }else{
+             //模态弹出appstore
+             [self presentViewController:storeProductViewContorller animated:YES completion:^{
+                 
+             }
+              ];
+         }
+     }];
+}
+
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController{
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:@(1) forKey:@"launchtime"];
+    }];
+}
+
+- (NSInteger)getDaysFrom:(NSDate *)serverDate To:(NSDate *)endDate
+{
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    [gregorian setFirstWeekday:2];
+    
+    //去掉时分秒信息
+    NSDate *fromDate;
+    NSDate *toDate;
+    [gregorian rangeOfUnit:NSCalendarUnitDay startDate:&fromDate interval:NULL forDate:serverDate];
+    [gregorian rangeOfUnit:NSCalendarUnitDay startDate:&toDate interval:NULL forDate:endDate];
+    NSDateComponents *dayComponents = [gregorian components:NSCalendarUnitDay fromDate:fromDate toDate:toDate options:0];
+    
+    return dayComponents.day;
+}
+
+// 根据使用时间判断是否登录
+- (void)getUseTime {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSTimeInterval lastTime = [[defaults objectForKey:@"launchtime"] doubleValue];
+    if (lastTime && lastTime == 1) {
+        // 已评价或者拒绝
+        return;
+    } else {
+        NSDate *oldDate = [NSDate dateWithTimeIntervalSince1970:lastTime];
+        NSDate *nowDate = [NSDate date];
+        NSInteger interval = ABS([self getDaysFrom:oldDate To:nowDate]);
+        if (interval > 1) {
+            [self showCommentAlert];
+        }
+    }
+    
+}
+
+- (void)showCommentAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"评价平糖" message:@"感谢您陪伴平糖成长的每一天，给我们留言评分吧，我们会努力做得更好！" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"去评价" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self evaluate];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"稍后提醒" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:@([[NSDate date] timeIntervalSince1970]) forKey:@"launchtime"];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"残忍拒绝" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:@(1) forKey:@"launchtime"];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 //弹出登陆页
 -(void)showLoginVC
 {
@@ -65,6 +147,8 @@
         UserCentreData *userCentre = [UserCentreData singleton];
         userCentre.userInfo = loginData;
         userCentre.hasLogin = YES;
+        
+        [self getUseTime];
     } else {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UINavigationController *loginNav = [sb instantiateViewControllerWithIdentifier:@"loginNavi"];
@@ -75,6 +159,8 @@
 - (void)showGuideView {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:YES forKey:[UIApplication sharedExtensionApplication].appVersion];
+    
+    [defaults setObject:@([[NSDate date] timeIntervalSince1970]) forKey:@"launchtime"];
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     GuideViewController *guide = [sb instantiateViewControllerWithIdentifier:@"guide"];

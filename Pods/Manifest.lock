@@ -50,6 +50,7 @@ PODS:
   - SDWebImage/Core (3.7.3)
   - SVProgressHUD (2.0-beta)
   - Toast (3.0)
+  - UMengAnalytics-NO-IDFA (3.6.7)
   - YYKit (0.9.6):
     - YYKit/no-arc (= 0.9.6)
   - YYKit/no-arc (0.9.6)
@@ -67,6 +68,7 @@ DEPENDENCIES:
   - SDWebImage (~> 3.7.3)
   - SVProgressHUD (~> 2.0-beta)
   - Toast (~> 3.0)
+  - UMengAnalytics-NO-IDFA
   - YYKit (~> 0.9.6)
 
 SPEC CHECKSUMS:
@@ -85,6 +87,7 @@ SPEC CHECKSUMS:
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SVProgressHUD: c83337f10ed32d701c423d519059a249973c8662
   Toast: 32c59229abfcf41850162b83bb9259dc84372473
+  UMengAnalytics-NO-IDFA: 6d02561a00579b2e37718f204eb81347df5d7b8b
   YYKit: 7e27f6b55883bfe3ec2b98e7ad9c38fcbb92a1c5
 
 COCOAPODS: 0.38.2

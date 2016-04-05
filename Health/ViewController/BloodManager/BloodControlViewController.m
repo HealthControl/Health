@@ -9,9 +9,11 @@
 #import "BloodControlViewController.h"
 #import "LoginRequest.h"
 #import "BloodRequest.h"
+#import "FriendsViewController.h"
 
 @interface BloodControlViewController () {
     IBOutlet UILabel *bloodLabel;
+    IBOutlet UIImageView *bannerImageView;
 }
 @end
 
@@ -22,6 +24,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"血糖管理";
+    @weakify(self)
+    UITapGestureRecognizer *imageTap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
+        @strongify(self);
+        [self showFriendsViewController];
+    }];
+    [bannerImageView addGestureRecognizer:imageTap];
     
 }
 
@@ -75,6 +83,10 @@
         [self performSegueWithIdentifier:identifer sender:self];
     }
 
+}
+
+- (void)showFriendsViewController {
+    [self performSegueWithIdentifier:@"showFriends" sender:self];
 }
 
 @end

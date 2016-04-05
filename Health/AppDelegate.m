@@ -13,6 +13,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
 #import "MineRequest.h"
+#import "MobClick.h"
 
 @interface AppDelegate () <WXApiDelegate>
 
@@ -26,6 +27,7 @@
     [self setupTabbarItems];
     [WXApi registerApp:@"wx5b8e2d8083fd6016" withDescription:@"health1.0"];
     [self preload];
+    [MobClick startWithAppkey:@"56cfb7d4e0f55a89cb0028ba" reportPolicy:BATCH   channelId:nil];
     // Override point for customization after application launch.
     return YES;
 }
