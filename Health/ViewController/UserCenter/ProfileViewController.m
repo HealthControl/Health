@@ -29,6 +29,8 @@
     RERadioItem         *sickItem;
     REDateTimeItem      *timeItem;
     REDateTimeItem      *birthdayItem;
+    
+    RELongTextItem      *recordItem;
 }
 
 @end
@@ -150,6 +152,10 @@
     afterItem = [RETextItem itemWithTitle:@"餐后血糖（2小时）" value:@"" placeholder:profile.bloodsugar_dinner];
     [section addItem:afterItem];
     
+    recordItem = [RELongTextItem itemWithTitle:@"" value:profile.medication?:@"" placeholder:@"请输入用药记录"];
+    recordItem.cellHeight = 80;
+    [section addItem:recordItem];
+    
     sickItem = [RERadioItem itemWithTitle:@"并发症" value:profile.complication selectionHandler:^(RERadioItem *item) {
         RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:[SelectionRequest singleton].complicationNameArray multipleChoice:NO completionHandler:^(RETableViewItem *selectedItem){
             [weakSelf.navigationController popViewControllerAnimated:YES];
@@ -248,6 +254,7 @@
     postDic[@"birthday"] = [birthdayItem.value stringWithFormat:@"yyyy-MM-dd"];
 
     postDic[@"complication"] = sickItem.value;
+    postDic[@"medication"] = recordItem.value?:@"";
     [[MineRequest singleton] postProfile:postDic complete:^{
         [self.view makeToast:@"提交成功"];
         [self.navigationController popToRootViewControllerAnimated:YES];

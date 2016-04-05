@@ -23,6 +23,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"修改密码";
+    
+    UITapGestureRecognizer *tapG = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id sender) {
+        [oldTextField resignFirstResponder];
+        [newTextField resignFirstResponder];
+        [confirmField resignFirstResponder];
+    }];
+    [self.view addGestureRecognizer:tapG];
 }
 
 - (IBAction)commitButton:(id)sender {
@@ -36,7 +43,7 @@
     if (confirmField.text.length == 0) {
         toastString = @"确认密码不能为空";
     }
-    if ([newTextField.text isEqualToString:confirmField.text]) {
+    if (![newTextField.text isEqualToString:confirmField.text]) {
         toastString = @"密码不一致";
     }
     if (toastString.length > 0) {

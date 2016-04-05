@@ -41,21 +41,29 @@
 }
 
 - (IBAction)deleteGoods:(id)sender {
-    [[GoodsRequest singleton] deleteCharts:_buyDetail.id isFromFav:self.isFav complete:^{
-        if (self.onButtonPress) {
-            NSDictionary *dic = @{@"event":@"delete",
-                                  @"data":@(YES)
-                                  };
-            self.onButtonPress(dic);
-        }
-    } failed:^(NSString *state, NSString *errmsg) {
-        if (self.onButtonPress) {
-            NSDictionary *dic = @{@"event":@"delete",
-                                  @"data":@(NO)
-                                  };
-            self.onButtonPress(dic);
-        }
-    }];
+    if (self.isFriends) {
+        NSDictionary *dic = @{@"event":@"delete",
+                              @"data":_buyDetail
+                              };
+        self.onButtonPress(dic);
+    } else {
+        [[GoodsRequest singleton] deleteCharts:_buyDetail.id isFromFav:self.isFav complete:^{
+            if (self.onButtonPress) {
+                NSDictionary *dic = @{@"event":@"delete",
+                                      @"data":@(YES)
+                                      };
+                self.onButtonPress(dic);
+            }
+        } failed:^(NSString *state, NSString *errmsg) {
+            if (self.onButtonPress) {
+                NSDictionary *dic = @{@"event":@"delete",
+                                      @"data":@(NO)
+                                      };
+                self.onButtonPress(dic);
+            }
+        }];
+    }
+    
 }
 
 - (IBAction)selectButtonPressed:(id)sender {

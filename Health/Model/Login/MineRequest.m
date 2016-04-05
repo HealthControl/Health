@@ -22,6 +22,7 @@ static int getxieyiTag;
 static int friendsBloodTag;
 static int addJifen;
 static int payListTag;
+static int pay_delete;
 
 @implementation MineRequest
 
@@ -137,6 +138,15 @@ static int payListTag;
     _failed = failedBlock;
     NSDictionary *dic = @{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"mobile":mobile};
     [self startPost:@"Api/Friend/pay_lists" params:dic tag:&payListTag];
+}
+
+- (void)deleteFriendsGoods:(NSString *)mobile proid:(NSString *)productID complete:(Complete)completeBlock failed:(Failed)failedBlock {
+    _complete = completeBlock;
+    _failed = failedBlock;
+    
+    NSDictionary *dic = @{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"mobile":mobile, @"proid":productID};
+    [self startPost:@"Api/Friend/pay_delete" params:dic tag:&pay_delete];
+    
 }
 
 -(void)getFinished:(NSDictionary *)msg tag:(int *)tag {

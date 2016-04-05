@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65C493BA1CB41CAD00C26EB3 /* ShouSuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C493B91CB41CAD00C26EB3 /* ShouSuoViewController.m */; };
+		65C493BD1CB41CB900C26EB3 /* JIazuBingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C493BC1CB41CB900C26EB3 /* JIazuBingViewController.m */; };
 		89C8A6091BCD520300845F1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8A6081BCD520300845F1D /* main.m */; };
 		89C8A60C1BCD520300845F1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8A60B1BCD520300845F1D /* AppDelegate.m */; };
 		89C8A6151BCD520300845F1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6131BCD520300845F1D /* Main.storyboard */; };
@@ -110,6 +112,10 @@
 
 /* Begin PBXFileReference section */
 		1CE1545FD0E530B4D2D858D1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		65C493B81CB41CAD00C26EB3 /* ShouSuoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShouSuoViewController.h; sourceTree = "<group>"; };
+		65C493B91CB41CAD00C26EB3 /* ShouSuoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShouSuoViewController.m; sourceTree = "<group>"; };
+		65C493BB1CB41CB900C26EB3 /* JIazuBingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JIazuBingViewController.h; sourceTree = "<group>"; };
+		65C493BC1CB41CB900C26EB3 /* JIazuBingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JIazuBingViewController.m; sourceTree = "<group>"; };
 		89C8A6041BCD520300845F1D /* Health.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Health.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C8A6081BCD520300845F1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		89C8A60A1BCD520300845F1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -645,6 +651,10 @@
 				98D4C9B41C26512D005B2DC7 /* RiskReportVC.m */,
 				98D15B3E1C53D9FC005D8A85 /* NewRiskReportVC.h */,
 				98D15B3F1C53D9FC005D8A85 /* NewRiskReportVC.m */,
+				65C493B81CB41CAD00C26EB3 /* ShouSuoViewController.h */,
+				65C493B91CB41CAD00C26EB3 /* ShouSuoViewController.m */,
+				65C493BB1CB41CB900C26EB3 /* JIazuBingViewController.h */,
+				65C493BC1CB41CB900C26EB3 /* JIazuBingViewController.m */,
 			);
 			name = risk;
 			sourceTree = "<group>";
@@ -1062,6 +1072,7 @@
 				98B8E9A71C299EBC00C1E9B4 /* MYIntroductionPanel.m in Sources */,
 				A9DDCEF31BFE276900D9C3BD /* HealthReportViewController.m in Sources */,
 				985263E31C2DB56700CF024F /* ChoiseAddressViewController.m in Sources */,
+				65C493BD1CB41CB900C26EB3 /* JIazuBingViewController.m in Sources */,
 				98D4C9A91C2650F5005B2DC7 /* RiskSexConfirmVC.m in Sources */,
 				98A1C9EF1C369402003C3973 /* openssl_wrapper.m in Sources */,
 				98A1C9F01C369402003C3973 /* RSADataSigner.m in Sources */,
@@ -1072,6 +1083,7 @@
 				98D4C99F1C264618005B2DC7 /* RiskAssessmentViewController.m in Sources */,
 				98A1C9F81C36C719003C3973 /* UIViewController+BackButtonHandler.m in Sources */,
 				983F1D141C13CD8900F6410B /* NewsDetailViewController.m in Sources */,
+				65C493BA1CB41CAD00C26EB3 /* ShouSuoViewController.m in Sources */,
 				98232BE11C2BFCE50008FB9B /* CustomButton.m in Sources */,
 				A93B1ADC1C04A4BA0061FA03 /* RegisterViewController.m in Sources */,
 				A93B1AD51C00BFC50061FA03 /* LoginViewController.m in Sources */,

@@ -85,7 +85,7 @@
 
 }
 
-- (void)showFriendsViewController {
+- (IBAction)showFriendsViewController {
     [self performSegueWithIdentifier:@"showFriends" sender:self];
 }
 

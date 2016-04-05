@@ -18,6 +18,10 @@
 @property (nonatomic, strong) NSString              *waist;
 @property (nonatomic, strong) NSString              *birthday;
 @property (nonatomic, strong) NSString              *content;
+
+@property (nonatomic, strong) NSString              *systolic;
+@property (nonatomic, assign) BOOL                  family_history;
+
 @property (nonatomic, strong) NSMutableDictionary   *contentDic;
 + (instancetype)singleton;
 

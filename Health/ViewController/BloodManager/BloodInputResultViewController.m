@@ -20,7 +20,7 @@
     [super viewDidLoad];
     __weak typeof(self) weakSelf = self;
     [[BloodRequest singleton] getTestResultUrlID:self.resultID complete:^{
-        [weakSelf.resultWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[BloodRequest singleton].resultUrl]]];
+        [weakSelf.resultWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",[BloodRequest singleton].resultUrl, [UserCentreData singleton].userInfo.userid]]]];
     } failed:^(NSString *state, NSString *errmsg) {
         
     }];

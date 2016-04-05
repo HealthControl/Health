@@ -26,5 +26,6 @@
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *userpic;
 @property (nonatomic, strong) NSString *weight;
+@property (nonatomic, strong) NSString *medication;
 
 @end

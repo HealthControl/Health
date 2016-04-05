@@ -12,6 +12,7 @@
 @interface GoodsBuyListCell : UITableViewCell
 
 @property (nonatomic, assign) BOOL isFav;
+@property (nonatomic, assign) BOOL isFriends;
 @property (nonatomic, copy) void (^onButtonPress) (id event);
 
 - (void)cellForBuyDetail:(BuyDetail *)buyDetail;

@@ -45,4 +45,12 @@
 - (void)addJifenComplete:(Complete)completeBlock failed:(Failed)failedBlock;
 - (void)getPayListMobile:(NSString *)mobile complete:(Complete)completeBlock failed:(Failed)failedBlock;
 
+//Api/Friend/pay_delete
+//userid
+//token
+//mobile 亲友手机号
+//proid 产品id
+
+- (void)deleteFriendsGoods:(NSString *)mobile proid:(NSString *)productID complete:(Complete)completeBlock failed:(Failed)failedBlock;
+
 @end

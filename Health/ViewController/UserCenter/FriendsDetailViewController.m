@@ -86,6 +86,7 @@
     __weak typeof(self) weakSelf = self;
     [[MineRequest singleton] getPayListMobile:self.friendsDic[@"mobile"] complete:^{
         if ([MineRequest singleton].payList&&[MineRequest singleton].payList.count > 0) {
+            [weakSelf.payArray removeAllObjects];
             [weakSelf.payArray addObjectsFromArray:[MineRequest singleton].payList];
             [friendsDetailTableView reloadData];
         }
@@ -106,6 +107,18 @@
     NSLog(@"total :%@",[NSString stringWithFormat:@"实付: %0.2f",total]);
     [totalButton setTitle:[NSString stringWithFormat:@"实付:￥ %0.2f",total] forState:UIControlStateDisabled];
     //    self.totalLabel.text = [NSString stringWithFormat:@"实付: %0.2f",total];
+}
+
+- (void)deleteData:(id)data {
+    BuyDetail *detail = data[@"data"];
+    @weakify(self)
+    [[MineRequest singleton] deleteFriendsGoods:self.friendsDic[@"mobile"] proid:detail.id complete:^{
+        @strongify(self)
+        [self reloadData];
+    } failed:^(NSString *state, NSString *errmsg) {
+        @strongify(self)
+        [self.view makeToast:errmsg];
+    }];
 }
 
 - (IBAction)toBuy:(id)sender {
@@ -169,19 +182,20 @@
             [(UserBloodCell *)cell cellForDic:[MineRequest singleton].friendsBloodUrl];
             break;
         case 2:{
-                identifier = @"goodslistCell";
-                cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-                [(GoodsBuyListCell *)cell cellForBuyDetail:self.payArray[indexPath.row]];
-                
-                __weak typeof(self) weakSelf = self;
-                ((GoodsBuyListCell *)cell).onButtonPress = ^(id data) {
-                    NSString *event = ((NSDictionary *)data)[@"event"];
-                    if ([event isEqualToString:@"delete"]) {
-                        [weakSelf reloadData];
-                    }  else if ([event isEqualToString:@"select"]) {
-                        [weakSelf getTotal];
-                    }
-                };
+            identifier = @"goodslistCell";
+            cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            ((GoodsBuyListCell *)cell).isFriends = YES;
+            [(GoodsBuyListCell *)cell cellForBuyDetail:self.payArray[indexPath.row]];
+            
+            __weak typeof(self) weakSelf = self;
+            ((GoodsBuyListCell *)cell).onButtonPress = ^(id data) {
+                NSString *event = ((NSDictionary *)data)[@"event"];
+                if ([event isEqualToString:@"delete"]) {
+                    [weakSelf deleteData:data];
+                }  else if ([event isEqualToString:@"select"]) {
+                    [weakSelf getTotal];
+                }
+            };
         }
             break;
         default:
