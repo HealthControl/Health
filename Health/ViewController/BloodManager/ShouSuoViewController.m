@@ -31,11 +31,11 @@
     
 //    [waistLabel.layer setBorderColor:[[UIColor grayColor] CGColor]];
 //    [waistLabel.layer setBorderWidth:0.5f];
-    
-    waistRuleView.maximumValue = 200;
-    waistRuleView.minimumValue = 10;
     waistRuleView.backImage = [UIImage imageNamed:@"shuzhang"];
     waistRuleView.value = 90;
+    waistRuleView.maximumValue = 200;
+    waistRuleView.minimumValue = 10;
+
     waistLabel.text = [NSString stringWithFormat:@"%0.0f",waistRuleView.value];
     __weak typeof(self) weakSelf = self;
     waistRuleView.onvalueChange = ^(float value) {

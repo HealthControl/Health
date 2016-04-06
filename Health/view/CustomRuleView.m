@@ -72,6 +72,13 @@
     ruleScrollView.contentOffset = self.ruleDirction == RuleDirection_H? CGPointMake(ruleScrollView.contentOffset.x, ((self.value-self.minimumValue) * ruleScrollView.contentSize.height)/(self.maximumValue - self.minimumValue) - x): CGPointMake((self.value * ruleScrollView.contentSize.width)/(self.maximumValue - self.minimumValue) - x, ruleScrollView.contentOffset.y) ;
 }
 
+- (void)setValue:(float)value {
+    if (_value == value) {
+        return;
+    }
+    _value = value;
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     self.value = self.ruleDirction == RuleDirection_H? (scrollView.contentOffset.y + scrollView.bounds.size.height/2.0)*((self.maximumValue - self.minimumValue)/scrollView.contentSize.height) + self.minimumValue:(scrollView.contentOffset.x + scrollView.bounds.size.width/2.0)*((self.maximumValue - self.minimumValue)/scrollView.contentSize.width)+self.minimumValue;
     if (self.value < 0) {

@@ -28,6 +28,8 @@
     [WXApi registerApp:@"wx5b8e2d8083fd6016" withDescription:@"health1.0"];
     [self preload];
     [MobClick startWithAppkey:@"56cfb7d4e0f55a89cb0028ba" reportPolicy:BATCH   channelId:nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"launchFinish" object:nil];
     // Override point for customization after application launch.
     return YES;
 }

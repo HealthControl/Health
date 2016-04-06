@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"%@ viewdidload", self);
+
 //    self.view.backgroundColor = rgb_color(238, 238, 238, 1);
     if (![[self.navigationController.viewControllers firstObject] isKindOfClass:[self class]]) {
         [self addBackButton];
@@ -58,7 +59,7 @@
 }
 
 - (void)evaluate{
-    
+
     //初始化控制器
     SKStoreProductViewController *storeProductViewContorller = [[SKStoreProductViewController alloc] init];
     //设置代理请求为当前控制器本身
@@ -136,6 +137,8 @@
         [defaults setObject:@(1) forKey:@"launchtime"];
     }]];
     [self presentViewController:alert animated:YES completion:nil];
+    
+    
 }
 
 //弹出登陆页
@@ -148,7 +151,14 @@
         userCentre.userInfo = loginData;
         userCentre.hasLogin = YES;
         
+        
+        if (!((AppDelegate*)[UIApplication sharedExtensionApplication].delegate).hasShow) {
+            [self showCommentAlert];
+            ((AppDelegate*)[UIApplication sharedExtensionApplication].delegate).hasShow = YES;
+        }
+        return;
         [self getUseTime];
+        
     } else {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UINavigationController *loginNav = [sb instantiateViewControllerWithIdentifier:@"loginNavi"];

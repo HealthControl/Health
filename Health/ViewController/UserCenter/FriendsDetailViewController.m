@@ -12,6 +12,7 @@
 #import "GoodsBuyListCell.h"
 #import "GoodsList.h"
 #import "BuyViewController.h"
+#import "FriendsGoodsList.h"
 
 @interface UserinfoCell : UITableViewCell {
     IBOutlet DTNetImageView *userHeaderImageView;
@@ -52,14 +53,13 @@
 @end
 
 @interface FriendsDetailViewController() <UITableViewDelegate, UITableViewDataSource>{
-    IBOutlet UITableView *friendsDetailTableView;
     IBOutlet UIButton *totalButton;
     
     NSMutableArray *buyTotalArray;
 }
 
 @property (nonatomic, strong) NSMutableArray *payArray;
-
+@property (nonatomic, strong) IBOutlet UITableView *friendsDetailTableView;
 @end
 
 @implementation FriendsDetailViewController
@@ -67,14 +67,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    friendsDetailTableView.delegate = self;
-    friendsDetailTableView.dataSource = self;
+    _friendsDetailTableView.delegate = self;
+    _friendsDetailTableView.dataSource = self;
     
     buyTotalArray = [NSMutableArray array];
     self.payArray = [NSMutableArray array];
-    friendsDetailTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _friendsDetailTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    __weak typeof(self) weakSelf = self;
     [[MineRequest singleton] getFriendsBlood:self.friendsDic[@"mobile"] complete:^{
-        [friendsDetailTableView reloadData];
+        [weakSelf.friendsDetailTableView reloadData];
     } failed:^(NSString *state, NSString *errmsg) {
         
     }];
@@ -83,13 +84,12 @@
 }
 
 - (void)reloadData {
+    
     __weak typeof(self) weakSelf = self;
-    [[MineRequest singleton] getPayListMobile:self.friendsDic[@"mobile"] complete:^{
-        if ([MineRequest singleton].payList&&[MineRequest singleton].payList.count > 0) {
-            [weakSelf.payArray removeAllObjects];
-            [weakSelf.payArray addObjectsFromArray:[MineRequest singleton].payList];
-            [friendsDetailTableView reloadData];
-        }
+    [[FriendsGoodsList singleton] getPayListMobile:self.friendsDic[@"mobile"] complete:^{
+        [weakSelf.payArray removeAllObjects];
+        [weakSelf.payArray addObjectsFromArray:[MineRequest singleton].payList];
+        [weakSelf.friendsDetailTableView reloadData];
     } failed:^(NSString *state, NSString *errmsg) {
         
     }];

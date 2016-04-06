@@ -25,6 +25,7 @@
 		982A12FB1C05FB7000749BB7 /* NSString+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12FA1C05FB7000749BB7 /* NSString+UI.m */; };
 		982A12FE1C05FD7200749BB7 /* UIView+DTTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12FD1C05FD7200749BB7 /* UIView+DTTextInput.m */; };
 		983F1D141C13CD8900F6410B /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983F1D131C13CD8900F6410B /* NewsDetailViewController.m */; };
+		984BDD8E1CB4BC0A00D7F555 /* FriendsGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 984BDD8D1CB4BC0A00D7F555 /* FriendsGoodsList.m */; };
 		985263E01C2D512300CF024F /* SystemUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 985263DF1C2D512300CF024F /* SystemUtility.m */; };
 		985263E31C2DB56700CF024F /* ChoiseAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 985263E21C2DB56700CF024F /* ChoiseAddressViewController.m */; };
 		985263E61C2DBBFE00CF024F /* ModifyAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 985263E51C2DBBFE00CF024F /* ModifyAddressViewController.m */; };
@@ -149,6 +150,8 @@
 		983F1D111C13C96400F6410B /* Health-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Health-Prefix.pch"; sourceTree = "<group>"; };
 		983F1D121C13CD8900F6410B /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
 		983F1D131C13CD8900F6410B /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
+		984BDD8C1CB4BC0A00D7F555 /* FriendsGoodsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsGoodsList.h; sourceTree = "<group>"; };
+		984BDD8D1CB4BC0A00D7F555 /* FriendsGoodsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsGoodsList.m; sourceTree = "<group>"; };
 		985263DE1C2D512300CF024F /* SystemUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemUtility.h; sourceTree = "<group>"; };
 		985263DF1C2D512300CF024F /* SystemUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemUtility.m; sourceTree = "<group>"; };
 		985263E11C2DB56700CF024F /* ChoiseAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiseAddressViewController.h; sourceTree = "<group>"; };
@@ -901,6 +904,8 @@
 				98D4C9911C231710005B2DC7 /* SelectionRequest.m */,
 				98D4C99A1C252096005B2DC7 /* UserInfo.h */,
 				98D4C99B1C252096005B2DC7 /* UserInfo.m */,
+				984BDD8C1CB4BC0A00D7F555 /* FriendsGoodsList.h */,
+				984BDD8D1CB4BC0A00D7F555 /* FriendsGoodsList.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1035,6 +1040,7 @@
 				98D4C9AF1C265111005B2DC7 /* RiskWaistVC.m in Sources */,
 				89C8A60C1BCD520300845F1D /* AppDelegate.m in Sources */,
 				98D4C98F1C23070B005B2DC7 /* ProfileViewController.m in Sources */,
+				984BDD8E1CB4BC0A00D7F555 /* FriendsGoodsList.m in Sources */,
 				985263EC1C30319E00CF024F /* BlueToothResultViewController.m in Sources */,
 				98DFE0921C1C69DD003C0188 /* BuyViewController.m in Sources */,
 				A986C4E11BE6626B00D1B126 /* LoginData.m in Sources */,
