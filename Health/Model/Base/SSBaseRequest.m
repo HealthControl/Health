@@ -233,14 +233,13 @@ Class object_getClass(id object);
     }];
 }
 
-
 /**
  * 上传文件
  */
 - (void)uploadFileURI:(NSString *)aUri params:(NSDictionary*)params fileData:(NSData *)fileData keyName:(NSString *)aKeyName tag:(int *)tag
 {
     [self httpInit];
-    
+    self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     [self.manager POST:[NSString stringWithFormat:@"%@%@",self.baseUrl,aUri]  parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         NSData *imageData = fileData;

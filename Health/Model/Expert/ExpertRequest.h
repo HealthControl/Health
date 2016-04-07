@@ -49,7 +49,11 @@
  */
 - (void)postComment:(NSString *)comment expertID:(NSString*)expertID complete:(Complete)completeBlock failed:(Failed)failedBlock;
 
+// 带图片的
+- (void)postComment:(NSString *)comment expertID:(NSString*)expertID fileData:(NSData *)fileData complete:(Complete)completeBlock failed:(Failed)failedBlock;
 // 咨询和回复
 - (void)getReplyAndComment:(NSString *)expertsID complete:(Complete)completeBlock failed:(Failed)failedBlock;
+
+
 
 @end

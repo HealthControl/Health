@@ -60,8 +60,9 @@
         [self.view makeToast:@"请输入内容"];
         return;
     }
+    
     @weakify(self)
-    [[ExpertRequest singleton] postComment:submitTextView.text expertID:self.doctorID complete:^{
+    [[ExpertRequest singleton] postComment:submitTextView.text expertID:self.doctorID fileData:UIImageJPEGRepresentation([UIImage imageNamed:@"guide-01.jpg"], 0.1) complete:^{
         @strongify(self)
         [self.view makeToast:@"提问成功"];
         submitTextView.text = @"";
@@ -70,7 +71,6 @@
     } failed:^(NSString *state, NSString *errmsg) {
         [self.view makeToast:errmsg];
     }];
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

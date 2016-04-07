@@ -90,11 +90,15 @@ static int getCommentTag;
  *  咨询专家
  */
 - (void)postComment:(NSString *)comment expertID:(NSString*)expertID complete:(Complete)completeBlock failed:(Failed)failedBlock {
+    [self postComment:comment expertID:expertID fileData:nil complete:completeBlock failed:failedBlock];
+}
+
+- (void)postComment:(NSString *)comment expertID:(NSString*)expertID fileData:(NSData *)fileData complete:(Complete)completeBlock failed:(Failed)failedBlock {
     _complete = completeBlock;
     _failed = failedBlock;
     NSString *uri = @"Api/Expert/consult";
     
-    [self startPost:uri params:@{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"content":comment, @"expertid":expertID} tag:&commentTag];
+    [self uploadFileURI:uri params:@{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"content":comment, @"expertid":expertID} fileData:fileData keyName:@"picture" tag:&commentTag];
 }
 
 - (void)getReplyAndComment:(NSString *)expertsID complete:(Complete)completeBlock failed:(Failed)failedBlock {
