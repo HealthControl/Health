@@ -15,7 +15,6 @@
 		89C8A6171BCD520300845F1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6161BCD520300845F1D /* Assets.xcassets */; };
 		89C8A61A1BCD520300845F1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C8A6181BCD520300845F1D /* LaunchScreen.storyboard */; };
 		980D32BF1C46761D00367DDB /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 980D32BB1C46761D00367DDB /* libWeChatSDK.a */; };
-		9817ADB01CB2C60200C57D35 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9817ADAF1CB2C60200C57D35 /* StoreKit.framework */; };
 		981C25861C1AA4A30065A4CD /* DianPingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981C25851C1AA4A30065A4CD /* DianPingViewController.m */; };
 		98232B761C29C1C10008FB9B /* NewAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98232B751C29C1C10008FB9B /* NewAddressViewController.m */; };
 		98232BDB1C2BE6D90008FB9B /* CustomRuleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98232BDA1C2BE6D90008FB9B /* CustomRuleView.m */; };
@@ -26,6 +25,15 @@
 		982A12FE1C05FD7200749BB7 /* UIView+DTTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 982A12FD1C05FD7200749BB7 /* UIView+DTTextInput.m */; };
 		983F1D141C13CD8900F6410B /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983F1D131C13CD8900F6410B /* NewsDetailViewController.m */; };
 		984BDD8E1CB4BC0A00D7F555 /* FriendsGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 984BDD8D1CB4BC0A00D7F555 /* FriendsGoodsList.m */; };
+		984BDD9B1CB698FE00D7F555 /* jpush-ios-2.1.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 984BDD991CB698FE00D7F555 /* jpush-ios-2.1.5.a */; };
+		984BDD9D1CB699FE00D7F555 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984BDD9C1CB699FE00D7F555 /* CFNetwork.framework */; };
+		984BDD9F1CB69A0400D7F555 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984BDD9E1CB69A0400D7F555 /* CoreFoundation.framework */; };
+		984BDDA01CB69A0B00D7F555 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9852640F1C32DBF000CF024F /* CoreTelephony.framework */; };
+		984BDDA21CB69A1500D7F555 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984BDDA11CB69A1500D7F555 /* SystemConfiguration.framework */; };
+		984BDDA41CB69A1A00D7F555 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984BDDA31CB69A1A00D7F555 /* CoreGraphics.framework */; };
+		984BDDA61CB69A2800D7F555 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984BDDA51CB69A2800D7F555 /* Foundation.framework */; };
+		984BDDA81CB69A3000D7F555 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984BDDA71CB69A3000D7F555 /* UIKit.framework */; };
+		984BDDAA1CB69A3500D7F555 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984BDDA91CB69A3500D7F555 /* Security.framework */; };
 		985263E01C2D512300CF024F /* SystemUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 985263DF1C2D512300CF024F /* SystemUtility.m */; };
 		985263E31C2DB56700CF024F /* ChoiseAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 985263E21C2DB56700CF024F /* ChoiseAddressViewController.m */; };
 		985263E61C2DBBFE00CF024F /* ModifyAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 985263E51C2DBBFE00CF024F /* ModifyAddressViewController.m */; };
@@ -130,7 +138,6 @@
 		980D32BC1C46761D00367DDB /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		980D32BD1C46761D00367DDB /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		980D32BE1C46761D00367DDB /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
-		9817ADAF1CB2C60200C57D35 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		981C25841C1AA4A30065A4CD /* DianPingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianPingViewController.h; sourceTree = "<group>"; };
 		981C25851C1AA4A30065A4CD /* DianPingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianPingViewController.m; sourceTree = "<group>"; };
 		98232B741C29C1C10008FB9B /* NewAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAddressViewController.h; sourceTree = "<group>"; };
@@ -152,6 +159,15 @@
 		983F1D131C13CD8900F6410B /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
 		984BDD8C1CB4BC0A00D7F555 /* FriendsGoodsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsGoodsList.h; sourceTree = "<group>"; };
 		984BDD8D1CB4BC0A00D7F555 /* FriendsGoodsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsGoodsList.m; sourceTree = "<group>"; };
+		984BDD991CB698FE00D7F555 /* jpush-ios-2.1.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.5.a"; sourceTree = "<group>"; };
+		984BDD9A1CB698FE00D7F555 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		984BDD9C1CB699FE00D7F555 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		984BDD9E1CB69A0400D7F555 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		984BDDA11CB69A1500D7F555 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		984BDDA31CB69A1A00D7F555 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		984BDDA51CB69A2800D7F555 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		984BDDA71CB69A3000D7F555 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		984BDDA91CB69A3500D7F555 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		985263DE1C2D512300CF024F /* SystemUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemUtility.h; sourceTree = "<group>"; };
 		985263DF1C2D512300CF024F /* SystemUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemUtility.m; sourceTree = "<group>"; };
 		985263E11C2DB56700CF024F /* ChoiseAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiseAddressViewController.h; sourceTree = "<group>"; };
@@ -388,8 +404,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9817ADB01CB2C60200C57D35 /* StoreKit.framework in Frameworks */,
+				984BDDAA1CB69A3500D7F555 /* Security.framework in Frameworks */,
+				984BDDA81CB69A3000D7F555 /* UIKit.framework in Frameworks */,
+				984BDDA61CB69A2800D7F555 /* Foundation.framework in Frameworks */,
+				984BDDA41CB69A1A00D7F555 /* CoreGraphics.framework in Frameworks */,
+				984BDDA21CB69A1500D7F555 /* SystemConfiguration.framework in Frameworks */,
+				984BDDA01CB69A0B00D7F555 /* CoreTelephony.framework in Frameworks */,
+				984BDD9F1CB69A0400D7F555 /* CoreFoundation.framework in Frameworks */,
+				984BDD9D1CB699FE00D7F555 /* CFNetwork.framework in Frameworks */,
 				98ABCA2F1C425C67002751F4 /* MessageUI.framework in Frameworks */,
+				984BDD9B1CB698FE00D7F555 /* jpush-ios-2.1.5.a in Frameworks */,
 				985264121C32DBFA00CF024F /* CoreMotion.framework in Frameworks */,
 				980D32BF1C46761D00367DDB /* libWeChatSDK.a in Frameworks */,
 				9852640E1C32DBE500CF024F /* libz.tbd in Frameworks */,
@@ -407,7 +431,13 @@
 		2B2035D9519B8DDE7E0C9CDA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9817ADAF1CB2C60200C57D35 /* StoreKit.framework */,
+				984BDDA91CB69A3500D7F555 /* Security.framework */,
+				984BDDA71CB69A3000D7F555 /* UIKit.framework */,
+				984BDDA51CB69A2800D7F555 /* Foundation.framework */,
+				984BDDA31CB69A1A00D7F555 /* CoreGraphics.framework */,
+				984BDDA11CB69A1500D7F555 /* SystemConfiguration.framework */,
+				984BDD9E1CB69A0400D7F555 /* CoreFoundation.framework */,
+				984BDD9C1CB699FE00D7F555 /* CFNetwork.framework */,
 				98ABCA2E1C425C67002751F4 /* MessageUI.framework */,
 				985264111C32DBFA00CF024F /* CoreMotion.framework */,
 				9852640F1C32DBF000CF024F /* CoreTelephony.framework */,
@@ -494,9 +524,19 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		984BDD981CB698FE00D7F555 /* JPush */ = {
+			isa = PBXGroup;
+			children = (
+				984BDD991CB698FE00D7F555 /* jpush-ios-2.1.5.a */,
+				984BDD9A1CB698FE00D7F555 /* JPUSHService.h */,
+			);
+			path = JPush;
+			sourceTree = "<group>";
+		};
 		985264011C32DAF500CF024F /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				984BDD981CB698FE00D7F555 /* JPush */,
 				980D32BA1C46761D00367DDB /* Wechat */,
 				985264021C32DAF500CF024F /* Alipay */,
 			);
@@ -953,6 +993,14 @@
 					89C8A6031BCD520300845F1D = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = F6MFWSZ6FS;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1264,10 +1312,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Health/SDK/Alipay",
 					"$(PROJECT_DIR)/Health/SDK/Wechat",
+					"$(PROJECT_DIR)/Health/SDK/JPush",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ptang.xuetang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "98961dbc-c759-4492-9d40-748269f3a7e1";
 			};
 			name = Debug;
 		};
@@ -1316,10 +1365,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Health/SDK/Alipay",
 					"$(PROJECT_DIR)/Health/SDK/Wechat",
+					"$(PROJECT_DIR)/Health/SDK/JPush",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ptang.xuetang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4e9d4898-9aed-4a5a-88cb-2a7a4cbe102d";
 			};
 			name = Release;
 		};

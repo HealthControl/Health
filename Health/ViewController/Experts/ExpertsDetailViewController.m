@@ -10,9 +10,10 @@
 #import "ExpertRequest.h"
 #import "DTNetImageView.h"
 
-@interface ExpertsDetailViewController () <UITableViewDataSource, UITableViewDelegate> {
+@interface ExpertsDetailViewController () <UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     IBOutlet UITableView *detailTabelView;
     IBOutlet UITextView *submitTextView;
+    UIImage *selectImage;
     NSMutableArray *commentArray;
 }
 
@@ -62,7 +63,7 @@
     }
     
     @weakify(self)
-    [[ExpertRequest singleton] postComment:submitTextView.text expertID:self.doctorID fileData:UIImageJPEGRepresentation([UIImage imageNamed:@"guide-01.jpg"], 0.1) complete:^{
+    [[ExpertRequest singleton] postComment:submitTextView.text expertID:self.doctorID fileData:UIImageJPEGRepresentation(selectImage, 0.2) complete:^{
         @strongify(self)
         [self.view makeToast:@"提问成功"];
         submitTextView.text = @"";
@@ -70,6 +71,37 @@
         [self getReplyAndComment];
     } failed:^(NSString *state, NSString *errmsg) {
         [self.view makeToast:errmsg];
+    }];
+}
+
+- (void)selectImageAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请选择" message:@"选取照片方式" preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self selectImagePicker:UIImagePickerControllerSourceTypeCamera];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self selectImagePicker:UIImagePickerControllerSourceTypePhotoLibrary];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+                      
+- (void)selectImagePicker:(UIImagePickerControllerSourceType) type {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = type;
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    [self presentViewController:picker animated:YES
+                     completion:nil];
+    
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    selectImage = info[UIImagePickerControllerEditedImage];
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
     }];
 }
 
@@ -128,12 +160,18 @@
         
         UIButton *button = [cell.contentView viewWithTag:2];
         [button addTarget:self action:@selector(commitComment) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIButton *button2 = [cell.contentView viewWithTag:3];
+        [button2 addTarget:self action:@selector(selectImageAlert) forControlEvents:UIControlEventTouchUpInside];
     } else if (indexPath.section == 2) {
         identifier = @"questions";
         cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         UILabel *timeLabel = [cell.contentView viewWithTag:1];
         UILabel *contentLabel = [cell.contentView viewWithTag:2];
+        UIImageView *commentImageView = [cell.contentView viewWithTag:3];
+        
         CommentData *data = [commentArray objectAtIndex:indexPath.row];
+        [commentImageView setImageWithURL:[NSURL URLWithString:data.picture] placeholder:nil];
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:[data.addtime  floatValue]];
         timeLabel.text = [date stringWithFormat:@"yyyy-MM-dd"];
         if (!data.isreply) {
@@ -165,7 +203,7 @@
             }
         }
         case 1:
-            return 216;
+            return 244;
         case 2: {
             CommentData *dic = [commentArray objectAtIndex:indexPath.row];
             float height = 0;
@@ -174,10 +212,11 @@
             } else {
                 height = [[NSString stringWithFormat:@"咨询内容: %@",dic.content]  heightForFont:[UIFont systemFontOfSize:14] width:[UIScreen mainScreen].bounds.size.width - 16]+43;
             }
+            if (dic.picture && ![dic.picture isEqualToString:@""]) {
+                height += 180;
+            } 
             return height;
         }
-            
-            
             break;
         default:
             break;

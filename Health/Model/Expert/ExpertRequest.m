@@ -97,8 +97,11 @@ static int getCommentTag;
     _complete = completeBlock;
     _failed = failedBlock;
     NSString *uri = @"Api/Expert/consult";
-    
-    [self uploadFileURI:uri params:@{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"content":comment, @"expertid":expertID} fileData:fileData keyName:@"picture" tag:&commentTag];
+    if (fileData.length > 0) {
+        [self uploadFileURI:uri params:@{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"content":comment, @"expertid":expertID} fileData:fileData keyName:@"picture" tag:&commentTag];
+    } else {
+        [self startPost:uri params:@{@"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token, @"content":comment, @"expertid":expertID} tag:&commentTag];
+    }
 }
 
 - (void)getReplyAndComment:(NSString *)expertsID complete:(Complete)completeBlock failed:(Failed)failedBlock {

@@ -70,5 +70,6 @@
 @property (nonatomic, strong) NSString *replytime;
 @property (nonatomic, strong) NSString *addtime;
 @property (nonatomic, strong) NSString *expertid;
+@property (nonatomic, strong) NSString *picture;
 
 @end

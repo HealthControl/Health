@@ -14,6 +14,7 @@
 #import "WXApi.h"
 #import "MineRequest.h"
 #import "MobClick.h"
+#import "JPUSHService.h"
 
 @interface AppDelegate () <WXApiDelegate>
 
@@ -29,6 +30,14 @@
     [self preload];
     [MobClick startWithAppkey:@"56cfb7d4e0f55a89cb0028ba" reportPolicy:BATCH   channelId:nil];
     
+    [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
+                                                      UIUserNotificationTypeSound |
+                                                      UIUserNotificationTypeAlert)
+                                          categories:nil];
+    [JPUSHService setupWithOption:launchOptions appKey:@"d5ea746edf13a21bdbeceae4"
+                          channel:@"AppStore"
+                 apsForProduction:YES
+            advertisingIdentifier:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"launchFinish" object:nil];
     // Override point for customization after application launch.
     return YES;
@@ -57,6 +66,31 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Required
+    [JPUSHService registerDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    // Required,For systems with less than or equal to iOS6
+    [JPUSHService handleRemoteNotification:userInfo];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    // IOS 7 Support Required
+    [JPUSHService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    
+    //Optional
+    NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
+}
+
 
 - (void)setupTabbarItems {
     NSArray <NSString *> *selectImageArray = @[@"xuetang", @"zhuanjia", @"shangcheng", @"wode"];
