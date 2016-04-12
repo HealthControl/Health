@@ -10,4 +10,6 @@
 
 @interface NewRiskReportVC : KBaseViewController
 
+@property (nonatomic, strong)NSString *reportID;
+
 @end

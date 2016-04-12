@@ -92,7 +92,7 @@ static int getResultWeb;
     _complete = completeBlock;
     _failed = failed;
     NSString *uri = @"Api/Evaluate/result";
-    [self startPost:uri params:@{@"id":reportID, @"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token} tag:&getRiskReport];
+    [self startPost:uri params:@{@"id":reportID?:self.reportID, @"userid":[UserCentreData singleton].userInfo.userid, @"token":[UserCentreData singleton].userInfo.token} tag:&getRiskReport];
 }
 
 - (void)getTodayBloodComplete:(Complete)completeBlock failed:(Failed)failed {

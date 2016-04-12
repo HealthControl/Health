@@ -21,7 +21,7 @@
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     __weak typeof(self) weakSelf = self;
-    [[BloodRequest singleton] getRiskReport:[UserCentreData singleton].userInfo.userid complete:^{
+    [[BloodRequest singleton] getRiskReport:self.reportID complete:^{
         [weakSelf rebuiltData];
     } failed:^(NSString *state, NSString *errmsg) {
         

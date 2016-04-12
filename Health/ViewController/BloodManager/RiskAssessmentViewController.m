@@ -10,6 +10,7 @@
 #import "RiskModel.h"
 #import "BloodRequest.h"
 #import "CustomButton.h"
+#import "NewRiskReportVC.h"
 
 @interface RiskAssessmentViewController () <UITableViewDataSource, UITableViewDelegate> {
     IBOutlet UITableView *riskTableView;
@@ -142,7 +143,9 @@
     }
     
     NSDictionary *postDic = (NSDictionary *)[[RiskModel singleton] modelToJSONObject];
+    @weakify(self)
     [[BloodRequest singleton] postRiskData:postDic complete:^{
+        @strongify(self)
         [self performSegueWithIdentifier:@"getResult" sender:self];
     } failed:^(NSString *state, NSString *errmsg) {
         [self.view makeToast:errmsg];
@@ -300,4 +303,9 @@
     }
 }
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NewRiskReportVC *reportVC = [segue destinationViewController];
+    reportVC.reportID = [BloodRequest singleton].reportID;
+}
 @end
