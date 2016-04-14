@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65916BCC1CC0063700346874 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65916BCB1CC0063700346874 /* LocationViewController.m */; };
 		65C493BA1CB41CAD00C26EB3 /* ShouSuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C493B91CB41CAD00C26EB3 /* ShouSuoViewController.m */; };
 		65C493BD1CB41CB900C26EB3 /* JIazuBingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C493BC1CB41CB900C26EB3 /* JIazuBingViewController.m */; };
 		89C8A6091BCD520300845F1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C8A6081BCD520300845F1D /* main.m */; };
@@ -121,6 +122,8 @@
 
 /* Begin PBXFileReference section */
 		1CE1545FD0E530B4D2D858D1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		65916BCA1CC0063700346874 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		65916BCB1CC0063700346874 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		65C493B81CB41CAD00C26EB3 /* ShouSuoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShouSuoViewController.h; sourceTree = "<group>"; };
 		65C493B91CB41CAD00C26EB3 /* ShouSuoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShouSuoViewController.m; sourceTree = "<group>"; };
 		65C493BB1CB41CB900C26EB3 /* JIazuBingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JIazuBingViewController.h; sourceTree = "<group>"; };
@@ -831,6 +834,8 @@
 				98D4C98E1C23070B005B2DC7 /* ProfileViewController.m */,
 				98ABCA2B1C423CE8002751F4 /* FriendsDetailViewController.h */,
 				98ABCA2C1C423CE8002751F4 /* FriendsDetailViewController.m */,
+				65916BCA1CC0063700346874 /* LocationViewController.h */,
+				65916BCB1CC0063700346874 /* LocationViewController.m */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -1125,6 +1130,7 @@
 				98F0A6F91BFCDA14008F803B /* GoodsRequest.m in Sources */,
 				98B8E9A71C299EBC00C1E9B4 /* MYIntroductionPanel.m in Sources */,
 				A9DDCEF31BFE276900D9C3BD /* HealthReportViewController.m in Sources */,
+				65916BCC1CC0063700346874 /* LocationViewController.m in Sources */,
 				985263E31C2DB56700CF024F /* ChoiseAddressViewController.m in Sources */,
 				65C493BD1CB41CB900C26EB3 /* JIazuBingViewController.m in Sources */,
 				98D4C9A91C2650F5005B2DC7 /* RiskSexConfirmVC.m in Sources */,

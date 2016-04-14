@@ -88,10 +88,10 @@
     __weak typeof(self) weakSelf = self;
     [[FriendsGoodsList singleton] getPayListMobile:self.friendsDic[@"mobile"] complete:^{
         [weakSelf.payArray removeAllObjects];
-        [weakSelf.payArray addObjectsFromArray:[MineRequest singleton].payList];
+        [weakSelf.payArray addObjectsFromArray:[FriendsGoodsList singleton].payList];
         [weakSelf.friendsDetailTableView reloadData];
     } failed:^(NSString *state, NSString *errmsg) {
-        
+        [self.view makeToast:errmsg];
     }];
 }
 
