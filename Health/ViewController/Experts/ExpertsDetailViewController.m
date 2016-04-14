@@ -10,6 +10,59 @@
 #import "ExpertRequest.h"
 #import "DTNetImageView.h"
 
+@interface ReplyCell : UITableViewCell {
+    IBOutlet UILabel *timeLabel;
+    IBOutlet UILabel *contentLabel;
+    IBOutlet UIImageView *commentImageView;
+    UIView *showView;
+}
+
+@end
+
+@implementation ReplyCell
+
+- (void)cellFor:(CommentData *)commentData {
+    [commentImageView setImageWithURL:[NSURL URLWithString:commentData.picture] placeholder:nil];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[commentData.addtime  floatValue]];
+    timeLabel.text = [date stringWithFormat:@"yyyy-MM-dd"];
+    if (!commentData.isreply) {
+        contentLabel.text = [NSString stringWithFormat:@"咨询内容: %@",commentData.content];
+    } else {
+        contentLabel.text = [NSString stringWithFormat:@"回复: %@",commentData.reply];
+    }
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showBigImage)];
+    [commentImageView addGestureRecognizer:gesture];
+}
+
+- (void)showBigImage {
+    if (commentImageView.image) {
+        [self showView:commentImageView.image];
+    } else {
+        [self makeToast:@"请等待图片加载完成"];
+    }
+}
+
+- (void)showView:(UIImage *)image {
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    showView = [[UIView alloc] initWithFrame:window.bounds];
+    showView.backgroundColor = [UIColor blackColor];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeView)];
+    [showView addGestureRecognizer:tapGesture];
+    
+    UIImageView *v  = [[UIImageView alloc] initWithFrame:showView.bounds];
+    v.image = image;
+    v.contentMode = UIViewContentModeScaleAspectFit;
+    [showView addSubview:v];
+    [window addSubview:showView];
+}
+
+- (void)removeView {
+    [showView removeFromSuperview];
+    showView = nil;
+}
+
+@end
+
 @interface ExpertsDetailViewController () <UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     IBOutlet UITableView *detailTabelView;
     IBOutlet UITextView *submitTextView;
@@ -105,6 +158,10 @@
     }];
 }
 
+- (void)showBigImage {
+    
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;
 }
@@ -166,19 +223,8 @@
     } else if (indexPath.section == 2) {
         identifier = @"questions";
         cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        UILabel *timeLabel = [cell.contentView viewWithTag:1];
-        UILabel *contentLabel = [cell.contentView viewWithTag:2];
-        UIImageView *commentImageView = [cell.contentView viewWithTag:3];
-        
         CommentData *data = [commentArray objectAtIndex:indexPath.row];
-        [commentImageView setImageWithURL:[NSURL URLWithString:data.picture] placeholder:nil];
-        NSDate *date = [NSDate dateWithTimeIntervalSince1970:[data.addtime  floatValue]];
-        timeLabel.text = [date stringWithFormat:@"yyyy-MM-dd"];
-        if (!data.isreply) {
-            contentLabel.text = [NSString stringWithFormat:@"咨询内容: %@",data.content];
-        } else {
-            contentLabel.text = [NSString stringWithFormat:@"回复: %@",data.reply];
-        }
+        [(ReplyCell *)cell cellFor:data];
         
     }
     
