@@ -1316,7 +1316,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ptang.xuetang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "34aa60e4-ac04-4806-8758-f78b6160535b";
+				PROVISIONING_PROFILE = "22f0cdfe-248b-41df-8e66-8d9ecf06a986";
 			};
 			name = Debug;
 		};
