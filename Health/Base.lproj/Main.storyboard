@@ -2419,7 +2419,7 @@ bel</string>
                                                 <constraint firstItem="fCG-Jy-nbO" firstAttribute="leading" secondItem="dsF-St-iWg" secondAttribute="leading" constant="10" id="lpD-XX-DZg"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="expertsInfo" rowHeight="100" id="dYd-Zc-Sgq">
                                         <rect key="frame" x="0.0" y="537.5" width="320" height="100"/>
@@ -5512,6 +5512,7 @@ bel</string>
                                             <outlet property="numberLabel" destination="lqF-mA-NzL" id="ZTh-h5-Iqu"/>
                                             <outlet property="selectButton" destination="5Gg-J6-5Im" id="8iM-pO-1GY"/>
                                             <outlet property="singlePriceLabel" destination="Ft3-af-Zf0" id="OPU-di-8CE"/>
+                                            <outlet property="thumImageView" destination="xS5-9f-mqe" id="J7P-gf-PMk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -5522,7 +5523,6 @@ bel</string>
                             <constraint firstAttribute="trailing" secondItem="vlv-gP-jd1" secondAttribute="trailing" id="7vs-rA-UjK"/>
                             <constraint firstItem="2Ig-ks-cOf" firstAttribute="top" secondItem="T6b-bT-2W8" secondAttribute="bottom" id="Hjh-KJ-x5f"/>
                             <constraint firstItem="vlv-gP-jd1" firstAttribute="leading" secondItem="T6b-bT-2W8" secondAttribute="trailing" id="LXG-TC-MQ6"/>
-                            <constraint firstItem="2Ig-ks-cOf" firstAttribute="top" secondItem="gng-e8-MBB" secondAttribute="bottom" id="WUG-Vj-L6Q"/>
                             <constraint firstItem="gng-e8-MBB" firstAttribute="top" secondItem="AxE-Gc-YDP" secondAttribute="bottom" id="awr-AC-E4p"/>
                             <constraint firstItem="vlv-gP-jd1" firstAttribute="top" secondItem="gng-e8-MBB" secondAttribute="bottom" id="fUs-Qr-eLf"/>
                             <constraint firstItem="vlv-gP-jd1" firstAttribute="height" secondItem="T6b-bT-2W8" secondAttribute="height" id="gsP-Q9-hZG"/>
@@ -5532,11 +5532,6 @@ bel</string>
                             <constraint firstItem="vlv-gP-jd1" firstAttribute="width" secondItem="T6b-bT-2W8" secondAttribute="width" id="usd-jt-Yer"/>
                             <constraint firstItem="2Ig-ks-cOf" firstAttribute="top" secondItem="vlv-gP-jd1" secondAttribute="bottom" id="z6p-7b-7cr"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="WUG-Vj-L6Q"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="亲友关注" id="bbh-hW-v91"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
