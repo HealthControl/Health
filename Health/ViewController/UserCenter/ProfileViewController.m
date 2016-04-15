@@ -22,7 +22,8 @@
     RERadioItem         *heightItem;
     RERadioItem         *weightItem;
     RERadioItem         *jobItem;
-    RERadioItem         *areaItem;
+//    RERadioItem         *areaItem;
+    REPickerItem        *areaItem;
     RERadioItem         *kindItem;
     RETextItem          *bloodItem;
     RETextItem          *afterItem;
@@ -106,25 +107,23 @@
     }];
     [section addItem:jobItem];
     
-    NSString *titleName = @"";
-    for (NSDictionary *dic in [SelectionRequest singleton].areaArray) {
-        BOOL hasFind = NO;
-        if ([[MineRequest singleton].profileInfo.area intValue] == [dic[@"key"] intValue]) {
-            titleName = dic[@"value"];
-            break;
-        }
-        if (hasFind)
-            break;
-    }
+    NSString *titleName = @"test";
+//    for (NSDictionary *dic in [SelectionRequest singleton].areaArray) {
+//        BOOL hasFind = NO;
+//        if ([[MineRequest singleton].profileInfo.area intValue] == [dic[@"key"] intValue]) {
+//            titleName = dic[@"value"];
+//            break;
+//        }
+//        if (hasFind)
+//            break;
+//    }
+  
+    areaItem = [REPickerItem itemWithTitle:@"Picker" value:@[@"Item 12", @"Item 23"] placeholder:nil options:@[@[@"Item 11", @"Item 12", @"Item 13"], @[@"Item 21", @"Item 22", @"Item 23", @"Item 24"]]];
+    areaItem.onChange = ^(REPickerItem *item){
+        NSLog(@"Value: %@", item.value);
+    };
     
-    areaItem = [RERadioItem itemWithTitle:@"地区 *" value:titleName selectionHandler:^(RERadioItem *item) {
-        RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:[SelectionRequest singleton].areaNameArray multipleChoice:NO completionHandler:^(RETableViewItem *selectedItem){
-            [weakSelf.navigationController popViewControllerAnimated:YES];
-            [item reloadRowWithAnimation:UITableViewRowAnimationNone];
-        }];
-        [weakSelf.navigationController pushViewController:optionsController animated:YES];
-        [item deselectRowAnimated:YES];
-    }];
+    areaItem.inlinePicker = YES;
     [section addItem:areaItem];
     
     for (NSDictionary *dic in [SelectionRequest singleton].bloodTypeArray) {
@@ -189,21 +188,6 @@
 }
 
 - (IBAction)submit:(id)sender {
-//    userid
-//    token
-//    name
-//    sex 性别 见1.9
-//    area 地区 见1.7
-//    type 糖尿病类型 见1.8
-//    －－－－－－－－－
-//    profession 职业 见1.10
-//    height 身高
-//    weight 体重
-//    bloodsugar_empty 空腹血糖
-//    bloodsugar_dinner 餐后血糖（2小时）
-//    complication 并发症 见1.11
-//    confirmed_date 确诊日期
-//    birthday 生日
     NSMutableDictionary *postDic = [NSMutableDictionary dictionary];
     postDic[@"userid"] = [UserCentreData singleton].userInfo.userid;
     postDic[@"token"] = [UserCentreData singleton].userInfo.token;
@@ -214,21 +198,21 @@
     postDic[@"name"] = nameItem.value;
     postDic[@"sex"] = sexItem.value == 0?@"1":@"2";
     
-    if ([areaItem.value isEqualToString:@""]) {
-        [self.view makeToast:@"请选择地区"];
-        return;
-    }
+//    if ([areaItem.value isEqualToString:@""]) {
+//        [self.view makeToast:@"请选择地区"];
+//        return;
+//    }
     
-    NSString *area ;
-    for (NSDictionary *dic in [SelectionRequest singleton].areaArray) {
-        BOOL hasFind = NO;
-        if ([areaItem.value isEqualToString:dic[@"value"]]) {
-            area = dic[@"key"];
-            break;
-        }
-        if (hasFind)
-            break;
-    }
+    NSString *area = @"test";
+//    for (AreaData *dic in [SelectionRequest singleton].areaArray) {
+//        BOOL hasFind = NO;
+//        if ([areaItem.value isEqualToString:dic[@"value"]]) {
+//            area = dic[@"key"];
+//            break;
+//        }
+//        if (hasFind)
+//            break;
+//    }
     postDic[@"area"] = area;
     
     NSString *type ;

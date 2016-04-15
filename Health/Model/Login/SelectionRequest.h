@@ -8,6 +8,14 @@
 
 #import "SSBaseRequest.h"
 
+@interface AreaData : NSObject
+
+@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSMutableArray *list;
+
+@end
+
 @interface SelectionRequest : SSBaseRequest
 
 @property (nonatomic, strong) NSMutableArray *dataArray;

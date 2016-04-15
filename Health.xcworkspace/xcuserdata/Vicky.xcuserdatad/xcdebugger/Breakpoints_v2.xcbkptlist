@@ -116,12 +116,12 @@
                   moduleName = "Health"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Vicky/Documents/myproject/Health/Health/ViewController/UserCenter/FriendsDetailViewController.m"
-                  timestampString = "482296590.70484"
+                  timestampString = "482382163.174452"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "89"
                   endingLineNumber = "89"
-                  offsetFromSymbolStart = "44">
+                  offsetFromSymbolStart = "48">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -131,7 +131,7 @@
                   moduleName = "Health"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Vicky/Documents/myproject/Health/Health/ViewController/UserCenter/FriendsDetailViewController.m"
-                  timestampString = "482296590.704957"
+                  timestampString = "482382163.174561"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "90"
@@ -180,7 +180,7 @@
                   moduleName = "Health"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Vicky/Documents/myproject/Health/Health/ViewController/BloodManager/RiskAssessmentViewController.m"
-                  timestampString = "482296590.706344"
+                  timestampString = "482382163.175841"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "147"
@@ -195,7 +195,7 @@
                   moduleName = "Health"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Vicky/Documents/myproject/Health/Health/ViewController/BloodManager/RiskAssessmentViewController.m"
-                  timestampString = "482296590.706458"
+                  timestampString = "482382163.175942"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "148"

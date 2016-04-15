@@ -13,6 +13,14 @@ static int getBloodTypeTag;
 static int getProfessionTag;
 static int getComplicationTag;
 
+@implementation AreaData
+
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"list":[AreaData class]};
+}
+
+@end
+
 @implementation SelectionRequest
 
 - (id)init
@@ -38,7 +46,7 @@ static int getComplicationTag;
 // 获取地区
 - (void)getAreaComplete:(Complete)compleBlock {
     _complete = compleBlock;
-    [self startPost:@"Api/Member/area" params:nil tag:&getAreaTag];
+    [self startPost:@"api/other/area_all" params:nil tag:&getAreaTag];
 }
 // BloodType
 - (void)bloodTypeComplete:(Complete)compleBlock {
@@ -60,10 +68,9 @@ static int getComplicationTag;
     if ([msg[@"status"] integerValue] == 1) {
         if (tag == &getAreaTag) {
             self.areaArray = [NSMutableArray array];
-            self.areaNameArray = [NSMutableArray array];
-            [self.areaArray addObjectsFromArray:msg[@"data"]];
             for (NSDictionary *dic in msg[@"data"]) {
-                [self.areaNameArray addObject:dic[@"value"]];
+                AreaData *areaData = [AreaData modelWithDictionary:dic];
+                [self.areaArray addObject:areaData];
             }
         } else if (tag == &getBloodTypeTag) {
             self.bloodTypeArray = [NSMutableArray array];
