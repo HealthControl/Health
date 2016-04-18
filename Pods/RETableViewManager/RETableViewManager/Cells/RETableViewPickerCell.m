@@ -27,7 +27,11 @@
 #import "RETableViewManager.h"
 #import "NSString+RETableViewManagerAdditions.h"
 
-@interface RETableViewPickerCell ()
+@interface RETableViewPickerCell () {
+    NSMutableArray *proviceArray;
+    NSMutableArray *cityArray;
+    NSMutableArray *areaArray;
+}
 
 @property (strong, readwrite, nonatomic) UITextField *textField;
 @property (strong, readwrite, nonatomic) UILabel *valueLabel;
@@ -127,10 +131,10 @@
     
     if (selected && !self.item.inlinePicker) {
         [self.textField becomeFirstResponder];
-        [self.item.options enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            if ([self.item.options objectAtIndex:idx] && [self.item.value objectAtIndex:idx] > 0)
-                [self.pickerView selectRow:[[self.item.options objectAtIndex:idx] indexOfObject:[self.item.value objectAtIndex:idx]] inComponent:idx animated:NO];
-        }];
+//        [self.item.options enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//            if ([self.item.options objectAtIndex:idx] && [self.item.value objectAtIndex:idx] > 0)
+//                [self.pickerView selectRow:[[self.item.options objectAtIndex:idx] indexOfObject:[self.item.value objectAtIndex:idx]] inComponent:idx animated:NO];
+//        }];
     }
     
     if (selected && self.item.inlinePicker && !self.item.inlinePickerItem) {
@@ -163,11 +167,12 @@
 - (void)shouldUpdateItemValue
 {
     NSMutableArray *value = [NSMutableArray array];
-    [self.item.options enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSArray *options = [self.item.options objectAtIndex:idx];
-        NSString *valueText = [options objectAtIndex:[self.pickerView selectedRowInComponent:idx]];
-        [value addObject:valueText];
-    }];
+    [value addObject:[proviceArray objectAtIndex:[self.pickerView selectedRowInComponent:0]][@"name"]];
+    [value addObject:[cityArray objectAtIndex:[self.pickerView selectedRowInComponent:1]][@"name"]];
+    if([areaArray isKindOfClass:[NSArray class]]) {
+        [value addObject:[areaArray objectAtIndex:[self.pickerView selectedRowInComponent:2]][@"name"]];
+    }
+
     self.item.value = [value copy];
     self.valueLabel.text = self.item.value ? [self.item.value componentsJoinedByString:@", "] : @"";
     self.placeholderLabel.hidden = self.valueLabel.text.length > 0;
@@ -183,6 +188,10 @@
     }
     
     _item = item;
+    
+    proviceArray = [NSMutableArray arrayWithArray:_item.options];
+    cityArray = [proviceArray objectAtIndex:0][@"list"];
+    areaArray = [cityArray objectAtIndex:0][@"list"];
     
     [_item addObserver:self forKeyPath:@"enabled" options:NSKeyValueObservingOptionNew context:NULL];
 }
@@ -235,17 +244,67 @@
     return YES;
 }
 
+//#pragma mark -
+//#pragma mark UIPickerViewDataSource
+//
+//- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+//{
+//    return self.item.options.count;
+//}
+//
+//- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+//{
+//    return [[self.item.options objectAtIndex:component] count];
+//}
+//
+//#pragma mark -
+//#pragma mark UIPickerViewDelegate
+//
+//- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+//{
+//    NSArray *items = [self.item.options objectAtIndex:component];
+//    return [items objectAtIndex:row];
+//}
+//
+//- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+//{
+//    [self shouldUpdateItemValue];
+//    if (self.item.onChange)
+//        self.item.onChange(self.item);
+//
+//    [pickerView reloadAllComponents];
+//    [self shouldUpdateItemValue];
+//
+//}
+
 #pragma mark -
 #pragma mark UIPickerViewDataSource
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return self.item.options.count;
+    return 3;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return [[self.item.options objectAtIndex:component] count];
+    switch (component) {
+        case 0:
+            return [proviceArray count];
+            break;
+        case 1:
+            return [cityArray count];
+            break;
+        case 2:
+            if ([areaArray isKindOfClass:[NSArray class]]) {
+                return areaArray.count;
+            } else {
+                return 0;
+            }
+        default:
+            return 0;
+            break;
+    }
+    return 0;
 }
 
 #pragma mark -
@@ -253,19 +312,53 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    NSArray *items = [self.item.options objectAtIndex:component];
-    return [items objectAtIndex:row];
+    switch (component) {
+        case 0:
+            return [proviceArray objectAtIndex:row][@"name"];
+            break;
+        case 1:
+            return [cityArray objectAtIndex:row][@"name"];
+            break;
+        case 2:
+            if ([areaArray count] > 0) {
+                return [areaArray objectAtIndex:row][@"name"];
+                break;
+            }
+        default:
+            return  @"";
+            break;
+    }
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    [self shouldUpdateItemValue];
-    if (self.item.onChange)
-        self.item.onChange(self.item);
-
-    [pickerView reloadAllComponents];
-    [self shouldUpdateItemValue];
-
+    switch (component) {
+        case 0:
+            cityArray = [proviceArray objectAtIndex:row][@"list"];
+            [self.pickerView selectRow:0 inComponent:1 animated:YES];
+            [self.pickerView reloadComponent:1];
+            
+            areaArray = [cityArray objectAtIndex:0][@"list"];
+            [self.pickerView selectRow:0 inComponent:2 animated:YES];
+            [self.pickerView reloadComponent:2];
+            
+            break;
+        case 1:
+            areaArray = [cityArray objectAtIndex:row][@"list"];
+            [self.pickerView selectRow:0 inComponent:2 animated:YES];
+            [self.pickerView reloadComponent:2];
+            break;
+        case 2:
+            if ([areaArray count] > 0) {
+                if (self.item.onChange)
+                    self.item.onChange(self.item);
+            }
+            break;
+        default:
+            break;
+    }
+    
+    
 }
 
 @end

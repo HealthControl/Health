@@ -107,25 +107,18 @@
     }];
     [section addItem:jobItem];
     
-    NSString *titleName = @"test";
-//    for (NSDictionary *dic in [SelectionRequest singleton].areaArray) {
-//        BOOL hasFind = NO;
-//        if ([[MineRequest singleton].profileInfo.area intValue] == [dic[@"key"] intValue]) {
-//            titleName = dic[@"value"];
-//            break;
-//        }
-//        if (hasFind)
-//            break;
-//    }
+    NSArray *area = [[MineRequest singleton].profileInfo.area componentsSeparatedByString:@","];
+
   
-    areaItem = [REPickerItem itemWithTitle:@"Picker" value:@[@"Item 12", @"Item 23"] placeholder:nil options:@[@[@"Item 11", @"Item 12", @"Item 13"], @[@"Item 21", @"Item 22", @"Item 23", @"Item 24"]]];
+    areaItem = [REPickerItem itemWithTitle:@"地区" value:area placeholder:@"请选择地区" options:[SelectionRequest singleton].areaArray];
     areaItem.onChange = ^(REPickerItem *item){
         NSLog(@"Value: %@", item.value);
     };
     
-    areaItem.inlinePicker = YES;
+    areaItem.inlinePicker = NO;
     [section addItem:areaItem];
     
+    NSString *titleName = @"";
     for (NSDictionary *dic in [SelectionRequest singleton].bloodTypeArray) {
         BOOL hasFind = NO;
         if ([[MineRequest singleton].profileInfo.type intValue] == [dic[@"key"] intValue]) {
@@ -198,21 +191,11 @@
     postDic[@"name"] = nameItem.value;
     postDic[@"sex"] = sexItem.value == 0?@"1":@"2";
     
-//    if ([areaItem.value isEqualToString:@""]) {
-//        [self.view makeToast:@"请选择地区"];
-//        return;
-//    }
-    
-    NSString *area = @"test";
-//    for (AreaData *dic in [SelectionRequest singleton].areaArray) {
-//        BOOL hasFind = NO;
-//        if ([areaItem.value isEqualToString:dic[@"value"]]) {
-//            area = dic[@"key"];
-//            break;
-//        }
-//        if (hasFind)
-//            break;
-//    }
+    if (areaItem.value.count == 0) {
+        [self.view makeToast:@"请选择地区"];
+    }
+   
+    NSString *area = [areaItem.value componentsJoinedByString:@", "];
     postDic[@"area"] = area;
     
     NSString *type ;

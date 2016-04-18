@@ -10,7 +10,7 @@
 
 @interface UserInfo : NSObject
 
-@property (nonatomic, strong) NSNumber *area;
+@property (nonatomic, strong) NSString *area;
 @property (nonatomic, strong) NSString *birthday;
 @property (nonatomic, strong) NSString *bloodsugar_dinner;
 @property (nonatomic, strong) NSString *bloodsugar_empty;

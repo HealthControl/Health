@@ -68,10 +68,7 @@ static int getComplicationTag;
     if ([msg[@"status"] integerValue] == 1) {
         if (tag == &getAreaTag) {
             self.areaArray = [NSMutableArray array];
-            for (NSDictionary *dic in msg[@"data"]) {
-                AreaData *areaData = [AreaData modelWithDictionary:dic];
-                [self.areaArray addObject:areaData];
-            }
+            self.areaArray = [NSMutableArray arrayWithArray:msg[@"data"]];
         } else if (tag == &getBloodTypeTag) {
             self.bloodTypeArray = [NSMutableArray array];
             self.bloodTypeNameArray = [NSMutableArray array];

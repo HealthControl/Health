@@ -105,6 +105,7 @@
     self[@"RECreditCardItem"] = @"RETableViewCreditCardCell";
     self[@"REMultipleChoiceItem"] = @"RETableViewOptionCell";
     self[@"REPickerItem"] = @"RETableViewPickerCell";
+//    self[@"REPickerItem"] = @"REXTTableViewPickerCell";
     self[@"RESegmentedItem"] = @"RETableViewSegmentedCell";
     self[@"REInlineDatePickerItem"] = @"RETableViewInlineDatePickerCell";
     self[@"REInlinePickerItem"] = @"RETableViewInlinePickerCell";
